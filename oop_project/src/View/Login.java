@@ -1,3 +1,5 @@
+package View;
+
 import java.awt.*;
 import java.net.URL;
 import javax.swing.*;
@@ -15,7 +17,7 @@ public class Login {
         topic = new JLabel("Hor-Vegetable");
         
         ImageIcon icon = null;
-        URL imageURL = Login.class.getResource("img/Dorm.png");
+        URL imageURL = Login.class.getResource("/img/Dorm.png");
         if (imageURL != null) {
             ImageIcon img1 = new ImageIcon(imageURL);
             Image originalImage = img1.getImage();
