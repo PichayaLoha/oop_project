@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.net.URL;
 import javax.swing.*;
+
 public class MainFrame extends JFrame{
     private JDesktopPane dp;
     private JMenuBar mb;
@@ -42,7 +43,8 @@ public class MainFrame extends JFrame{
         
         cleaning.setLocation(50, 10);
         
-        pn.setBackground(Color.red);
+        service1_2 service2 = new service1_2();
+        Container cf = service2.getInternalFrame();
         
         s1.add(i1);
         s1.add(i2);
@@ -54,7 +56,11 @@ public class MainFrame extends JFrame{
         cleaning.setLocation(0, -5);
         dp.add(cleaning);
         cleaning.setVisible(true);
+        
+        dp.add(cf);
+        cf.setVisible(true);
         //End task
+        
         
         dp.setBackground(new Color(223, 215, 231));
         dp.add(lb);
