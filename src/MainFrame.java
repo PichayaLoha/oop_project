@@ -41,11 +41,6 @@ public class MainFrame extends JFrame{
         Container cleaning = service.getInternalFrame(); // Assuming getInternalFrame() returns a Container
         //End task
         
-        cleaning.setLocation(50, 10);
-        
-        service1_2 service2 = new service1_2();
-        Container cf = service2.getInternalFrame();
-        
         s1.add(i1);
         s1.add(i2);
         mb.add(s1);
@@ -56,12 +51,7 @@ public class MainFrame extends JFrame{
         cleaning.setLocation(0, -5);
         dp.add(cleaning);
         cleaning.setVisible(true);
-        
-        dp.add(cf);
-        cf.setVisible(true);
         //End task
-        
-        
         dp.setBackground(new Color(223, 215, 231));
         dp.add(lb);
         dp.setFont(font);
