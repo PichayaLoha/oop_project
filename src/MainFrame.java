@@ -1,8 +1,9 @@
 import java.awt.*;
 import java.net.URL;
 import javax.swing.*;
+import java.awt.event.*;
 
-public class MainFrame extends JFrame{
+public class MainFrame extends JFrame implements ActionListener{
     private JDesktopPane dp;
     private JMenuBar mb;
     private JMenu s1, s2, s3;
@@ -35,23 +36,15 @@ public class MainFrame extends JFrame{
         i2 = new JMenuItem("Repair");
         font = new Font("FC Iconic", Font.PLAIN, 16);
         lb = new JLabel("Hello Test 1 2 3 4...", im, JLabel.CENTER);
-        
-        //Annouce Celaning Service
-        service1 service = new service1(); // Assuming Service1 is the class where you define your internal frame
-        Container cleaning = service.getInternalFrame(); // Assuming getInternalFrame() returns a Container
-        //End task
-        
+
         s1.add(i1);
         s1.add(i2);
         mb.add(s1);
         mb.add(s2);
         mb.add(s3);
         
-        //Cleaning Service Add on DesktopPane
-        cleaning.setLocation(0, -5);
-        dp.add(cleaning);
-        cleaning.setVisible(true);
-        //End task
+        i1.addActionListener(this);
+        
         dp.setBackground(new Color(223, 215, 231));
         dp.add(lb);
         dp.setFont(font);
@@ -71,5 +64,21 @@ public class MainFrame extends JFrame{
     
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> { MainFrame frame = new MainFrame(); });
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JMenuItem gs = (JMenuItem) e.getSource();
+        if (gs.equals(i1)){
+             //Annouce Celaning Service
+            service1 service = new service1(); // Assuming Service1 is the class where you define your internal frame
+            Container cleaning = service.getInternalFrame(); // Assuming getInternalFrame() returns a Container
+            //End task
+            //Cleaning Service Add on DesktopPane
+            cleaning.setLocation(0, -5);
+            dp.add(cleaning);
+            cleaning.setVisible(true);
+            //End task
+        }
     }
 }

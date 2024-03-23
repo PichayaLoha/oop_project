@@ -99,7 +99,7 @@ public class service1{
         f1.add(pn2);
         f1.add(pn3);
         
-        f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f1.setSize(1265, 665);
         f1.setLayout(new BorderLayout());
         f1.setVisible(true);
