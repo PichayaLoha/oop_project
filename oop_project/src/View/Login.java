@@ -1,10 +1,14 @@
 package View;
-
+import java.awt.event.*;
 import java.awt.*;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.*;
 
-public class Login {
+public class Login implements ActionListener{
     private JFrame fr;
     private JPanel mainPanel, borderPanel, panel1, panel2, panel3, panel4;
     private JTextField userName, password;
@@ -84,8 +88,42 @@ public class Login {
         fr.setPreferredSize(new Dimension(1280, 720));
         fr.pack();
         fr.setVisible(true);
+        
+       login.addActionListener(this);
+       
     }
+    @Override
+    public void actionPerformed(ActionEvent ev){
+     try{
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oopdb", "root", "bigitkmitl");
+        
+        String username =  userName.getText();
+        String password1 = password.getText();
+        
+        Statement stm = con.createStatement(); //สร้าง Statement object 
+        
+        String sql = "SELECT * FROM users WHERE user_username='" + username + "' AND user_password='" + password1 + "'"; //ตรวจสอบว่ามี user นี้มั้ย
 
+        ResultSet rs = stm.executeQuery(sql); //ประมวลผลค าสั่ง SQL ผ่าน Statement
+//        System.out.println(rs.next());
+        if(rs.next()){ //ตรวจสอบว่ามี user นี้มั้ย
+         
+            MainFrame hpage = new MainFrame();
+            hpage.setVisible(true);
+           fr.dispose();
+//           SwingUtilities.getWindowAncestor(this).dispose(); 
+        }else{
+          JOptionPane.showMessageDialog(fr, "username or password wrong");
+            userName.setText("");
+           password.setText("");
+        }
+        con.close(); //ปิดการเชื่อมต่อ
+    }catch(Exception e){
+        System.out.println(e.getMessage());
+    }
+}
+    
     public static void main(String[] args) {
         new Login();
     }
