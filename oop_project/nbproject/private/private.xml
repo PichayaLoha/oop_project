@@ -1,24 +1,11 @@
-<<<<<<< OURS
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/meen5/Downloads/New%20Folder%20(3)/oop_project/oop_project/src/MainFrame1.java</file>
-            <file>file:/C:/Users/meen5/Downloads/New%20Folder%20(3)/oop_project/oop_project/src/service1.java</file>
-            <file>file:/C:/Users/meen5/Downloads/New%20Folder%20(3)/oop_project/oop_project/src/Main.java</file>
+            <file>file:/C:/Users/meen5/Downloads/New%20folder%20(3)/oop_project/oop_project/src/SideBar/Main.java</file>
+            <file>file:/C:/Users/meen5/Downloads/New%20folder%20(3)/oop_project/oop_project/src/View/Login.java</file>
+            <file>file:/C:/Users/meen5/Downloads/New%20folder%20(3)/oop_project/oop_project/src/rqservice.java</file>
         </group>
     </open-files>
 </project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/OOP-proj/oop_project/oop_project/src/Main.java</file>
-            <file>file:/D:/OOP-proj/oop_project/oop_project/src/Login.java</file>
-        </group>
-    </open-files>
-</project-private>
->>>>>>> THEIRS
