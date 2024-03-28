@@ -22,7 +22,7 @@ public class card_status extends javax.swing.JPanel {
         lbNum = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(187, 123, 203));
-        setForeground(new java.awt.Color(187, 123, 203));
+        setForeground(new java.awt.Color(196, 154, 236));
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(100, 50));
 
@@ -39,18 +39,18 @@ public class card_status extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(lbText)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addComponent(lbNum)
-                .addGap(36, 36, 36))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbText)
                     .addComponent(lbNum))
-                .addGap(22, 22, 22))
+                .addGap(30, 30, 30))
         );
     }// </editor-fold>//GEN-END:initComponents
 

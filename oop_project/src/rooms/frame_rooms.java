@@ -20,6 +20,8 @@ public class frame_rooms extends javax.swing.JInternalFrame {
         card_status2 = new rooms.card_status();
         card_status1 = new rooms.card_status();
         pnRoom = new javax.swing.JPanel();
+        card_room_booked2 = new rooms.card_room_booked();
+        card_room_empty2 = new rooms.card_room_empty();
 
         pnRooms.setLayout(new java.awt.BorderLayout());
 
@@ -37,7 +39,7 @@ public class frame_rooms extends javax.swing.JInternalFrame {
             .addGroup(pnCardLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(layerPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(411, Short.MAX_VALUE))
+                .addContainerGap(413, Short.MAX_VALUE))
         );
         pnCardLayout.setVerticalGroup(
             pnCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -53,11 +55,21 @@ public class frame_rooms extends javax.swing.JInternalFrame {
         pnRoom.setLayout(pnRoomLayout);
         pnRoomLayout.setHorizontalGroup(
             pnRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1332, Short.MAX_VALUE)
+            .addGroup(pnRoomLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(card_room_booked2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(card_room_empty2, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(436, Short.MAX_VALUE))
         );
         pnRoomLayout.setVerticalGroup(
             pnRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 638, Short.MAX_VALUE)
+            .addGroup(pnRoomLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(card_room_empty2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(card_room_booked2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
 
         pnRooms.add(pnRoom, java.awt.BorderLayout.CENTER);
@@ -78,8 +90,9 @@ public class frame_rooms extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rooms.card_room_booked card_room_booked2;
+    private rooms.card_room_empty card_room_empty2;
     private rooms.card_status card_status1;
     private rooms.card_status card_status2;
     private rooms.card_status card_status3;
