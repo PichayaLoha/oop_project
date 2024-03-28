@@ -46,7 +46,6 @@ public class CUSTOM_MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DormManagetory");
         setName("DormManagetory"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setSize(new java.awt.Dimension(1280, 720));
 
         dp.setBackground(new java.awt.Color(223, 215, 231));
@@ -124,24 +123,13 @@ public class CUSTOM_MainFrame extends javax.swing.JFrame {
         Cleaning cn = new Cleaning();
         dp.add(cn);
         cn.setVisible(true);
-        centerInternalFrame(cn, dp);
+        cn.setLocation(dp.getWidth() - cn.getWidth(), dp.getHeight() - cn.getHeight());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-    private void centerInternalFrame(JInternalFrame frame, JDesktopPane desktopPane) {
-        int width = desktopPane.getWidth();
-        int height = desktopPane.getHeight();
 
-        int frameWidth = frame.getWidth();
-        int frameHeight = frame.getHeight();
-
-        int x = (width - frameWidth) / 2;
-        int y = (height - frameHeight) / 2;
-
-        frame.setLocation(x, y);
-    }
     /**
      * @param args the command line arguments
      */
