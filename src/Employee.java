@@ -11,7 +11,10 @@ public class Employee implements ActionListener{
     public JInternalFrame inter;
     public JPanel pn1, pn2Container, pn3, pn4, pn5, pn6;
     public JButton add;
+    public account ac;
     public ArrayList<data> acData;
+    public int kha = 242;
+    public int count = 0;
     public Employee(JPanel pn2, ArrayList<data> acData){
         this.pn2Container = pn2;
         this.acData = acData;
@@ -24,11 +27,18 @@ public class Employee implements ActionListener{
         add = new JButton();
         
         pn1.setBackground(new Color(36, 29, 44));
+        JScrollPane scrollPane = new JScrollPane(pn2Container);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+        scrollPane.setPreferredSize(fr.getSize());
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setOpaque(false);
         pn1.setLayout(new BorderLayout());
-        pn1.add(pn2Container, BorderLayout.CENTER);
+        pn1.add(scrollPane, BorderLayout.CENTER);
         pn1.add(pn3, BorderLayout.SOUTH);
         
-        pn2Container.setOpaque(false);
+        pn2Container.setBackground(new Color(36, 29, 44));
+        pn2Container.setPreferredSize(new Dimension(970,kha));
         
         pn3.setOpaque(false);
         pn3.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -68,9 +78,23 @@ public class Employee implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(add)){
-            account newAccount = new account(acData);
+            account newAccount = new account(acData, this, getCount());
             pn2Container.add(newAccount.pn1);
+            if (count < acData.size()) {
+                System.out.println(String.valueOf(acData.get(count).getPosi()));
+            }
+
+            count += 1;
+
+            if (count % 4 == 0) {
+                kha += 242;
+                pn2Container.setPreferredSize(new Dimension(970, kha));
+            }
+
             refreshInternalFrame();
         }
+    }
+    public int getCount() {
+        return count;
     }
 }
