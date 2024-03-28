@@ -1,9 +1,6 @@
 
 import java.awt.Image;
-import java.net.URL;
 import javax.swing.ImageIcon;
-import javax.swing.JDesktopPane;
-import javax.swing.JInternalFrame;
 
 /*
  * Since 2024
@@ -114,9 +111,7 @@ public class CUSTOM_MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        Cleaning cn = new Cleaning();
-        dp.add(cn);
-        cn.setVisible(true);
+
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
