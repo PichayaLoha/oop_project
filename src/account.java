@@ -14,10 +14,7 @@ public class account implements ActionListener{
     public Employee em;
     private int index;
 
-    public account(ArrayList<data> acData, Employee emp, int index){
-        this.em = emp;
-        this.index = index; 
-        this.acData = acData;
+    public account(){
         if (!acData.isEmpty()) {
             this.accountData = acData.get(acData.size()-1);
             pn1 = new RoundFillPanel(new Color(36, 29, 44), 200, 252, 20);

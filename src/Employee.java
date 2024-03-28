@@ -15,9 +15,7 @@ public class Employee implements ActionListener{
     public ArrayList<data> acData;
     public int kha = 242;
     public int count = 0;
-    public Employee(JPanel pn2, ArrayList<data> acData){
-        this.pn2Container = pn2;
-        this.acData = acData;
+    public Employee(){
         fr = new JFrame();
         dp = new JDesktopPane();
         inter = new JInternalFrame();
@@ -72,13 +70,12 @@ public class Employee implements ActionListener{
     public static void main(String[] args) {
         JPanel pn2 = new JPanel();
         ArrayList<data> acData = new ArrayList<>();
-        new Employee(pn2, acData);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(add)){
-            account newAccount = new account(acData, this, getCount());
+            account newAccount = new account();
             pn2Container.add(newAccount.pn1);
             if (count < acData.size()) {
                 System.out.println(String.valueOf(acData.get(count).getPosi()));
