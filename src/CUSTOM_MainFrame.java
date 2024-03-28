@@ -1,26 +1,7 @@
-
-import java.awt.Image;
-import javax.swing.ImageIcon;
-
-/*
- * Since 2024
- */
-
-/**
- *
- * @author Ploy
- */
 public class CUSTOM_MainFrame extends javax.swing.JFrame {
-        
-    /**
-     * Creates new form CUSTOM_MainFrame
-     */
     public CUSTOM_MainFrame() {
         initComponents();
-        Image im = new ImageIcon(this.getClass().getResource("/icon/nanami 1.png")).getImage();
-        this.setIconImage(im);
         this.setSize(1280, 720);
-        this.setLocationRelativeTo(null);
     }
 
     /**

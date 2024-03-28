@@ -1,20 +1,3 @@
-
-import java.awt.Image;
-import java.net.URL;
-import javax.swing.ImageIcon;
-import javax.swing.JDesktopPane;
-import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
-
-/*
- * Since 2024
- */
-
-/**
- *
- * @author Ploy
- */
 public class Cleaning extends javax.swing.JInternalFrame {
 
     /**
@@ -23,16 +6,6 @@ public class Cleaning extends javax.swing.JInternalFrame {
     public Cleaning() {
         initComponents();
         this.setSize(970, 650);
-        ImageIcon im = null;
-        URL imageURL = Cleaning.class.getResource("/icon/floppamaidinroom.png");
-        if (imageURL != null){
-            im = new ImageIcon(imageURL);
-            im = new ImageIcon(im.getImage().getScaledInstance(330, 150, Image.SCALE_SMOOTH));
-        }
-        String s = ("<html><u>รายการความประสงค์ใช้บริการ</u></html>");
-        JLabel lb1 = new JLabel(s);
-        this.add(lb1);
-        
     }
 
     /**
@@ -45,7 +18,6 @@ public class Cleaning extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
         lb1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -67,9 +39,7 @@ public class Cleaning extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Cleaning");
-        setPreferredSize(new java.awt.Dimension(970, 594));
-
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(970, 650));
+        setPreferredSize(new java.awt.Dimension(970, 650));
 
         jPanel4.setBackground(new java.awt.Color(225, 213, 231));
         jPanel4.setPreferredSize(new java.awt.Dimension(970, 650));
@@ -238,30 +208,33 @@ public class Cleaning extends javax.swing.JInternalFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
+                        .addGap(7, 7, 7)
                         .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5)))
-                .addContainerGap())
+                        .addComponent(jButton5))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(53, 53, 53))
         );
-
-        jScrollPane1.setViewportView(jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -300,7 +273,6 @@ public class Cleaning extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lb1;

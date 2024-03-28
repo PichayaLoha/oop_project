@@ -1,15 +1,3 @@
-
-import java.awt.Image;
-import javax.swing.ImageIcon;
-
-/*
- * Since 2024
- */
-
-/**
- *
- * @author Ploy
- */
 public class  RepairRQ extends javax.swing.JFrame {
 
     /**
@@ -17,8 +5,6 @@ public class  RepairRQ extends javax.swing.JFrame {
      */
     public RepairRQ() {
         initComponents();
-        Image im = new ImageIcon(this.getClass().getResource("/icon/floppaEngineering.png")).getImage();
-        this.setIconImage(im);
     }
 
     /**

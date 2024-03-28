@@ -2,14 +2,6 @@
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-/*
- * Since 2024
- */
-
-/**
- *
- * @author Ploy
- */
 public class ServiceRQ extends javax.swing.JFrame {
 
     /**
@@ -17,8 +9,6 @@ public class ServiceRQ extends javax.swing.JFrame {
      */
     public ServiceRQ() {
         initComponents();
-        Image im = new ImageIcon(this.getClass().getResource("/icon/higuruma 1.png")).getImage();
-        this.setIconImage(im);
     }
 
     /**
