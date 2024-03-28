@@ -21,7 +21,7 @@ public class Cleaning extends javax.swing.JInternalFrame {
      */
     public Cleaning() {
         initComponents();
-        this.setSize(970, 594);
+        this.setSize(970, 650);
         ImageIcon im = null;
         URL imageURL = Cleaning.class.getResource("/icon/floppamaidinroom.png");
         if (imageURL != null){
