@@ -313,6 +313,9 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
+            txtSearch.setVisible(true);
+            label_Search.setVisible(true);
+
             testFile = new test();
             jDesktopPane1.removeAll();
             jDesktopPane1.add(testFile).setVisible(true);
@@ -323,6 +326,9 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
+            txtSearch.setVisible(false);
+            label_Search.setVisible(false);
+
             testFile = new test();
             jDesktopPane1.removeAll();
             jDesktopPane1.add(testFile).setVisible(true);
@@ -333,6 +339,9 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
+            txtSearch.setVisible(false);
+            label_Search.setVisible(false);
+
             serviceFile = new Cleaning();
             jDesktopPane1.removeAll();
             jDesktopPane1.add(serviceFile).setVisible(true); 
@@ -343,6 +352,9 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
+            txtSearch.setVisible(false);
+            label_Search.setVisible(false);
+
             billFile = new Bill();
             jDesktopPane1.removeAll();
             jDesktopPane1.add(billFile.getInternalFrame()).setVisible(true); 
@@ -353,6 +365,9 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
+            txtSearch.setVisible(false);
+            label_Search.setVisible(false);
+
             testFile = new test();
             jDesktopPane1.removeAll();
             jDesktopPane1.add(testFile).setVisible(true);
@@ -363,6 +378,9 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
+            txtSearch.setVisible(false);
+            label_Search.setVisible(false);
+
             testFile = new test();
             jDesktopPane1.removeAll();
             jDesktopPane1.add(testFile).setVisible(true); 

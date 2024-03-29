@@ -6,8 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 import javax.swing.*;
+import java.sql.*;
 
 public class Login implements ActionListener {
+
     private JFrame fr;
     private JPanel mainPanel, borderPanel;
     private JTextField userName;
@@ -15,11 +17,13 @@ public class Login implements ActionListener {
     private JButton login;
     private JPasswordField password;
 
+    
+
     public Login() {
         fr = new JFrame("Login");
         borderPanel = new JPanel(new BorderLayout());
         topic = new JLabel("Dormmanagetory");
-        
+
         ImageIcon icon = null;
         URL imageURL = Login.class.getResource("/img/Dorm.png");
         if (imageURL != null) {
@@ -29,7 +33,7 @@ public class Login implements ActionListener {
             icon = new ImageIcon(scaled);
         }
         image = new JLabel(icon);
-        
+
         laTop = new JLabel("Welcome to Dormmanagetory");
         laTop_1 = new JLabel("welcome to Dormmanagetory");
         laName = new JLabel("Username :");
@@ -37,12 +41,12 @@ public class Login implements ActionListener {
         userName = new JTextField();
         password = new JPasswordField();
         login = new JButton("Login");
-        login.setBackground(new Color(204,102,255));
+        login.setBackground(new Color(204, 102, 255));
         descrpt = new JLabel("<html><u>If you forget your password, lease inform the staff.</u></html>");
-        
+
         topic.setFont(new Font("Arial Rounded MT Bold", 1, 25));
-        topic.setBounds(230, 50, 400, 30);        
-        
+        topic.setBounds(230, 50, 400, 30);
+
         laTop.setFont(new Font("Arial Rounded MT Bold", 1, 25));
         laTop_1.setFont(new Font("Arial Rounded MT Bold", 0, 14));
         laName.setFont(new Font("Arial Rounded MT Bold", 0, 16));
@@ -50,14 +54,14 @@ public class Login implements ActionListener {
         descrpt.setFont(new Font("Arial Rounded MT Bold", 0, 12));
         descrpt.setForeground(Color.LIGHT_GRAY);
         login.setFont(new Font("Arial Rounded MT Bold", 1, 15));
-       
+
         mainPanel = new JPanel(null) {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 g.setColor(Color.WHITE);
                 g.fillRect(50, 100, 600, 500);
-                
+
                 laTop.setBounds(100, 150, 400, 30);
                 laTop_1.setBounds(100, 175, 310, 30);
                 laName.setBounds(125, 250, 200, 30);
@@ -78,13 +82,13 @@ public class Login implements ActionListener {
         mainPanel.add(password);
         mainPanel.add(login);
         mainPanel.add(descrpt);
-        
+
         borderPanel.add(image, BorderLayout.EAST);
         borderPanel.add(mainPanel);
         fr.add(borderPanel);
-        
+
         login.addActionListener(this);
-        
+
         fr.setResizable(false);
 //        fr.setLocationRelativeTo(null);
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -98,12 +102,40 @@ public class Login implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        Object source = e.getSource();
-        if (source.equals(login)) {
-            fr.setVisible(false);
-            new Dashboard();
+  public void actionPerformed(ActionEvent e) {
+      PreparedStatement pre = null;
+        try{
+         
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oop", "root", "");
 
+        String username =  userName.getText();
+        String password1 = password.getText();
+
+        Statement stm = con.createStatement(); //สร้าง Statement object 
+
+        String sql = "SELECT * FROM admins WHERE admin_username='" + username + "' AND admin_password='" + password1 + "'"; //ตรวจสอบว่ามี user นี้มั้ย
+        pre = con.prepareStatement(sql);
+        
+        ResultSet rs = pre.executeQuery();//ประมวลผลค าสั่ง SQL ผ่าน Statement
+      
+        if(rs.next()){ //ตรวจสอบว่ามี user นี้มั้ย
+
+
+            Dashboard hpage = new Dashboard();
+             
+           fr.dispose();
+
+        }else{
+          JOptionPane.showMessageDialog(fr, "username or password wrong");
+            userName.setText("");
+           password.setText("");
         }
+        con.close(); 
+    }catch(Exception er){
+        System.out.println(er.getMessage());
     }
 }
+
+}
+
