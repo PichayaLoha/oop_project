@@ -31,6 +31,8 @@ public class Employee implements ActionListener{
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setOpaque(false);
+        scrollPane.getViewport().setOpaque(false);
+        scrollPane.setBorder(null);
         pn1.setLayout(new BorderLayout());
         pn1.add(scrollPane, BorderLayout.CENTER);
         pn1.add(pn3, BorderLayout.SOUTH);
