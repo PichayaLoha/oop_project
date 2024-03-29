@@ -32,7 +32,7 @@ public class card_room_empty extends javax.swing.JPanel {
         lb_roomnum.setText("1-102");
 
         tf_name.setEditable(false);
-        tf_name.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tf_name.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tf_name.setForeground(new java.awt.Color(78, 0, 151));
         tf_name.setText("name : empty");
         tf_name.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +62,7 @@ public class card_room_empty extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(tf_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                 .addComponent(btn_add)
                 .addGap(19, 19, 19))
         );
@@ -77,7 +77,7 @@ public class card_room_empty extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_add)
                     .addComponent(tf_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(10, 10, 10))
         );
     }// </editor-fold>//GEN-END:initComponents
 

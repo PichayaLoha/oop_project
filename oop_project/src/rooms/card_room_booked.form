@@ -46,7 +46,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="tf_name" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="97" max="32767" attributes="0"/>
+                              <EmptySpace pref="122" max="32767" attributes="0"/>
                               <Component id="btn_detail" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -96,17 +96,17 @@
     <Component class="javax.swing.JLabel" name="lb_phonenum">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Telephone number :"/>
+        <Property name="text" type="java.lang.String" value="&#xe40;&#xe1a;&#xe2d;&#xe23;&#xe4c;&#xe42;&#xe17;&#xe23;&#xe28;&#xe31;&#xe1e;&#xe17;&#xe4c;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lb_date">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Check-in date :"/>
+        <Property name="text" type="java.lang.String" value="&#xe40;&#xe02;&#xe49;&#xe32;&#xe1e;&#xe31;&#xe01;&#xe40;&#xe21;&#xe37;&#xe48;&#xe2d; :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tf_phonenum">
@@ -135,13 +135,16 @@
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="1"/>
+          <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="97" green="0" red="4e" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="name : nobita Lnwza"/>
+        <Property name="text" type="java.lang.String" value="name : &#xe2a;&#xe21;&#xe0a;&#xe32;&#xe22; &#xe40;&#xe17;&#xe1e;&#xe0b;&#xe48;&#xe32;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tf_nameActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_detail">
       <Properties>

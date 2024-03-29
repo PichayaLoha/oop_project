@@ -26,11 +26,11 @@ public class card_status extends javax.swing.JPanel {
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(200, 150));
 
-        lbText.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lbText.setText("Room...");
+        lbText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbText.setText("ห้องทั้งหมด");
 
-        lbNum.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        lbNum.setText("0");
+        lbNum.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lbNum.setText("2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -46,11 +46,11 @@ public class card_status extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbText)
                     .addComponent(lbNum))
-                .addGap(15, 15, 15))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
