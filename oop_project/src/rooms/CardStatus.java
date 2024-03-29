@@ -2,10 +2,16 @@ package rooms;
 
 import java.awt.Graphics;
 
-public class card_status extends javax.swing.JPanel {
+public class CardStatus extends javax.swing.JPanel {
 
-    public card_status() {
+    public CardStatus() {
         initComponents();
+        setOpaque(false);
+    }
+    
+    public void setData(ModelStatus data){
+        lbText.setText(data.getLbText());
+        lbNum.setText(String.valueOf(data.getLbNum()));
     }
 
     @Override
@@ -27,10 +33,10 @@ public class card_status extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(200, 150));
 
         lbText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lbText.setText("ห้องทั้งหมด");
+        lbText.setText("ห้อง");
 
         lbNum.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        lbNum.setText("2");
+        lbNum.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

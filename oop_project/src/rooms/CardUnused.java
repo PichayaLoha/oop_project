@@ -2,9 +2,9 @@ package rooms;
 
 import java.awt.Graphics;
 
-public class card_room_booked extends javax.swing.JPanel {
+public class CardUnused extends javax.swing.JPanel {
 
-    public card_room_booked() {
+    public CardUnused() {
         initComponents();
     }
 
@@ -126,7 +126,7 @@ public class card_room_booked extends javax.swing.JPanel {
     }//GEN-LAST:event_tf_phonenumActionPerformed
 
     private void btn_detailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_detailActionPerformed
-            detail dt = new detail();
+            Detail dt = new Detail();
             dt.setVisible(true);
     }//GEN-LAST:event_btn_detailActionPerformed
 

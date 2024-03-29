@@ -56,7 +56,7 @@ public class frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        frame_rooms rm = new frame_rooms();
+        MainRooms rm = new MainRooms();
         jDesktopPane1.add(rm);
         rm.setVisible(true);
         setSize(1280, 720);
