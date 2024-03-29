@@ -377,7 +377,7 @@ public class popUp implements ActionListener,MouseListener{
         fr.setSize(860,528);
         fr.setVisible(true);
         fr.setLocationRelativeTo(null);
-        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fr.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
     public JFrame getFrame(){
         return fr;
@@ -403,29 +403,37 @@ public class popUp implements ActionListener,MouseListener{
             System.out.println("SAVEEEEEEEEEEE");
         }
     }
-    public static void main(String[] args) {
-        new popUp();
-    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         JMenu press = (JMenu) e.getComponent();
         if (press.equals(mu1)){ 
-            fr.getContentPane().removeAll();
-            fr.getContentPane().add(pn1);
+            pn1.removeAll();
+            pn1.setLayout(new BorderLayout());
+            pn1.setBackground(Color.white);
+            pn1.add(e1, BorderLayout.WEST);
+            pn1.add(pp8, BorderLayout.CENTER);
             
             System.out.println("1");
             refreshFrame();
         }
         else if (press.equals(mu2)){
-            fr.getContentPane().removeAll();
-            fr.getContentPane().add(inf.getInfor());
+//            fr.getContentPane().removeAll();
+//            fr.getContentPane().add(inf.getInfor());
+            pn1.removeAll();
+            pn1.setLayout(new BorderLayout());
+            pn1.setBackground(Color.white);
+            pn1.add(e1, BorderLayout.WEST);
+            pn1.add(inf.getP(), BorderLayout.CENTER);
             System.out.println("2");
             refreshFrame();
         }
         else if (press.equals(mu3)){
-            fr.getContentPane().removeAll();
-            fr.getContentPane().add(rig.getRights());
+            pn1.removeAll();
+            pn1.setLayout(new BorderLayout());
+            pn1.setBackground(Color.white);
+            pn1.add(e1, BorderLayout.WEST);
+            pn1.add(rig.getRights(), BorderLayout.CENTER);
             System.out.println("3");
             refreshFrame();
         }
@@ -468,5 +476,6 @@ public class popUp implements ActionListener,MouseListener{
             g.setColor(bgColor);
             g.fillRoundRect(0, 0, width - 1, height - 1, radius, radius);
         }
+        
     }
 }

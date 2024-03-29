@@ -599,6 +599,9 @@ public class information implements ActionListener{
     public JPanel getInfor(){
         return pn1;
     }
+    public JPanel getP(){
+        return pp8;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {

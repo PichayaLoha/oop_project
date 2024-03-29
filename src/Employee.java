@@ -69,8 +69,8 @@ public class Employee implements ActionListener{
         inter.repaint();
     }
     public static void main(String[] args) {
-        JPanel pn2 = new JPanel();
-        ArrayList<data> acData = new ArrayList<>();
+//        JPanel pn2 = new JPanel();
+//        ArrayList<data> acData = new ArrayList<>();
         new Employee();
     }
 

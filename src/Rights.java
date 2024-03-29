@@ -330,7 +330,7 @@ public class Rights implements ActionListener, ItemListener{
         
     }
     public JPanel getRights(){
-        return pn1;
+        return pp8;
     }
 
     @Override
