@@ -15,42 +15,16 @@ public class account implements ActionListener{
     private int index;
 
     public account(){
-        if (!acData.isEmpty()) {
-            this.accountData = acData.get(acData.size()-1);
-            pn1 = new RoundFillPanel(new Color(36, 29, 44), 200, 252, 20);
-            pn2 = new JPanel();
-            pn3 = new JPanel();
-            pn4 = new JPanel();
-            name = new JButton(accountData.getName());
-            posi = new JLabel(accountData.getPosi());
-            pic = new JLabel("PIcture");
+        pn1 = new RoundFillPanel(new Color(100,80,153), 190, 242, 20);
+        pn1.setOpaque(false);
+        pn2 = new JPanel();
+        pn3 = new JPanel();
+        pn4 = new JPanel();
+        name = new JButton("Null");
+        posi = new JLabel("Null");
+        pic = new JLabel("PIcture");
 
-            pn1.setLayout(new BorderLayout());
-            pn1.add(pn2, BorderLayout.NORTH);
-            pn1.add(pn4, BorderLayout.CENTER);
-            pn1.add(pn3, BorderLayout.SOUTH);
-
-            pn2.add(pic);
-            pn2.setOpaque(false);
-            
-            pn3.add(name);
-            pn3.setOpaque(false);
-            
-            pn4.add(posi);
-            pn4.setOpaque(false);
-            name.addActionListener(this);
-
-        } else {
-            pn1 = new RoundFillPanel(new Color(100,80,153), 190, 242, 20);
-            pn1.setOpaque(false);
-            pn2 = new JPanel();
-            pn3 = new JPanel();
-            pn4 = new JPanel();
-            name = new JButton("Null");
-            posi = new JLabel("Null");
-            pic = new JLabel("PIcture");
-
-            pn1.setLayout(new BorderLayout());
+        pn1.setLayout(new BorderLayout());
             pn1.add(pn2, BorderLayout.NORTH);
             pn1.add(pn4, BorderLayout.CENTER);
             pn1.add(pn3, BorderLayout.SOUTH);
@@ -75,11 +49,9 @@ public class account implements ActionListener{
             name.addActionListener(this);
         }
 //        pop = new popUp(accountData, em, index);
-    }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(name)){
+    public void actionPerformed(ActionEvent e) {if (e.getSource().equals(name)){
 //            pop.getFrame().setVisible(true);
         }
     }

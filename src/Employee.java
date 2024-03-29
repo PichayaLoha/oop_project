@@ -70,23 +70,13 @@ public class Employee implements ActionListener{
     public static void main(String[] args) {
         JPanel pn2 = new JPanel();
         ArrayList<data> acData = new ArrayList<>();
+        new Employee();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(add)){
-            account newAccount = new account();
-            pn2Container.add(newAccount.pn1);
-            if (count < acData.size()) {
-                System.out.println(String.valueOf(acData.get(count).getPosi()));
-            }
-
-            count += 1;
-
-            if (count % 4 == 0) {
-                kha += 242;
-                pn2Container.setPreferredSize(new Dimension(970, kha));
-            }
+            new popUp();
 
             refreshInternalFrame();
         }
