@@ -1,7 +1,3 @@
-
-import java.awt.Image;
-import javax.swing.ImageIcon;
-
 public class ServiceRQ extends javax.swing.JFrame {
 
     /**

@@ -3,7 +3,6 @@ public class CUSTOM_MainFrame extends javax.swing.JFrame {
         initComponents();
         this.setSize(1280, 720);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
