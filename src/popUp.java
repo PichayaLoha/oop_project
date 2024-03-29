@@ -161,9 +161,9 @@ public class popUp implements ActionListener,MouseListener{
         ImageIcon icon = new ImageIcon(imageURL);
         pic.setIcon(icon);
         posi = new JLabel("position"); posi.setForeground(new Color(100,80,153)); posi.setFont(new Font("Mitr Light", Font.BOLD, 12));
-        mu1 = new JMenu("Employee"); mu1.setForeground(new Color(100,80,153));
-        mu2 = new JMenu("information"); mu2.setForeground(new Color(100,80,153));
-        mu3 = new JMenu("Rights"); mu3.setForeground(new Color(100,80,153));
+        mu1 = new JMenu("ข้อมูลพนักงาน"); mu1.setForeground(new Color(100,80,153)); mu1.setFont(new Font("Mitr Light", Font.BOLD, 12)); 
+        mu2 = new JMenu("ประวัติส่วนตัว"); mu2.setForeground(new Color(100,80,153)); mu2.setFont(new Font("Mitr Light", Font.BOLD, 12));
+        mu3 = new JMenu("การจัดการสิทธิ"); mu3.setForeground(new Color(100,80,153)); mu3.setFont(new Font("Mitr Light", Font.BOLD, 12));
         
         
         
@@ -347,6 +347,7 @@ public class popUp implements ActionListener,MouseListener{
         fr.add(pn1);
         fr.setSize(860,528);
         fr.setVisible(true);
+        fr.setLocationRelativeTo(null);
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     public JFrame getFrame(){

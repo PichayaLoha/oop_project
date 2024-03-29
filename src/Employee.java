@@ -61,6 +61,7 @@ public class Employee implements ActionListener{
         fr.add(dp);
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fr.setSize(1280,720);
+        fr.setLocationRelativeTo(null);
         fr.setVisible(true);
     }
     public void refreshInternalFrame() {
