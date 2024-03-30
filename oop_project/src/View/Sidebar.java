@@ -1,6 +1,6 @@
 package View;
 
-import Model.AdminRefInterface;
+
 import Model.AdminModel;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -8,16 +8,19 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
-public class Sidebar extends JInternalFrame implements ActionListener, AdminRefInterface {
+public class Sidebar extends JInternalFrame implements ActionListener {
     private Dashboard dashboard;
     private test testFile;
     private Bill billFile;
     private Cleaning serviceFile;
     private AdminModel model;
+    private MainRooms mainFile;
 
+     public Sidebar(){ }
      
-    public Sidebar() {
-        initComponents();
+    public Sidebar(String user) {
+      
+    initComponents();
 //        this.ds = ds;
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
@@ -31,9 +34,8 @@ public class Sidebar extends JInternalFrame implements ActionListener, AdminRefI
         employee.addActionListener(this);
         setting.addActionListener(this);
         
-        model = new AdminModel();
-   
-     
+        model = new AdminModel();;
+     username.setText(user);
     }
 //    public Sidebar(JDesktopPane jDesktopPane1) {
 //        this.jDesktopPane1 = jDesktopPane1;
@@ -44,7 +46,7 @@ public class Sidebar extends JInternalFrame implements ActionListener, AdminRefI
 //    }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -82,7 +84,7 @@ public class Sidebar extends JInternalFrame implements ActionListener, AdminRefI
 
         username.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        username.setText("Admin");
+        
 
         label_Search.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         label_Search.setText("Search :");
@@ -264,22 +266,22 @@ public class Sidebar extends JInternalFrame implements ActionListener, AdminRefI
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchActionPerformed
+    }                                         
 
-    private void summaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summaryActionPerformed
+    private void summaryActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
-    }//GEN-LAST:event_summaryActionPerformed
+    }                                       
 
-    private void logout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout1ActionPerformed
+    private void logout1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
-    }//GEN-LAST:event_logout1ActionPerformed
+    }                                       
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JLabel bg_side;
     private javax.swing.JButton bill;
     private javax.swing.JButton employee;
@@ -298,7 +300,7 @@ public class Sidebar extends JInternalFrame implements ActionListener, AdminRefI
     private javax.swing.JLabel topic;
     private javax.swing.JTextField txtSearch;
     private javax.swing.JLabel username;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -322,9 +324,9 @@ public class Sidebar extends JInternalFrame implements ActionListener, AdminRefI
             txtSearch.setVisible(true);
             label_Search.setVisible(true);
 
-            testFile = new test();
+           mainFile = new MainRooms();
             jDesktopPane1.removeAll();
-            jDesktopPane1.add(testFile).setVisible(true);
+            jDesktopPane1.add(mainFile).setVisible(true);
         
         }else if (source.equals(summary)) {
             for (JButton button : buttons) {
@@ -391,15 +393,10 @@ public class Sidebar extends JInternalFrame implements ActionListener, AdminRefI
             jDesktopPane1.removeAll();
             jDesktopPane1.add(testFile).setVisible(true); 
         }
-        model.updateView();
+        
        System.out.println(this.username.getText());
     }
-@Override
-public void setAdmin(String newUsername) {
-    this.username.setText(newUsername);
-    
-    System.out.println(username.getText());
-}
+
 
 
 }

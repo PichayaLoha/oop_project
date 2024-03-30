@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 import java.net.URL;
 import javax.swing.*;
 import java.sql.*;
-import Model.AdminRefInterface;
 
-public class Login implements AdminRefInterface{
+
+public class Login{
 
     private JFrame fr;
     private JPanel mainPanel, borderPanel;
@@ -115,9 +115,7 @@ public class Login implements AdminRefInterface{
       public JFrame getFr() {     
        return fr ;
    }
-    public void setAdmin(String user){
-        
-    }
+
  
 }
 

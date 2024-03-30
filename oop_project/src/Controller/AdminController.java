@@ -1,9 +1,9 @@
 
 package Controller;
-import java.awt.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
+
 import javax.swing.*;
 import java.sql.*;
 import Model.AdminModel;
@@ -18,10 +18,9 @@ public class AdminController implements ActionListener {
     public AdminController(){
         model = new AdminModel();
         loginView = new Login();
-         sidebarView = new Sidebar();
          
-         model.addContactView(loginView); 
-         model.addContactView(sidebarView);
+         
+         
          
          loginView.getLogin().addActionListener(this);  
          
@@ -67,8 +66,8 @@ ResultSet rs = pre.executeQuery();
  public void updateModel(){
     String username = loginView.getUserName();
    
-    model.updateModel(username);
-  Dashboard hpage = new Dashboard();
+    
+  Dashboard hpage = new Dashboard(username);
  }
    
    public static void main(String[] arguments) { new AdminController(); }
