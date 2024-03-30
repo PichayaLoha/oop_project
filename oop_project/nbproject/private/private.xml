@@ -3,10 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/OOP-proj/oop_project/oop_project/src/View/Login.java</file>
-            <file>file:/D:/OOP-proj/oop_project/oop_project/src/View/Dashboard.java</file>
-            <file>file:/D:/OOP-proj/oop_project/oop_project/src/View/Sidebar.java</file>
-            <file>file:/D:/OOP-proj/oop_project/oop_project/src/View/test.java</file>
+            <file>file:/D:/OOP-proj/oop_project/oop_project/src/View/Bill.java</file>
+            <file>file:/D:/OOP-proj/oop_project/oop_project/src/Models/Connector.java</file>
+            <file>file:/D:/OOP-proj/oop_project/oop_project/src/Controllers/UpdateTable.java</file>
+            <file>file:/D:/OOP-proj/oop_project/oop_project/src/Models/Calculate.java</file>
+            <file>file:/D:/OOP-proj/oop_project/oop_project/src/View/BillEditForm.java</file>
+            <file>file:/D:/OOP-proj/oop_project/oop_project/src/Controllers/EditButtonEditor.java</file>
+            <file>file:/D:/OOP-proj/oop_project/oop_project/src/Models/AllCost.java</file>
+            <file>file:/D:/OOP-proj/oop_project/oop_project/src/Controllers/EditButtonRenderer.java</file>
+            <file>file:/D:/OOP-proj/oop_project/oop_project/src/Controllers/DataBill.java</file>
+            <file>file:/D:/OOP-proj/oop_project/oop_project/src/Models/BillModel.java</file>
         </group>
     </open-files>
 </project-private>

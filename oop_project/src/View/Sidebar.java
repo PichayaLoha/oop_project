@@ -14,6 +14,7 @@ public class Sidebar extends JInternalFrame implements ActionListener {
     private test testFile;
     private Bill billFile;
     private Cleaning serviceFile;
+    private summaryview summaryFile;
     
     public Sidebar() {
         initComponents();
@@ -50,6 +51,7 @@ public class Sidebar extends JInternalFrame implements ActionListener {
         logout1 = new javax.swing.JButton();
         logout = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         sidePanel = new javax.swing.JPanel();
         topic = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
@@ -141,15 +143,26 @@ public class Sidebar extends JInternalFrame implements ActionListener {
         jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
         jDesktopPane1.setPreferredSize(new java.awt.Dimension(970, 70));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setText("Welcome To Dormmanagetory");
+
+        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(226, 226, 226)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(266, 266, 266)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -279,6 +292,7 @@ public class Sidebar extends JInternalFrame implements ActionListener {
     private javax.swing.JButton bill;
     private javax.swing.JButton employee;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_Search;
     private javax.swing.JLabel logo;
@@ -323,9 +337,9 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
-            testFile = new test();
+            summaryFile = new summaryview();
             jDesktopPane1.removeAll();
-            jDesktopPane1.add(testFile).setVisible(true);
+            jDesktopPane1.add(summaryFile).setVisible(true);
             
         }else if (source.equals(service)) {
             for (JButton button : buttons) {
