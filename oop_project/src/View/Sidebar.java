@@ -1,7 +1,8 @@
 package View;
 
 
-import Model.AdminModel;
+import View.Login;
+import View.Dashboard;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,14 +14,11 @@ public class Sidebar extends JInternalFrame implements ActionListener {
     private test testFile;
     private Bill billFile;
     private Cleaning serviceFile;
-    private AdminModel model;
-    private MainRooms mainFile;
-
-     public Sidebar(){ }
-     
-    public Sidebar(String user) {
-      
-    initComponents();
+    private summaryview summaryFile;
+    private MainRooms roomsFile;
+    
+    public Sidebar() {
+        initComponents();
 //        this.ds = ds;
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
@@ -33,9 +31,6 @@ public class Sidebar extends JInternalFrame implements ActionListener {
         bill.addActionListener(this);
         employee.addActionListener(this);
         setting.addActionListener(this);
-        
-        model = new AdminModel();;
-     username.setText(user);
     }
 //    public Sidebar(JDesktopPane jDesktopPane1) {
 //        this.jDesktopPane1 = jDesktopPane1;
@@ -46,7 +41,7 @@ public class Sidebar extends JInternalFrame implements ActionListener {
 //    }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -57,6 +52,7 @@ public class Sidebar extends JInternalFrame implements ActionListener {
         logout1 = new javax.swing.JButton();
         logout = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         sidePanel = new javax.swing.JPanel();
         topic = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
@@ -84,7 +80,7 @@ public class Sidebar extends JInternalFrame implements ActionListener {
 
         username.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        
+        username.setText("Admin1");
 
         label_Search.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         label_Search.setText("Search :");
@@ -148,15 +144,26 @@ public class Sidebar extends JInternalFrame implements ActionListener {
         jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
         jDesktopPane1.setPreferredSize(new java.awt.Dimension(970, 70));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setText("Welcome To Dormmanagetory");
+
+        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(226, 226, 226)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(266, 266, 266)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -266,26 +273,27 @@ public class Sidebar extends JInternalFrame implements ActionListener {
         );
 
         pack();
-    }// </editor-fold>                        
+    }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
-    }                                         
+    }//GEN-LAST:event_txtSearchActionPerformed
 
-    private void summaryActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void summaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summaryActionPerformed
         // TODO add your handling code here:
-    }                                       
+    }//GEN-LAST:event_summaryActionPerformed
 
-    private void logout1ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void logout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout1ActionPerformed
         // TODO add your handling code here:
-    }                                       
+    }//GEN-LAST:event_logout1ActionPerformed
 
 
-    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg_side;
     private javax.swing.JButton bill;
     private javax.swing.JButton employee;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_Search;
     private javax.swing.JLabel logo;
@@ -300,11 +308,10 @@ public class Sidebar extends JInternalFrame implements ActionListener {
     private javax.swing.JLabel topic;
     private javax.swing.JTextField txtSearch;
     private javax.swing.JLabel username;
-    // End of variables declaration                   
+    // End of variables declaration//GEN-END:variables
     
     @Override
     public void actionPerformed(ActionEvent e) {
-          
         Object source = e.getSource();
         JButton[] buttons = {rooms, summary, service, bill, employee, setting};
         if (source.equals(logout)) {
@@ -321,12 +328,9 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
-            txtSearch.setVisible(true);
-            label_Search.setVisible(true);
-
-           mainFile = new MainRooms();
+            roomsFile = new MainRooms();
             jDesktopPane1.removeAll();
-            jDesktopPane1.add(mainFile).setVisible(true);
+            jDesktopPane1.add(roomsFile).setVisible(true);
         
         }else if (source.equals(summary)) {
             for (JButton button : buttons) {
@@ -334,12 +338,9 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
-            txtSearch.setVisible(false);
-            label_Search.setVisible(false);
-
-            testFile = new test();
+            summaryFile = new summaryview();
             jDesktopPane1.removeAll();
-            jDesktopPane1.add(testFile).setVisible(true);
+            jDesktopPane1.add(summaryFile).setVisible(true);
             
         }else if (source.equals(service)) {
             for (JButton button : buttons) {
@@ -347,9 +348,6 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
-            txtSearch.setVisible(false);
-            label_Search.setVisible(false);
-
             serviceFile = new Cleaning();
             jDesktopPane1.removeAll();
             jDesktopPane1.add(serviceFile).setVisible(true); 
@@ -360,9 +358,6 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
-            txtSearch.setVisible(false);
-            label_Search.setVisible(false);
-
             billFile = new Bill();
             jDesktopPane1.removeAll();
             jDesktopPane1.add(billFile.getInternalFrame()).setVisible(true); 
@@ -373,9 +368,6 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
-            txtSearch.setVisible(false);
-            label_Search.setVisible(false);
-
             testFile = new test();
             jDesktopPane1.removeAll();
             jDesktopPane1.add(testFile).setVisible(true);
@@ -386,17 +378,9 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
-            txtSearch.setVisible(false);
-            label_Search.setVisible(false);
-
             testFile = new test();
             jDesktopPane1.removeAll();
             jDesktopPane1.add(testFile).setVisible(true); 
         }
-        
-       System.out.println(this.username.getText());
     }
-
-
-
 }

@@ -5,6 +5,7 @@ public class detail extends javax.swing.JFrame {
     public detail() {
         initComponents();
         setSize(800, 550);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     @SuppressWarnings("unchecked")

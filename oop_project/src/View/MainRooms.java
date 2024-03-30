@@ -1,5 +1,7 @@
 package View;
 
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 public class MainRooms extends javax.swing.JInternalFrame {
 
     public MainRooms() {
@@ -9,6 +11,9 @@ public class MainRooms extends javax.swing.JInternalFrame {
         cardStatus2.setData(new ModelStatus("ห้องมีผู้เช่า", 0));
         cardStatus3.setData(new ModelStatus("ห้องว่าง", 9));
         cardStatus4.setData(new ModelStatus("อัตราการเข้าพัก", 0));
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
+        ui.setNorthPane(null);
     }
 
     @SuppressWarnings("unchecked")

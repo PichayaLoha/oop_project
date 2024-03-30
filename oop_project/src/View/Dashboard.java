@@ -9,11 +9,11 @@ public class Dashboard {
     private JDesktopPane ds;
     private Sidebar sidebar;
 
-    public Dashboard(String username) {
+    public Dashboard() {
         fr = new JFrame();
         ds = new JDesktopPane();
 
-        sidebar = new Sidebar(username);
+        sidebar = new Sidebar();
         ds.add(sidebar);
         sidebar.setVisible(true);
         
