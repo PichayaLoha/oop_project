@@ -7,9 +7,12 @@ public class Connector {
     public Statement stm;
     public ResultSet rs;
 
-    private String url = "jdbc:mysql://localhost:3306/oopject";
+    private String url = "jdbc:mysql://localhost:3306/oop1";
     private String username = "root";
     private String password = "";
+    
+  
+
     
     public ResultSet getConnect(String sql) {
         try {
@@ -43,4 +46,28 @@ public class Connector {
 //    public void setData(String sql) {
 //            
 //    }
+
+    public Statement createStatement() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    public ResultSet executeQuery(String sql) {
+        try (Connection conn = DriverManager.getConnection(url, username, password);
+             Statement stm = conn.createStatement();
+             ResultSet rs = stm.executeQuery(sql)) {
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public int executeUpdate(String sql) {
+        try (Connection conn = DriverManager.getConnection(url, username, password);
+             Statement stm = conn.createStatement()) {
+            return stm.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
 }
