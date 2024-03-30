@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package test;
 
 import java.awt.Color;
@@ -9,18 +6,14 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import org.w3c.dom.css.RGBColor;
 
-/**
- *
- * @author kritsada
- */
+
 public class summaryview extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form summaryview
-     */
+    
     public summaryview() {
         initComponents();
         addRowToMonthTable();
+        
     }
    
     
@@ -47,14 +40,14 @@ public class summaryview extends javax.swing.JInternalFrame {
         
     }
     
-    public ArrayList ListMonth(){
-        ArrayList<String> monthlist = new ArrayList<>();
-       monthlist.add("January");monthlist.add("February");monthlist.add("March");monthlist.add("April");monthlist.add("May");monthlist.add("June");
-       monthlist.add("July");monthlist.add("August");monthlist.add("September");monthlist.add("October");monthlist.add("November");monthlist.add("December");
-        return monthlist;     
-    }
+    //public ArrayList ListMonth(){
+     //   ArrayList<String> monthlist = new ArrayList<>();
+     //  monthlist.add("January");monthlist.add("February");monthlist.add("March");monthlist.add("April");monthlist.add("May");monthlist.add("June");
+    //  monthlist.add("July");monthlist.add("August");monthlist.add("September");monthlist.add("October");monthlist.add("November");monthlist.add("December");
+     //   return monthlist;     
+  //  }
    
-     public ArrayList ListUsers(){
+     public ArrayList ListUsers(){//ADD Data to arraylist
         ArrayList<summaryview>list = new ArrayList<summaryview>();
         summaryview s1 = new summaryview( 4, 5, 7, 88, 88, 55, 22);
         summaryview s2 = new summaryview( 555, 5, 7, 88, 88, 55, 22);
@@ -64,12 +57,11 @@ public class summaryview extends javax.swing.JInternalFrame {
     }
      
     public void addRowToMonthTable(){
-
         DefaultTableModel tablemon = (DefaultTableModel) monthtable.getModel();
         ArrayList<summaryview> listmon = ListUsers();
         Object rowData[] = new Object[9];
         for (int i = 0; i < listmon.size(); i++) {
-           // rowData[0] = listmon.get(i).waterminus;
+           // rowData[0] = listmon.get(i).waterminus; ไว้ใส่เดือนหรือถ้าไม่ใส่ก้ตัดออก
             rowData[1] = listmon.get(i).waterminus;
             rowData[2] = listmon.get(i).elecminus;
             rowData[3] = listmon.get(i).commonminus;
