@@ -35,8 +35,8 @@ public class Bill implements ActionListener {
     private JLabel page;
     
     public Bill() {
-        JFrame fr = new JFrame();
-        JDesktopPane ds = new JDesktopPane();
+//        JFrame fr = new JFrame();
+//        JDesktopPane ds = new JDesktopPane();
         
         inFrame = new JInternalFrame();
         borderPanel = new JPanel(new BorderLayout());
@@ -63,12 +63,12 @@ public class Bill implements ActionListener {
         inFrame.setVisible(true);
         inFrame.pack();
         
-        ds.add(inFrame);
-        fr.add(ds);
-        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fr.setPreferredSize(new Dimension(1280, 720));
-        fr.pack();
-        fr.setVisible(true);
+//        ds.add(inFrame);
+//        fr.add(ds);
+//        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        fr.setPreferredSize(new Dimension(1280, 720));
+//        fr.pack();
+//        fr.setVisible(true);
         
         inFrame.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) inFrame.getUI();
@@ -131,9 +131,9 @@ public class Bill implements ActionListener {
         }
     }
     
-    public static void main(String[] args) {
-        new Bill();
-    }
+//    public static void main(String[] args) {
+//        new Bill();
+//    }
  
     
 }

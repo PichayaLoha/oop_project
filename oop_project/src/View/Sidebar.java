@@ -15,6 +15,7 @@ public class Sidebar extends JInternalFrame implements ActionListener {
     private Bill billFile;
     private Cleaning serviceFile;
     private summaryview summaryFile;
+    private MainRooms roomsFile;
     
     public Sidebar() {
         initComponents();
@@ -327,9 +328,9 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
-            testFile = new test();
+            roomsFile = new MainRooms();
             jDesktopPane1.removeAll();
-            jDesktopPane1.add(testFile).setVisible(true);
+            jDesktopPane1.add(roomsFile).setVisible(true);
         
         }else if (source.equals(summary)) {
             for (JButton button : buttons) {
