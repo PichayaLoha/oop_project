@@ -113,14 +113,14 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="9" rowCount="0">
                 <Column editable="false" title="month" type="java.lang.Object"/>
-                <Column editable="false" title="minus elec cost" type="java.lang.Object"/>
-                <Column editable="false" title="minus water cost" type="java.lang.Object"/>
-                <Column editable="false" title="minus common cost" type="java.lang.Object"/>
-                <Column editable="false" title="plus elec cost" type="java.lang.Object"/>
-                <Column editable="false" title="plus water cost" type="java.lang.Object"/>
-                <Column editable="false" title="plus common cost" type="java.lang.Object"/>
-                <Column editable="false" title="plus room cost" type="java.lang.Object"/>
-                <Column editable="false" title="summary" type="java.lang.Object"/>
+                <Column editable="false" title="Electric (8.19)/ unit" type="java.lang.Object"/>
+                <Column editable="false" title="Water (10.20)/ unit" type="java.lang.Object"/>
+                <Column editable="false" title="additional service fee" type="java.lang.Object"/>
+                <Column editable="false" title="Electric (17)/ unit" type="java.lang.Object"/>
+                <Column editable="false" title="Water (15)/ unit" type="java.lang.Object"/>
+                <Column editable="false" title="Maintenance " type="java.lang.Object"/>
+                <Column editable="false" title="Room Charge" type="java.lang.Object"/>
+                <Column editable="false" title="Net Income" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -185,7 +185,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="sum"/>
+        <Property name="text" type="java.lang.String" value="Income Statement"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sssssActionPerformed"/>
@@ -193,7 +193,10 @@
     </Component>
     <Component class="javax.swing.JTextField" name="outttt">
       <Properties>
-        <Property name="text" type="java.lang.String" value="summary"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Income Statement"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="outtttActionPerformed"/>
@@ -204,7 +207,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="electricity"/>
+        <Property name="text" type="java.lang.String" value="Electric Bill"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="elexcActionPerformed"/>
@@ -215,7 +218,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="water"/>
+        <Property name="text" type="java.lang.String" value="Water Bill"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waaaActionPerformed"/>
@@ -223,7 +226,10 @@
     </Component>
     <Component class="javax.swing.JTextField" name="outttt1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="eleccost"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Electric Bill"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="outttt1ActionPerformed"/>
@@ -231,7 +237,10 @@
     </Component>
     <Component class="javax.swing.JTextField" name="outttt2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="watercost"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Water Bill"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="outttt2ActionPerformed"/>
@@ -242,7 +251,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="room"/>
+        <Property name="text" type="java.lang.String" value="Room Charge"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rooomActionPerformed"/>
@@ -253,7 +262,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="common"/>
+        <Property name="text" type="java.lang.String" value="Utility Bill"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="commonActionPerformed"/>
@@ -261,7 +270,10 @@
     </Component>
     <Component class="javax.swing.JTextField" name="outttt3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="commoncost"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Utility Bill"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="outttt3ActionPerformed"/>
@@ -269,7 +281,10 @@
     </Component>
     <Component class="javax.swing.JTextField" name="outttt4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="roomcost"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Room Charge"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="outttt4ActionPerformed"/>
@@ -280,7 +295,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="revenue"/>
+        <Property name="text" type="java.lang.String" value="Income"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="revenueActionPerformed"/>
@@ -288,7 +303,10 @@
     </Component>
     <Component class="javax.swing.JTextField" name="outtttree">
       <Properties>
-        <Property name="text" type="java.lang.String" value="revenuecost"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Income"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="outtttreeActionPerformed"/>
@@ -307,7 +325,10 @@
     </Component>
     <Component class="javax.swing.JTextField" name="outtttexx">
       <Properties>
-        <Property name="text" type="java.lang.String" value="expensescost"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="expenses"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="outtttexxActionPerformed"/>

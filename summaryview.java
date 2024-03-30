@@ -102,7 +102,7 @@ public class summaryview extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "month", "minus elec cost", "minus water cost", "minus common cost", "plus elec cost", "plus water cost", "plus common cost", "plus room cost", "summary"
+                "month", "Electric (8.19)/ unit", "Water (10.20)/ unit", "additional service fee", "Electric (17)/ unit", "Water (15)/ unit", "Maintenance ", "Room Charge", "Net Income"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -117,14 +117,15 @@ public class summaryview extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(monthtable);
 
         sssss.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        sssss.setText("sum");
+        sssss.setText("Income Statement");
         sssss.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sssssActionPerformed(evt);
             }
         });
 
-        outttt.setText("summary");
+        outttt.setForeground(new java.awt.Color(204, 204, 204));
+        outttt.setText("Income Statement");
         outttt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 outtttActionPerformed(evt);
@@ -132,7 +133,7 @@ public class summaryview extends javax.swing.JInternalFrame {
         });
 
         elexc.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        elexc.setText("electricity");
+        elexc.setText("Electric Bill");
         elexc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 elexcActionPerformed(evt);
@@ -140,21 +141,23 @@ public class summaryview extends javax.swing.JInternalFrame {
         });
 
         waaa.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        waaa.setText("water");
+        waaa.setText("Water Bill");
         waaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 waaaActionPerformed(evt);
             }
         });
 
-        outttt1.setText("eleccost");
+        outttt1.setForeground(new java.awt.Color(204, 204, 204));
+        outttt1.setText("Electric Bill");
         outttt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 outttt1ActionPerformed(evt);
             }
         });
 
-        outttt2.setText("watercost");
+        outttt2.setForeground(new java.awt.Color(204, 204, 204));
+        outttt2.setText("Water Bill");
         outttt2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 outttt2ActionPerformed(evt);
@@ -162,7 +165,7 @@ public class summaryview extends javax.swing.JInternalFrame {
         });
 
         rooom.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        rooom.setText("room");
+        rooom.setText("Room Charge");
         rooom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rooomActionPerformed(evt);
@@ -170,21 +173,23 @@ public class summaryview extends javax.swing.JInternalFrame {
         });
 
         common.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        common.setText("common");
+        common.setText("Utility Bill");
         common.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 commonActionPerformed(evt);
             }
         });
 
-        outttt3.setText("commoncost");
+        outttt3.setForeground(new java.awt.Color(204, 204, 204));
+        outttt3.setText("Utility Bill");
         outttt3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 outttt3ActionPerformed(evt);
             }
         });
 
-        outttt4.setText("roomcost");
+        outttt4.setForeground(new java.awt.Color(204, 204, 204));
+        outttt4.setText("Room Charge");
         outttt4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 outttt4ActionPerformed(evt);
@@ -192,14 +197,15 @@ public class summaryview extends javax.swing.JInternalFrame {
         });
 
         revenue.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        revenue.setText("revenue");
+        revenue.setText("Income");
         revenue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 revenueActionPerformed(evt);
             }
         });
 
-        outtttree.setText("revenuecost");
+        outtttree.setForeground(new java.awt.Color(204, 204, 204));
+        outtttree.setText("Income");
         outtttree.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 outtttreeActionPerformed(evt);
@@ -214,7 +220,8 @@ public class summaryview extends javax.swing.JInternalFrame {
             }
         });
 
-        outtttexx.setText("expensescost");
+        outtttexx.setForeground(new java.awt.Color(204, 204, 204));
+        outtttexx.setText("expenses");
         outtttexx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 outtttexxActionPerformed(evt);
