@@ -102,7 +102,7 @@ public class summaryview extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "month", "Electric (8.19)/ unit", "Water (10.20)/ unit", "additional service fee", "Electric (17)/ unit", "Water (15)/ unit", "Maintenance ", "Room Charge", "Net Income"
+                "month", "Govt Electric(bath)", "Govt Water(bath)", "Pay Common Area", "Dorm Electric", "Dorm Water", "Collect Common Area", "Room Charge", "Net Income"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -124,7 +124,7 @@ public class summaryview extends javax.swing.JInternalFrame {
             }
         });
 
-        outttt.setForeground(new java.awt.Color(204, 204, 204));
+        outttt.setForeground(new java.awt.Color(51, 51, 51));
         outttt.setText("Income Statement");
         outttt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +148,7 @@ public class summaryview extends javax.swing.JInternalFrame {
             }
         });
 
-        outttt1.setForeground(new java.awt.Color(204, 204, 204));
+        outttt1.setForeground(new java.awt.Color(51, 51, 51));
         outttt1.setText("Electric Bill");
         outttt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +156,7 @@ public class summaryview extends javax.swing.JInternalFrame {
             }
         });
 
-        outttt2.setForeground(new java.awt.Color(204, 204, 204));
+        outttt2.setForeground(new java.awt.Color(51, 51, 51));
         outttt2.setText("Water Bill");
         outttt2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +180,7 @@ public class summaryview extends javax.swing.JInternalFrame {
             }
         });
 
-        outttt3.setForeground(new java.awt.Color(204, 204, 204));
+        outttt3.setForeground(new java.awt.Color(51, 51, 51));
         outttt3.setText("Utility Bill");
         outttt3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +188,7 @@ public class summaryview extends javax.swing.JInternalFrame {
             }
         });
 
-        outttt4.setForeground(new java.awt.Color(204, 204, 204));
+        outttt4.setForeground(new java.awt.Color(51, 51, 51));
         outttt4.setText("Room Charge");
         outttt4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,7 +204,7 @@ public class summaryview extends javax.swing.JInternalFrame {
             }
         });
 
-        outtttree.setForeground(new java.awt.Color(204, 204, 204));
+        outtttree.setForeground(new java.awt.Color(51, 51, 51));
         outtttree.setText("Income");
         outtttree.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,8 +220,9 @@ public class summaryview extends javax.swing.JInternalFrame {
             }
         });
 
-        outtttexx.setForeground(new java.awt.Color(204, 204, 204));
+        outtttexx.setForeground(new java.awt.Color(51, 51, 51));
         outtttexx.setText("expenses");
+        outtttexx.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         outtttexx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 outtttexxActionPerformed(evt);
@@ -380,10 +381,6 @@ public class summaryview extends javax.swing.JInternalFrame {
        }
     }//GEN-LAST:event_commonActionPerformed
 
-    private void outttt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outttt3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_outttt3ActionPerformed
-
     private void outttt4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outttt4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_outttt4ActionPerformed
@@ -424,6 +421,10 @@ public class summaryview extends javax.swing.JInternalFrame {
     private void outtttexxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outtttexxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_outtttexxActionPerformed
+
+    private void outttt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outttt3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outttt3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
