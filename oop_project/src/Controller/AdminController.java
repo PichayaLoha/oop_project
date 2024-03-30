@@ -39,10 +39,12 @@ public class AdminController implements ActionListener {
 
         Statement stm = con.createStatement(); //สร้าง Statement object 
 
-        String sql = "SELECT * FROM admins WHERE admin_username='" + username + "' AND admin_password='" + password1 + "'"; //ตรวจสอบว่ามี user นี้มั้ย
-        pre = con.prepareStatement(sql);
-        
-        ResultSet rs = pre.executeQuery();//ประมวลผลค าสั่ง SQL ผ่าน Statement
+      String sql = "SELECT * FROM admins WHERE admin_username = ? AND admin_password = ?";
+pre = con.prepareStatement(sql);
+pre.setString(1, username);
+pre.setString(2, password1);
+ResultSet rs = pre.executeQuery();
+//ประมวลผลค าสั่ง SQL ผ่าน Statement
       
         if(rs.next()){ //ตรวจสอบว่ามี user นี้มั้ย
 
@@ -66,7 +68,7 @@ public class AdminController implements ActionListener {
     String username = loginView.getUserName();
    
     model.updateModel(username);
-    Dashboard hpage = new Dashboard();
+  Dashboard hpage = new Dashboard();
  }
    
    public static void main(String[] arguments) { new AdminController(); }

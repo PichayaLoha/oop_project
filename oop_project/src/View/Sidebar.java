@@ -394,11 +394,12 @@ public class Sidebar extends JInternalFrame implements ActionListener, AdminRefI
         model.updateView();
        System.out.println(this.username.getText());
     }
+@Override
 public void setAdmin(String newUsername) {
-   
-      this.username.setText(newUsername);
-        
-        System.out.println(username.getText());
+    this.username.setText(newUsername);
+    
+    System.out.println(username.getText());
 }
+
 
 }

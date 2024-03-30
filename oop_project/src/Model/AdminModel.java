@@ -31,16 +31,18 @@ public class AdminModel {
      public void removeContactView(AdminRefInterface view) {  
          adminViews.remove(view);
      }
-     public void updateModel(String newUsername){
-         setUsername(newUsername);
-//          System.out.println(getUsername());
-         updateView();
-     }
-     public void updateView(){
+   public void updateModel(String newUsername){
+    setUsername(newUsername);
+    updateView();
+}
+
+public void updateView(){
     Iterator notifyViews = adminViews.iterator();
     while (notifyViews.hasNext()){
         ((AdminRefInterface) notifyViews.next()).setAdmin(getUsername());
     }
 }
-     
+
 }
+     
+
