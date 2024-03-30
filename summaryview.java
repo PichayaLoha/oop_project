@@ -102,7 +102,7 @@ public class summaryview extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "month", "Govt Electric(bath)", "Govt Water(bath)", "Pay Common Area", "Dorm Electric", "Dorm Water", "Collect Common Area", "Room Charge", "Net Income"
+                "month", "Govt Electric(baht)", "Govt Water(baht)", "Pay Common Area(baht)", "Dorm Electric(baht)", "Dorm Water(baht)", "Collect Common Area(baht)", "Room Charge(baht)", "Net Income(baht)"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -308,7 +308,7 @@ public class summaryview extends javax.swing.JInternalFrame {
             for (int i = 0; i < monthtable.getRowCount(); i++) {
                 year = year + Integer.parseInt(monthtable.getValueAt(i, 8).toString());
             }
-            outttt.setText(Integer.toString(year));
+            outttt.setText(Integer.toString(year)+" Baht");
 
        }
     }//GEN-LAST:event_sssssActionPerformed
@@ -323,7 +323,7 @@ public class summaryview extends javax.swing.JInternalFrame {
                 elec = elec - Integer.parseInt(monthtable.getValueAt(i, 1).toString());
                 elec = elec + Integer.parseInt(monthtable.getValueAt(i, 4).toString());
             }
-            outttt1.setText(Integer.toString(elec));
+            outttt1.setText(Integer.toString(elec)+" Baht");
 
        }
     }//GEN-LAST:event_elexcActionPerformed
@@ -337,7 +337,7 @@ public class summaryview extends javax.swing.JInternalFrame {
                 waaaa = waaaa - Integer.parseInt(monthtable.getValueAt(i, 2).toString());
                 waaaa = waaaa + Integer.parseInt(monthtable.getValueAt(i, 5).toString());
             }
-            outttt2.setText(Integer.toString(waaaa));
+            outttt2.setText(Integer.toString(waaaa)+" Baht");
 
        }
     }//GEN-LAST:event_waaaActionPerformed
@@ -362,7 +362,7 @@ public class summaryview extends javax.swing.JInternalFrame {
             for (int i = 0; i < monthtable.getRowCount(); i++) {
                 room = room + Integer.parseInt(monthtable.getValueAt(i, 8).toString());
             }
-            outttt4.setText(Integer.toString(room));
+            outttt4.setText(Integer.toString(room)+" Baht");
 
        }
     }//GEN-LAST:event_rooomActionPerformed
@@ -376,7 +376,7 @@ public class summaryview extends javax.swing.JInternalFrame {
                 commm = commm - Integer.parseInt(monthtable.getValueAt(i, 2).toString());
                 commm = commm + Integer.parseInt(monthtable.getValueAt(i, 5).toString());
             }
-            outttt3.setText(Integer.toString(commm));
+            outttt3.setText(Integer.toString(commm)+" Baht");
 
        }
     }//GEN-LAST:event_commonActionPerformed
@@ -395,7 +395,7 @@ public class summaryview extends javax.swing.JInternalFrame {
                 revenue = revenue + Integer.parseInt(monthtable.getValueAt(i, 6).toString());
                 revenue = revenue + Integer.parseInt(monthtable.getValueAt(i, 7).toString());
             }
-            outtttree.setText(Integer.toString(revenue));
+            outtttree.setText(Integer.toString(revenue)+" Baht");
 
        }
     }//GEN-LAST:event_revenueActionPerformed
@@ -413,7 +413,7 @@ public class summaryview extends javax.swing.JInternalFrame {
                 expen = expen + Integer.parseInt(monthtable.getValueAt(i, 2).toString());
                 expen = expen + Integer.parseInt(monthtable.getValueAt(i, 3).toString());  
             }
-            outtttexx.setText(Integer.toString(expen));
+            outtttexx.setText(Integer.toString(expen)+" Baht");
 
        }
     }//GEN-LAST:event_expensesActionPerformed

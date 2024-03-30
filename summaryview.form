@@ -113,14 +113,14 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="9" rowCount="0">
                 <Column editable="false" title="month" type="java.lang.Object"/>
-                <Column editable="false" title="Govt Electric(bath)" type="java.lang.Object"/>
-                <Column editable="false" title="Govt Water(bath)" type="java.lang.Object"/>
-                <Column editable="false" title="Pay Common Area" type="java.lang.Object"/>
-                <Column editable="false" title="Dorm Electric" type="java.lang.Object"/>
-                <Column editable="false" title="Dorm Water" type="java.lang.Object"/>
-                <Column editable="false" title="Collect Common Area" type="java.lang.Object"/>
-                <Column editable="false" title="Room Charge" type="java.lang.Object"/>
-                <Column editable="false" title="Net Income" type="java.lang.Object"/>
+                <Column editable="false" title="Govt Electric(baht)" type="java.lang.Object"/>
+                <Column editable="false" title="Govt Water(baht)" type="java.lang.Object"/>
+                <Column editable="false" title="Pay Common Area(baht)" type="java.lang.Object"/>
+                <Column editable="false" title="Dorm Electric(baht)" type="java.lang.Object"/>
+                <Column editable="false" title="Dorm Water(baht)" type="java.lang.Object"/>
+                <Column editable="false" title="Collect Common Area(baht)" type="java.lang.Object"/>
+                <Column editable="false" title="Room Charge(baht)" type="java.lang.Object"/>
+                <Column editable="false" title="Net Income(baht)" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
