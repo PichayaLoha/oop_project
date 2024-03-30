@@ -109,7 +109,7 @@ public class CardRoomEmpty extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
-            Detail dt = new Detail();
+            detail dt = new detail();
             dt.setVisible(true);
     }//GEN-LAST:event_btn_addActionPerformed
 

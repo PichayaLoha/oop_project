@@ -126,7 +126,7 @@ public class CardUnused extends javax.swing.JPanel {
     }//GEN-LAST:event_tf_phonenumActionPerformed
 
     private void btn_detailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_detailActionPerformed
-            Detail dt = new Detail();
+            detail dt = new detail();
             dt.setVisible(true);
     }//GEN-LAST:event_btn_detailActionPerformed
 
