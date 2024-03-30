@@ -1,84 +1,58 @@
-
 package View;
 
-import java.awt.Color;
-import java.util.ArrayList;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
-import org.w3c.dom.css.RGBColor;
-
+import java.sql.*;
 
 public class summaryview extends javax.swing.JInternalFrame {
 
-    
+    private Connection con;
+    private Statement st;
+    private ResultSet rs;
+
     public summaryview() {
         initComponents();
+        connect();
         addRowToMonthTable();
-        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
-        
     }
-   
-    
-    private String month;
-    int waterminus;
-    int elecminus;
-    int commonminus;
-    int commonplus;
-    int waterplus;
-    int elecplus;
-    int roomplus;
-    int summ;
 
-    
-    public summaryview( int waterminus, int elecminus , int commonminus, int commonplus, int waterplus, int elecplus, int roomplus){
-        this.waterminus = waterminus;
-        this.elecminus = elecminus;
-        this.commonminus = commonminus;
-        this.commonplus = commonplus;
-        this.waterplus = waterplus;
-        this.elecplus = elecplus;
-        this.roomplus = roomplus;
-        this.summ = ( this.commonplus+this.waterplus+this.elecplus+this.roomplus-this.waterminus-this.elecminus-this.commonminus);
-        
-    }
-    
-    //public ArrayList ListMonth(){
-     //   ArrayList<String> monthlist = new ArrayList<>();
-     //  monthlist.add("January");monthlist.add("February");monthlist.add("March");monthlist.add("April");monthlist.add("May");monthlist.add("June");
-    //  monthlist.add("July");monthlist.add("August");monthlist.add("September");monthlist.add("October");monthlist.add("November");monthlist.add("December");
-     //   return monthlist;     
-  //  }
-   
-     public ArrayList ListUsers(){//ADD Data to arraylist
-        ArrayList<summaryview>list = new ArrayList<summaryview>();
-        summaryview s1 = new summaryview( 4, 5, 7, 88, 88, 55, 22);
-        summaryview s2 = new summaryview( 555, 5, 7, 88, 88, 55, 22);
-        list.add(s1);
-        list.add(s2);
-        return list;
-    }
-     
-    public void addRowToMonthTable(){
-        DefaultTableModel tablemon = (DefaultTableModel) monthtable.getModel();
-        ArrayList<summaryview> listmon = ListUsers();
-        Object rowData[] = new Object[9];
-        for (int i = 0; i < listmon.size(); i++) {
-           // rowData[0] = listmon.get(i).waterminus; ไว้ใส่เดือนหรือถ้าไม่ใส่ก้ตัดออก
-            rowData[1] = listmon.get(i).waterminus;
-            rowData[2] = listmon.get(i).elecminus;
-            rowData[3] = listmon.get(i).commonminus;
-            rowData[4] = listmon.get(i).commonplus;
-            rowData[5] = listmon.get(i).waterplus;
-            rowData[6] = listmon.get(i).elecplus;
-            rowData[7] = listmon.get(i).roomplus;
-            rowData[8] = listmon.get(i).summ;
-            tablemon.addRow(rowData);
+    public void connect() {
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost/oopject", "root", "");
+            st = con.createStatement();
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex);
         }
-        
-        
-}
+    }
+
+    public void addRowToMonthTable() {
+        DefaultTableModel tablemon = (DefaultTableModel) monthtable.getModel();
+        try {
+            String query = "SELECT * FROM summary";
+            PreparedStatement pst = con.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Object[] rowData = {
+                    rs.getInt("month_id"),
+                    rs.getInt("govt_electric"),
+                    rs.getInt("govt_water"),
+                    rs.getInt("pay_common"),
+                    rs.getInt("dorm_electric"),
+                    rs.getInt("dorm_water"),
+                    rs.getInt("collect_common"),
+                    rs.getInt("room_charge"),
+                    rs.getInt("net_income")
+                };
+                tablemon.addRow(rowData);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -102,19 +76,17 @@ public class summaryview extends javax.swing.JInternalFrame {
         outtttexx = new javax.swing.JTextField();
 
         monthtable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "month", "Govt Electric(baht)", "Govt Water(baht)", "Pay Common Area(baht)", "Dorm Electric(baht)", "Dorm Water(baht)", "Collect Common Area(baht)", "Room Charge(baht)", "Net Income(baht)"
-            }
+                new Object[][]{},
+                new String[]{
+                    "month", "Govt Electric(baht)", "Govt Water(baht)", "Pay Common Area(baht)", "Dorm Electric(baht)", "Dorm Water(baht)", "Collect Common Area(baht)", "Room Charge(baht)", "Net Income(baht)"
+                }
         ) {
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean[]{
                 false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         monthtable.setShowGrid(true);
@@ -236,69 +208,69 @@ public class summaryview extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 961, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(sssss, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(outttt, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(elexc, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(waaa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(revenue, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(outttt1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(outttt2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(outtttree, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(expenses, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(outtttexx, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(rooom, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(outttt4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(common, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(outttt3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(31, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 961, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(162, 162, 162)
+                                                .addComponent(sssss, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(outttt, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(25, 25, 25)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(elexc, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(waaa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(revenue, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(outttt1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(outttt2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(outtttree, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(41, 41, 41)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(expenses, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(outtttexx, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(rooom, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(outttt4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(common, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(outttt3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(outttt1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(elexc)
-                    .addComponent(rooom)
-                    .addComponent(outttt4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(outttt3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(waaa)
-                    .addComponent(outttt2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(common))
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(revenue)
-                    .addComponent(outtttree, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(expenses)
-                    .addComponent(outtttexx, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sssss)
-                    .addComponent(outttt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(outttt1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(elexc)
+                                        .addComponent(rooom)
+                                        .addComponent(outttt4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(7, 7, 7)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(outttt3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(waaa)
+                                        .addComponent(outttt2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(common))
+                                .addGap(7, 7, 7)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(revenue)
+                                        .addComponent(outtttree, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(expenses)
+                                        .addComponent(outtttexx, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(sssss)
+                                        .addComponent(outttt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(13, 13, 13))
         );
 
         pack();
@@ -312,13 +284,13 @@ public class summaryview extends javax.swing.JInternalFrame {
             for (int i = 0; i < monthtable.getRowCount(); i++) {
                 year = year + Integer.parseInt(monthtable.getValueAt(i, 8).toString());
             }
-            outttt.setText(Integer.toString(year)+" Baht");
+            outttt.setText(Integer.toString(year) + " Baht");
 
-       }
+        }
     }//GEN-LAST:event_sssssActionPerformed
 
     private void elexcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elexcActionPerformed
-        
+
         //elecsum
         if (evt.getSource().equals(elexc)) {
             int elec = 0;
@@ -327,13 +299,13 @@ public class summaryview extends javax.swing.JInternalFrame {
                 elec = elec - Integer.parseInt(monthtable.getValueAt(i, 1).toString());
                 elec = elec + Integer.parseInt(monthtable.getValueAt(i, 4).toString());
             }
-            outttt1.setText(Integer.toString(elec)+" Baht");
+            outttt1.setText(Integer.toString(elec) + " Baht");
 
-       }
+        }
     }//GEN-LAST:event_elexcActionPerformed
 
     private void waaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waaaActionPerformed
-       //watersum
+        //watersum
         if (evt.getSource().equals(waaa)) {
             int waaaa = 0;
 
@@ -341,9 +313,9 @@ public class summaryview extends javax.swing.JInternalFrame {
                 waaaa = waaaa - Integer.parseInt(monthtable.getValueAt(i, 2).toString());
                 waaaa = waaaa + Integer.parseInt(monthtable.getValueAt(i, 5).toString());
             }
-            outttt2.setText(Integer.toString(waaaa)+" Baht");
+            outttt2.setText(Integer.toString(waaaa) + " Baht");
 
-       }
+        }
     }//GEN-LAST:event_waaaActionPerformed
 
     private void outttt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outttt1ActionPerformed
@@ -359,20 +331,20 @@ public class summaryview extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_outtttActionPerformed
 
     private void rooomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rooomActionPerformed
-          //roomsum
+        //roomsum
         if (evt.getSource().equals(rooom)) {
             int room = 0;
 
             for (int i = 0; i < monthtable.getRowCount(); i++) {
                 room = room + Integer.parseInt(monthtable.getValueAt(i, 8).toString());
             }
-            outttt4.setText(Integer.toString(room)+" Baht");
+            outttt4.setText(Integer.toString(room) + " Baht");
 
-       }
+        }
     }//GEN-LAST:event_rooomActionPerformed
 
     private void commonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_commonActionPerformed
-       //commonsum
+        //commonsum
         if (evt.getSource().equals(common)) {
             int commm = 0;
 
@@ -380,9 +352,9 @@ public class summaryview extends javax.swing.JInternalFrame {
                 commm = commm - Integer.parseInt(monthtable.getValueAt(i, 2).toString());
                 commm = commm + Integer.parseInt(monthtable.getValueAt(i, 5).toString());
             }
-            outttt3.setText(Integer.toString(commm)+" Baht");
+            outttt3.setText(Integer.toString(commm) + " Baht");
 
-       }
+        }
     }//GEN-LAST:event_commonActionPerformed
 
     private void outttt4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outttt4ActionPerformed
@@ -390,7 +362,7 @@ public class summaryview extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_outttt4ActionPerformed
 
     private void revenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_revenueActionPerformed
-         if (evt.getSource().equals(revenue)) {
+        if (evt.getSource().equals(revenue)) {
             int revenue = 0;
 
             for (int i = 0; i < monthtable.getRowCount(); i++) {
@@ -399,9 +371,9 @@ public class summaryview extends javax.swing.JInternalFrame {
                 revenue = revenue + Integer.parseInt(monthtable.getValueAt(i, 6).toString());
                 revenue = revenue + Integer.parseInt(monthtable.getValueAt(i, 7).toString());
             }
-            outtttree.setText(Integer.toString(revenue)+" Baht");
+            outtttree.setText(Integer.toString(revenue) + " Baht");
 
-       }
+        }
     }//GEN-LAST:event_revenueActionPerformed
 
     private void outtttreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outtttreeActionPerformed
@@ -415,11 +387,11 @@ public class summaryview extends javax.swing.JInternalFrame {
             for (int i = 0; i < monthtable.getRowCount(); i++) {
                 expen = expen + Integer.parseInt(monthtable.getValueAt(i, 1).toString());
                 expen = expen + Integer.parseInt(monthtable.getValueAt(i, 2).toString());
-                expen = expen + Integer.parseInt(monthtable.getValueAt(i, 3).toString());  
+                expen = expen + Integer.parseInt(monthtable.getValueAt(i, 3).toString());
             }
-            outtttexx.setText(Integer.toString(expen)+" Baht");
+            outtttexx.setText(Integer.toString(expen) + " Baht");
 
-       }
+        }
     }//GEN-LAST:event_expensesActionPerformed
 
     private void outtttexxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outtttexxActionPerformed
@@ -429,7 +401,6 @@ public class summaryview extends javax.swing.JInternalFrame {
     private void outttt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outttt3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_outttt3ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton common;
