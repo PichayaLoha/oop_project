@@ -100,6 +100,10 @@ public class summaryview extends javax.swing.JInternalFrame {
         common = new javax.swing.JButton();
         outttt3 = new javax.swing.JTextField();
         outttt4 = new javax.swing.JTextField();
+        revenue = new javax.swing.JButton();
+        outtttree = new javax.swing.JTextField();
+        expenses = new javax.swing.JButton();
+        outtttexx = new javax.swing.JTextField();
 
         monthtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -195,6 +199,36 @@ public class summaryview extends javax.swing.JInternalFrame {
             }
         });
 
+        revenue.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        revenue.setText("revenue");
+        revenue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                revenueActionPerformed(evt);
+            }
+        });
+
+        outtttree.setText("revenuecost");
+        outtttree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outtttreeActionPerformed(evt);
+            }
+        });
+
+        expenses.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        expenses.setText("expenses");
+        expenses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                expensesActionPerformed(evt);
+            }
+        });
+
+        outtttexx.setText("expensescost");
+        outtttexx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outtttexxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -208,49 +242,59 @@ public class summaryview extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(outttt, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(elexc, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(waaa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
+                            .addComponent(waaa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(revenue, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(outttt1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(outttt2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(outttt2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(outtttree, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(common, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(outttt3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(expenses, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(outtttexx, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(rooom, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(outttt4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(outttt4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(common, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(outttt3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(elexc)
                     .addComponent(outttt1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(elexc)
                     .addComponent(rooom)
                     .addComponent(outttt4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(waaa)
-                            .addComponent(outttt2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(common))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sssss)
-                            .addComponent(outttt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(outttt3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                    .addComponent(outttt3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(waaa)
+                    .addComponent(outttt2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(common))
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(revenue)
+                    .addComponent(outtttree, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(expenses)
+                    .addComponent(outtttexx, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sssss)
+                    .addComponent(outttt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13))
         );
 
         pack();
@@ -345,10 +389,48 @@ public class summaryview extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_outttt4ActionPerformed
 
+    private void revenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_revenueActionPerformed
+         if (evt.getSource().equals(revenue)) {
+            int revenue = 0;
+
+            for (int i = 0; i < monthtable.getRowCount(); i++) {
+                revenue = revenue + Integer.parseInt(monthtable.getValueAt(i, 4).toString());
+                revenue = revenue + Integer.parseInt(monthtable.getValueAt(i, 5).toString());
+                revenue = revenue + Integer.parseInt(monthtable.getValueAt(i, 6).toString());
+                revenue = revenue + Integer.parseInt(monthtable.getValueAt(i, 7).toString());
+            }
+            outtttree.setText(Integer.toString(revenue));
+
+       }
+    }//GEN-LAST:event_revenueActionPerformed
+
+    private void outtttreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outtttreeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outtttreeActionPerformed
+
+    private void expensesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expensesActionPerformed
+        if (evt.getSource().equals(expenses)) {
+            int expen = 0;
+
+            for (int i = 0; i < monthtable.getRowCount(); i++) {
+                expen = expen + Integer.parseInt(monthtable.getValueAt(i, 1).toString());
+                expen = expen + Integer.parseInt(monthtable.getValueAt(i, 2).toString());
+                expen = expen + Integer.parseInt(monthtable.getValueAt(i, 3).toString());  
+            }
+            outtttexx.setText(Integer.toString(expen));
+
+       }
+    }//GEN-LAST:event_expensesActionPerformed
+
+    private void outtttexxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outtttexxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outtttexxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton common;
     private javax.swing.JButton elexc;
+    private javax.swing.JButton expenses;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable monthtable;
     private javax.swing.JTextField outttt;
@@ -356,6 +438,9 @@ public class summaryview extends javax.swing.JInternalFrame {
     private javax.swing.JTextField outttt2;
     private javax.swing.JTextField outttt3;
     private javax.swing.JTextField outttt4;
+    private javax.swing.JTextField outtttexx;
+    private javax.swing.JTextField outtttree;
+    private javax.swing.JButton revenue;
     private javax.swing.JButton rooom;
     private javax.swing.JButton sssss;
     private javax.swing.JButton waaa;
