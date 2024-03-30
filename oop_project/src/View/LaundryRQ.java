@@ -1,7 +1,6 @@
 package View;
 
 
-import View.ServiceRQ;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,7 +11,7 @@ public class LaundryRQ extends javax.swing.JFrame {
   
     public LaundryRQ() {
         initComponents();
-
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"101", "102", "103", "201", "202", "203", "301", "302", "303"}));
     }
 
     @SuppressWarnings("unchecked")
@@ -138,6 +137,8 @@ public class LaundryRQ extends javax.swing.JFrame {
             Cleaning cleaning = new Cleaning();
             cleaning.showServices();
             System.out.println("already add data");
+            
+            jOptionPane.showMessageDialog(this, "Data saved!");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -188,5 +189,6 @@ public class LaundryRQ extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JOptionPane jOptionPane;
     // End of variables declaration//GEN-END:variables
 }
