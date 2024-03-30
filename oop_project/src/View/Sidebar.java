@@ -1,20 +1,21 @@
 package View;
 
-
-import View.Login;
-import View.Dashboard;
+import Model.AdminRefInterface;
+import Model.AdminModel;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
-public class Sidebar extends JInternalFrame implements ActionListener {
+public class Sidebar extends JInternalFrame implements ActionListener, AdminRefInterface {
     private Dashboard dashboard;
     private test testFile;
     private Bill billFile;
     private Cleaning serviceFile;
-    
+    private AdminModel model;
+
+     
     public Sidebar() {
         initComponents();
 //        this.ds = ds;
@@ -29,6 +30,10 @@ public class Sidebar extends JInternalFrame implements ActionListener {
         bill.addActionListener(this);
         employee.addActionListener(this);
         setting.addActionListener(this);
+        
+        model = new AdminModel();
+   
+     
     }
 //    public Sidebar(JDesktopPane jDesktopPane1) {
 //        this.jDesktopPane1 = jDesktopPane1;
@@ -77,7 +82,7 @@ public class Sidebar extends JInternalFrame implements ActionListener {
 
         username.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        username.setText("Admin1");
+        username.setText("Admin");
 
         label_Search.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         label_Search.setText("Search :");
@@ -297,6 +302,7 @@ public class Sidebar extends JInternalFrame implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
+          
         Object source = e.getSource();
         JButton[] buttons = {rooms, summary, service, bill, employee, setting};
         if (source.equals(logout)) {
@@ -385,5 +391,14 @@ public class Sidebar extends JInternalFrame implements ActionListener {
             jDesktopPane1.removeAll();
             jDesktopPane1.add(testFile).setVisible(true); 
         }
+        model.updateView();
+       System.out.println(this.username.getText());
     }
+public void setAdmin(String newUsername) {
+   
+      this.username.setText(newUsername);
+        
+        System.out.println(username.getText());
+}
+
 }

@@ -3,16 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/meen5/Downloads/New%20folder%20(3)/oop_project/oop_project/src/SideBar/Main.java</file>
-            <file>file:/C:/Users/meen5/Downloads/New%20folder%20(3)/oop_project/oop_project/src/View/Login.java</file>
-            <file>file:/C:/Users/meen5/Downloads/New%20folder%20(3)/oop_project/oop_project/src/rqservice.java</file>
-=======
-            <file>file:/D:/OOP-proj/oop_project/oop_project/src/View/Login.java</file>
-            <file>file:/D:/OOP-proj/oop_project/oop_project/src/View/Dashboard.java</file>
-            <file>file:/D:/OOP-proj/oop_project/oop_project/src/View/Sidebar.java</file>
-            <file>file:/D:/OOP-proj/oop_project/oop_project/src/View/test.java</file>
->>>>>>> remotes/origin/feature/test
+            <file>file:/C:/Users/meen5/Downloads/oop/oop_project/oop_project/src/View/Login.java</file>
+            <file>file:/C:/Users/meen5/Downloads/oop/oop_project/oop_project/src/View/Sidebar.java</file>
+            <file>file:/C:/Users/meen5/Downloads/oop/oop_project/oop_project/src/Model/AdminModel.java</file>
+            <file>file:/C:/Users/meen5/Downloads/oop/oop_project/oop_project/src/View/Cleaning.java</file>
+            <file>file:/C:/Users/meen5/Downloads/oop/oop_project/oop_project/src/View/RepairRQ.java</file>
+            <file>file:/C:/Users/meen5/Downloads/oop/oop_project/oop_project/src/View/Dashboard.java</file>
+            <file>file:/C:/Users/meen5/Downloads/oop/oop_project/oop_project/src/View/LaundryRQ.java</file>
+            <file>file:/C:/Users/meen5/Downloads/oop/oop_project/oop_project/src/View/test.java</file>
+            <file>file:/C:/Users/meen5/Downloads/oop/oop_project/oop_project/src/View/ServiceRQ.java</file>
+            <file>file:/C:/Users/meen5/Downloads/oop/oop_project/oop_project/src/Model/AdminRefInterface.java</file>
+            <file>file:/C:/Users/meen5/Downloads/oop/oop_project/oop_project/src/View/Bill.java</file>
+            <file>file:/C:/Users/meen5/Downloads/oop/oop_project/oop_project/src/Controller/AdminController.java</file>
         </group>
     </open-files>
 </project-private>

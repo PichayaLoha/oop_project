@@ -142,7 +142,7 @@
                   <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Admin1"/>
+                <Property name="text" type="java.lang.String" value="Admin"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="label_Search">

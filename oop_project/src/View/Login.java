@@ -7,8 +7,9 @@ import java.awt.event.ActionListener;
 import java.net.URL;
 import javax.swing.*;
 import java.sql.*;
+import Model.AdminRefInterface;
 
-public class Login implements ActionListener {
+public class Login implements AdminRefInterface{
 
     private JFrame fr;
     private JPanel mainPanel, borderPanel;
@@ -87,7 +88,7 @@ public class Login implements ActionListener {
         borderPanel.add(mainPanel);
         fr.add(borderPanel);
 
-        login.addActionListener(this);
+//        login.addActionListener(this);
 
         fr.setResizable(false);
 //        fr.setLocationRelativeTo(null);
@@ -96,46 +97,27 @@ public class Login implements ActionListener {
         fr.pack();
         fr.setVisible(true);
     }
-
-    public static void main(String[] args) {
-        new Login();
-    }
-
-    @Override
-  public void actionPerformed(ActionEvent e) {
-      PreparedStatement pre = null;
-        try{
-         
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oop", "root", "");
-
-        String username =  userName.getText();
-        String password1 = password.getText();
-
-        Statement stm = con.createStatement(); //สร้าง Statement object 
-
-        String sql = "SELECT * FROM admins WHERE admin_username='" + username + "' AND admin_password='" + password1 + "'"; //ตรวจสอบว่ามี user นี้มั้ย
-        pre = con.prepareStatement(sql);
+   
+   public void setLogin(JButton login) {     
+       this.login = login;
+     
+   }
+    
+   public String getUserName() {   
+       return userName.getText();  
+   }
+   public String getPassword() {   
+       return password.getText();  
+   }
+   public JButton getLogin() {     
+       return login ;
+   }
+      public JFrame getFr() {     
+       return fr ;
+   }
+    public void setAdmin(String user){
         
-        ResultSet rs = pre.executeQuery();//ประมวลผลค าสั่ง SQL ผ่าน Statement
-      
-        if(rs.next()){ //ตรวจสอบว่ามี user นี้มั้ย
-
-
-            Dashboard hpage = new Dashboard();
-             
-           fr.dispose();
-
-        }else{
-          JOptionPane.showMessageDialog(fr, "username or password wrong");
-            userName.setText("");
-           password.setText("");
-        }
-        con.close(); 
-    }catch(Exception er){
-        System.out.println(er.getMessage());
     }
-}
-
+ 
 }
 
