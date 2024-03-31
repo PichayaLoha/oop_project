@@ -1,11 +1,13 @@
 package View;
 
 
+import Models.data;
 import View.Login;
 import View.Dashboard;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
@@ -16,6 +18,7 @@ public class Sidebar extends JInternalFrame implements ActionListener {
     private Cleaning serviceFile;
     private summaryview summaryFile;
     private MainRooms roomsFile;
+    private Employee employFile;
     
     public Sidebar() {
         initComponents();
@@ -368,9 +371,9 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
-            testFile = new test();
+            employFile = new Employee();
             jDesktopPane1.removeAll();
-            jDesktopPane1.add(testFile).setVisible(true);
+            jDesktopPane1.add(employFile.getInternalFrame()).setVisible(true);
             
         }else if (source.equals(setting)) {
             for (JButton button : buttons) {

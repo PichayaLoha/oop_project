@@ -2,11 +2,12 @@
 package Models;
 
 public class DataInfo {
-    private int w_meter, e_meter, common_fee;
+    private int w_meter, e_meter, common_fee, pay_id;
     private int pay_room_cost, pay_water_cost, pay_elec_cost, pay_total_cost;
     private String pay_status, room_number, room_status, btn;
     
-    public DataInfo(String room_number, String room_status, int w_meter, int pay_water_cost, int e_meter, int pay_elec_cost, int pay_room_cost, int common_fee, int pay_total_cost, String pay_status, String btn) {
+    public DataInfo(int pay_id, String room_number, String room_status, int w_meter, int pay_water_cost, int e_meter, int pay_elec_cost, int pay_room_cost, int common_fee, int pay_total_cost, String pay_status) {
+        this.pay_id = pay_id;
         this.room_number = room_number;
         this.room_status = room_status;
         this.w_meter = w_meter;
@@ -16,9 +17,17 @@ public class DataInfo {
         this.pay_room_cost = pay_room_cost;
         this.common_fee = common_fee;
         this.pay_total_cost = pay_total_cost;
-        this.pay_status = pay_status;
-        this.btn = btn;   
+        this.pay_status = pay_status;   
     }
+    
+    public void setpay_id(int pay_id) {
+        this.pay_id = pay_id;
+    }
+    
+    public int getpay_id() {
+        return pay_id;
+    }
+    
     public void setw_meter(int w_meter) {
         this.w_meter = w_meter;
     }

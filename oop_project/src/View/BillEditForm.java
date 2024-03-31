@@ -1,5 +1,6 @@
 package View;
 
+import Models.BillModel;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
@@ -22,15 +23,15 @@ public class BillEditForm implements ActionListener {
         lbrn = new JLabel("Room number");
         lbs = new JLabel("Room status");
         lbw = new JLabel("Water meter");
-        lbwa = new JLabel("Water amount");
+        lbwa = new JLabel("Water cost");
         lbe = new JLabel("Electric meter");
-        lbea = new JLabel("Electric amount");
+        lbea = new JLabel("Electric cost");
         lbc = new JLabel("Common");
         lbr = new JLabel("Rent");
-        lbt = new JLabel("Total w+e");
-        lbta = new JLabel("Total amount");
+        lbta = new JLabel("Total cost");
         lbsp = new JLabel("Status pay");
         tfrn = new JTextField();
+//        tfrn.setText(String.valueOf(id));
         tfrn.setEditable(false);
         tfs = new JTextField();
         tfs.setEditable(false);
@@ -44,8 +45,6 @@ public class BillEditForm implements ActionListener {
         tfc.setEditable(false);
         tfr = new JTextField();
         tfr.setEditable(false);
-        tft = new JTextField();
-        tft.setEditable(false);
         tfta = new JTextField();
         tfta.setEditable(false);
         ok = new JButton("OK");
@@ -80,22 +79,22 @@ public class BillEditForm implements ActionListener {
         p2.add(tfc);
         p2.add(lbr);
         p2.add(tfr);
-        p2.add(lbt);
-        p2.add(tft);
+        p2.add(lbsp);
+        p2.add(cb);
         p2.add(lbta);
         p2.add(tfta);
 
         fr.add(p3, BorderLayout.SOUTH);
-        p3.add(lbsp); p3.add(cb);
         p3.add(ok); p3.add(cancel);
 
         fr.pack();
         fr.setVisible(true);
         
-        cancel.addActionListener(this);
+        cancel.addActionListener(this);  
     }
-    public static void main(String[] args) {
-        new BillEditForm();
+    
+    public void setBillEditForm(int id) {
+        
     }
 
     @Override

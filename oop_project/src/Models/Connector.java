@@ -7,7 +7,7 @@ public class Connector {
     public Statement stm;
     public ResultSet rs;
 
-    private String url = "jdbc:mysql://localhost:3306/oopject";
+    private String url = "jdbc:mysql://localhost:3306/oopject_1";
     private String username = "root";
     private String password = "";
     

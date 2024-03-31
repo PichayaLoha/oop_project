@@ -10,15 +10,20 @@ import Models.DataInfo;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
-public class Bill implements ActionListener {
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+public class Bill implements ActionListener, MouseListener {
     private JInternalFrame inFrame;
-    private JPanel borderPanel, flowPanel;
+    private JPanel topPanel, westPanel, mainPanel, eastPanel;
     private JTable billTable;
     private JScrollPane scrollPane;
     private JComboBox<String> monthComboBox;
@@ -27,48 +32,49 @@ public class Bill implements ActionListener {
     private String[][] data;
     private String[] columns = {"room number", "Status room", "water meter", "Amount-Water[Baht]", 
                                 "Electricity meter", "Amount-Elec[Baht]", "Total amount", "Common fee", 
-                                "Total cost", "Status", "Edit"};
+                                "Total cost", "Status", "ID"};
     private JComboBox<String> statusComboBox;
     private String[] statusList = {"Paid", "Not yet paid", "No status"};
     private int currentFloor = 1;
     private JButton nextPage, previousPage;
-    private JLabel page;
+    private JLabel page, img1;
+    private int id;
+    private BillEditForm billEditForm;
     
     public Bill() {
-//        JFrame fr = new JFrame();
-//        JDesktopPane ds = new JDesktopPane();
-        
+        JFrame fr = new JFrame();
+        JDesktopPane ds = new JDesktopPane();
+
         inFrame = new JInternalFrame();
-        borderPanel = new JPanel(new BorderLayout());
-        flowPanel = new JPanel(new FlowLayout());
+        topPanel = new JPanel(new BorderLayout());
+        mainPanel = new JPanel(new BorderLayout());
+        westPanel = new JPanel();
+        eastPanel = new JPanel(new GridLayout());
         monthComboBox = new JComboBox<>(months);
         billTable = new JTable();
         scrollPane = new JScrollPane(billTable);
-        nextPage = new JButton(">>>");
         previousPage = new JButton("<<<");
-        page = new JLabel("Floor" + currentFloor);
+
         
         monthComboBox.addActionListener(this);
         previousPage.addActionListener(this);
-        nextPage.addActionListener(this);
-        
-        flowPanel.add(previousPage);
-        flowPanel.add(page);
-        flowPanel.add(nextPage);
-        borderPanel.add(monthComboBox, BorderLayout.NORTH);
-        borderPanel.add(scrollPane, BorderLayout.CENTER);
-        borderPanel.add(flowPanel, BorderLayout.SOUTH);
-        inFrame.add(borderPanel);
+
+        topPanel.add(monthComboBox, BorderLayout.NORTH);
+        topPanel.add(scrollPane, BorderLayout.CENTER);
+        mainPanel.add(topPanel, BorderLayout.NORTH);
+        inFrame.add(topPanel);
         inFrame.setPreferredSize(new Dimension(970, 607));
         inFrame.setVisible(true);
         inFrame.pack();
         
-//        ds.add(inFrame);
-//        fr.add(ds);
-//        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        fr.setPreferredSize(new Dimension(1280, 720));
-//        fr.pack();
-//        fr.setVisible(true);
+        ds.add(inFrame);
+        fr.add(ds);
+        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fr.setPreferredSize(new Dimension(1280, 720));
+        fr.pack();
+        fr.setVisible(true);
+        
+        billTable.addMouseListener(this);
         
         inFrame.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) inFrame.getUI();
@@ -83,11 +89,16 @@ public class Bill implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source.equals(monthComboBox)) {
-            BillModel databill = new BillModel(monthComboBox.getSelectedIndex() + 1);
+            BillModel databill = new BillModel();
+            databill.setBill_m(monthComboBox.getSelectedIndex() + 1);
             ArrayList<DataInfo> datalist = databill.getDataList();
 
-            DefaultTableModel model = new DefaultTableModel(columns, 0);
-
+        DefaultTableModel model = new DefaultTableModel(columns, 0) {
+            public boolean isCellEditable(int row, int column) {
+                return column == 2 || column == 4;
+            }
+        };
+        JTable table = new JTable(model);
             for (int i = 0; i < datalist.size(); i++) {
                 DataInfo data = datalist.get(i);
                 Object[] row = new Object[11];
@@ -101,39 +112,44 @@ public class Bill implements ActionListener {
                 row[7] = data.getcommon_fee();
                 row[8] = data.getpay_total_cost();
                 row[9] = data.getpay_status();
-                row[10] = data.getbtn();
+                row[10] = data.getpay_id();
                 model.addRow(row);
             }
             billTable.setModel(model);
-            int columnIndexOfButton = columns.length - 1;
-            for (int row = 0; row < billTable.getRowCount(); row++) {
-                System.out.println(billTable.getValueAt(row, columnIndexOfButton));
-                if (billTable.getValueAt(row, columnIndexOfButton) == null) {
-                    System.out.println("okkk");
-                    billTable.getColumnModel().getColumn(columnIndexOfButton).setCellRenderer(new EditButtonRenderer());
-                    billTable.getColumnModel().getColumn(columnIndexOfButton).setCellEditor(new EditButtonEditor(billTable));
-                }
-            }
-            
-
-            
-        }else if (source.equals(previousPage)) {
-            if (currentFloor > 1) {
-                currentFloor --;
-                page.removeAll();
-                page.setText("Floor" + currentFloor);
-            }
-            
-        }else if (source.equals(nextPage)) {
-            currentFloor ++;
-            page.removeAll();
-            page.setText("Floor" + currentFloor);
+            }  
         }
-    }
     
-//    public static void main(String[] args) {
-//        new Bill();
-//    }
+    public static void main(String[] args) {
+        new Bill();
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if (e.getClickCount() == 1) {
+            JTable target = (JTable) e.getSource();
+            int row = target.getSelectedRow();
+            int id = (int) target.getValueAt(row, columns.length - 1);
+            System.out.println(id);
+            billEditForm.setBillEditForm(id);
+        }
+        
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+    }
  
     
 }
