@@ -21,6 +21,7 @@ public class Employee implements ActionListener{
         inter = new JInternalFrame();
         pn1 = new JPanel();
         pn2Container = new JPanel();
+        ac = new account();
         pn3 = new JPanel();
         add = new JButton();
         
@@ -39,6 +40,7 @@ public class Employee implements ActionListener{
         
         pn2Container.setBackground(new Color(36, 29, 44));
         pn2Container.setPreferredSize(new Dimension(970,kha));
+        pn2Container.add(ac.getPanel());
         
         pn3.setOpaque(false);
         pn3.setLayout(new FlowLayout(FlowLayout.RIGHT));

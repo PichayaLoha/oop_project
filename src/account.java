@@ -20,7 +20,7 @@ public class account implements ActionListener{
         pn2 = new JPanel();
         pn3 = new JPanel();
         pn4 = new JPanel();
-        name = new JButton("Null");
+        name = new JButton("Null"); name.setContentAreaFilled(false); name.setBorderPainted(false);
         posi = new JLabel("Null");
         pic = new JLabel("PIcture");
 
@@ -48,8 +48,11 @@ public class account implements ActionListener{
             pn4.setOpaque(false);
             name.addActionListener(this);
         }
-//        pop = new popUp(accountData, em, index);
-
+    
+    public JPanel getPanel(){
+        return pn1;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {if (e.getSource().equals(name)){
 //            pop.getFrame().setVisible(true);
