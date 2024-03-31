@@ -7,10 +7,10 @@ import javax.swing.*;
 import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.border.*;
+
 public class account implements ActionListener{
     public JPanel pn1, pn2, pn3, pn4;
-    public JLabel posi, pic;
-    public JButton name;
+    public JLabel posi, pic, name;
     public popUp pop; 
     public data accountData;
     public ArrayList<data> acData;
@@ -23,7 +23,7 @@ public class account implements ActionListener{
         pn2 = new JPanel();
         pn3 = new JPanel();
         pn4 = new JPanel();
-        name = new JButton("Null"); name.setContentAreaFilled(false); name.setBorderPainted(false);
+        name = new JLabel("Null");
         posi = new JLabel("Null");
         pic = new JLabel("PIcture");
 
@@ -49,8 +49,17 @@ public class account implements ActionListener{
             posi.setForeground(Color.WHITE);
             posi.setFont(new Font("Mitr Light", Font.BOLD, 14));
             pn4.setOpaque(false);
-            name.addActionListener(this);
         }
+    
+    public void setData(data accountData){
+        this.accountData = accountData;
+        pic.setText(accountData.getImageProfile());
+        name.setText(accountData.getName());
+        posi.setText(accountData.getPosi()); 
+    }
+    
+    
+    
     
     public JPanel getPanel(){
         return pn1;

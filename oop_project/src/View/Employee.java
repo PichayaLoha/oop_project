@@ -7,9 +7,11 @@ import java.awt.event.*;
 import java.util.*;
 import java.net.URL;
 import java.io.*;
+import java.sql.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-public class Employee implements ActionListener{
-    
+
+public class Employee implements ActionListener {
+
     public JFrame fr;
     public JDesktopPane dp;
     public JInternalFrame inter;
@@ -19,17 +21,25 @@ public class Employee implements ActionListener{
     public ArrayList<data> acData;
     public int kha = 242;
     public int count = 0;
-    public Employee(){
+    
+
+
+    public Employee() {
 //        fr = new JFrame();
 //        dp = new JDesktopPane();
         inter = new JInternalFrame();
         pn1 = new JPanel();
         pn2Container = new JPanel();
+        pn2Container.setBackground(new Color(36, 29, 44));
+        pn2Container.setPreferredSize(new Dimension(970, kha));
+        pn1.add(pn2Container, BorderLayout.CENTER);
+
+        connect();
         acData = new ArrayList<>();
         ac = new account();
         pn3 = new JPanel();
         add = new JButton();
-        
+
         pn1.setBackground(new Color(36, 29, 44));
         JScrollPane scrollPane = new JScrollPane(pn2Container);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
@@ -42,31 +52,31 @@ public class Employee implements ActionListener{
         pn1.setLayout(new BorderLayout());
         pn1.add(scrollPane, BorderLayout.CENTER);
         pn1.add(pn3, BorderLayout.SOUTH);
-        
+
         pn2Container.setBackground(new Color(36, 29, 44));
-        pn2Container.setPreferredSize(new Dimension(970,kha));
+        pn2Container.setPreferredSize(new Dimension(970, kha));
         pn2Container.add(ac.getPanel());
-        
+
         pn3.setOpaque(false);
         pn3.setLayout(new FlowLayout(FlowLayout.RIGHT));
         pn3.add(add);
-        
+
         URL imageURL = Employee.class.getResource("/icon/plus.png");
         ImageIcon icon = new ImageIcon(imageURL);
         add.setIcon(icon);
-        add.setPreferredSize(new Dimension(50,50));
+        add.setPreferredSize(new Dimension(50, 50));
         add.setOpaque(false);
         add.setContentAreaFilled(false);
         add.setBorderPainted(false);
-        
+
         inter.add(pn1);
         add.addActionListener(this);
-        
+
         inter.setPreferredSize(new Dimension(970, 607));
         inter.setVisible(true);
         inter.pack();
-        
-        inter.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+
+        inter.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) inter.getUI();
         ui.setNorthPane(null);
 //        dp.add(inter);
@@ -76,11 +86,12 @@ public class Employee implements ActionListener{
 //        fr.setLocationRelativeTo(null);
 //        fr.setVisible(true);
     }
+
     public void refreshInternalFrame() {
         inter.revalidate();
         inter.repaint();
     }
-    
+
     public JInternalFrame getInternalFrame() {
         return inter;
     }
@@ -90,14 +101,45 @@ public class Employee implements ActionListener{
 //        new Employee();
 //    }
 
+    public void connect() {
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/oopject", "root", "");
+            String query = "SELECT * FROM employees";
+            PreparedStatement statement = conn.prepareStatement(query);
+            ResultSet result = statement.executeQuery();
+
+            while (result.next()) {
+                int employeeId = result.getInt("employee_id");
+                String firstName = result.getString("employee_firstname");
+                String lastName = result.getString("employee_lastname");
+                String role = result.getString("employee_role");
+                String imageProfile = result.getString("employee_imageprofile");
+
+                
+                
+                
+                
+                data accountData = new data(firstName + " " + lastName, role, imageProfile); 
+                ac.setData(accountData);
+                acData.add(accountData);
+            }
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Connection failed.");
+            e.printStackTrace();
+        }
+
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(add)){
+        if (e.getSource().equals(add)) {
             new popUp();
 
             refreshInternalFrame();
         }
     }
+
     public int getCount() {
         return count;
     }
