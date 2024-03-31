@@ -2,7 +2,8 @@
 package Models;
 
 public class DataInfo {
-    private int w_meter, e_meter, common_fee, pay_id;
+    private int pay_id;
+    private int w_meter, e_meter, common_fee;
     private int pay_room_cost, pay_water_cost, pay_elec_cost, pay_total_cost;
     private String pay_status, room_number, room_status, btn;
     
@@ -48,15 +49,15 @@ public class DataInfo {
         return btn;
     }
     
-    public int getw_meter() {
+    public double getw_meter() {
         return w_meter;
     }
     
-    public int gete_meter() {
+    public double gete_meter() {
         return e_meter;
     }
     
-    public int getcommon_fee() {
+    public double getcommon_fee() {
         return common_fee;
     }
     
@@ -80,19 +81,19 @@ public class DataInfo {
         this.pay_status = pay_status;
     }
     
-    public int getpay_room_cost() {
+    public double getpay_room_cost() {
         return pay_room_cost;
     }
     
-    public int getpay_water_cost() {
+    public double getpay_water_cost() {
         return pay_water_cost;
     }
     
-    public int getpay_elec_cost() {
+    public double getpay_elec_cost() {
         return pay_elec_cost;
     }
 
-    public int getpay_total_cost() {
+    public double getpay_total_cost() {
         return pay_total_cost;
     }
     

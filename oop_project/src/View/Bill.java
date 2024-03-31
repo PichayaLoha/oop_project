@@ -1,25 +1,15 @@
 package View;
 
 import Models.BillEditForm;
-import Models.DataBill;
-//import Controllers.DataBill;
-import Controllers.EditButtonEditor;
-import Controllers.EditButtonRenderer;
-import Controllers.UpdateTable;
 import Models.BillModel;
 import Models.DataInfo;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 public class Bill implements ActionListener, MouseListener {
@@ -34,16 +24,13 @@ public class Bill implements ActionListener, MouseListener {
     private String[] columns = {"room number", "Status room", "water meter", "Amount-Water[Baht]", 
                                 "Electricity meter", "Amount-Elec[Baht]", "Total amount", "Common fee", 
                                 "Total cost", "Status", "ID"};
-    private JComboBox<String> statusComboBox;
-    private String[] statusList = {"Paid", "Not yet paid", "No status"};
     private JButton nextPage, previousPage;
     private JLabel page, img1;
     private int id;
-//    private BillEditForm billEditForm;
     
     public Bill() {
-        JFrame fr = new JFrame();
-        JDesktopPane ds = new JDesktopPane();
+//        JFrame fr = new JFrame();
+//        JDesktopPane ds = new JDesktopPane();
 
         inFrame = new JInternalFrame();
         topPanel = new JPanel(new BorderLayout());
@@ -67,12 +54,12 @@ public class Bill implements ActionListener, MouseListener {
         inFrame.setVisible(true);
         inFrame.pack();
         
-        ds.add(inFrame);
-        fr.add(ds);
-        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fr.setPreferredSize(new Dimension(1280, 720));
-        fr.pack();
-        fr.setVisible(true);
+//        ds.add(inFrame);
+//        fr.add(ds);
+//        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        fr.setPreferredSize(new Dimension(1280, 720));
+//        fr.pack();
+//        fr.setVisible(true);
         
         billTable.addMouseListener(this);
         
@@ -90,14 +77,10 @@ public class Bill implements ActionListener, MouseListener {
         Object source = e.getSource();
         if (source.equals(monthComboBox)) {
             BillModel databill = new BillModel();
-            databill.setBillModel_M(monthComboBox.getSelectedIndex() + 1);
+            databill.BillModel_Month(monthComboBox.getSelectedIndex() + 1);
             ArrayList<DataInfo> datalist = databill.getDataList();
 
-        DefaultTableModel model = new DefaultTableModel(columns, 0) {
-            public boolean isCellEditable(int row, int column) {
-                return column == 2 || column == 4;
-            }
-        };
+        DefaultTableModel model = new DefaultTableModel(columns, 0);
         JTable table = new JTable(model);
             for (int i = 0; i < datalist.size(); i++) {
                 DataInfo data = datalist.get(i);
@@ -116,7 +99,7 @@ public class Bill implements ActionListener, MouseListener {
                 model.addRow(row);
             }
             billTable.setModel(model);
-            }  
+            }
         }
     
     public static void main(String[] args) {

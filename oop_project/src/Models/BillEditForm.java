@@ -8,14 +8,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-public class BillEditForm implements ActionListener {
+public class BillEditForm implements ActionListener  {
     private JFrame fr;
     private JPanel p1, p2, p3;
     private JTextField tfrn, tfs, tfw, tfwa, tfe, tfea, tfc, tfr, tft, tfta;
     private JLabel lbed, lbrn, lbs, lbw, lbwa, lbe, lbea, lbc, lbr, lbt, lbta, lbsp;
     private JComboBox cb;
-    private JButton ok, cancel;
     private DataInfo data;
+    private int id;
+    private JButton cancel;
+    private ArrayList<DataInfo> arr = new BillModel().getDataList();
 
     public BillEditForm() {
         fr = new JFrame("Edit Bill");
@@ -34,7 +36,6 @@ public class BillEditForm implements ActionListener {
         lbta = new JLabel("Total cost");
         lbsp = new JLabel("Status pay");
         tfrn = new JTextField(); //room num
-//        tfrn.setText(String.valueOf(id));
         tfrn.setEditable(false);
         tfs = new JTextField(); //room sta
         tfs.setEditable(false);
@@ -50,8 +51,7 @@ public class BillEditForm implements ActionListener {
         tfr.setEditable(false);
         tfta = new JTextField(); // tt c
         tfta.setEditable(false);
-        ok = new JButton("OK");
-        cancel = new JButton("Cancel");
+
         cb = new JComboBox(); //sta pay
         cb.addItem("paid");
         cb.addItem("notpaid");
@@ -59,7 +59,7 @@ public class BillEditForm implements ActionListener {
         
         fr.setLayout(new BorderLayout());
         fr.setResizable(false);
-        fr.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        fr.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         fr.setPreferredSize(new Dimension(500, 250));
         fr.add(p1, BorderLayout.NORTH);
         p1.add(lbed);
@@ -86,17 +86,19 @@ public class BillEditForm implements ActionListener {
         p2.add(cb);
         p2.add(lbta);
         p2.add(tfta);
-
+        cancel = new JButton("Cancel");
         fr.add(p3, BorderLayout.SOUTH);
-        p3.add(ok); p3.add(cancel);
-
+        p3.add(cancel);
+        fr.setLocation(500, 340);
         fr.pack();
         fr.setVisible(true);
         
-        cancel.addActionListener(this);  
+
+ 
     }
     
     public void setBillEditForm(int id) {
+        this.id = id;
         BillModel databill = new BillModel();
         databill.setBillModel_id(id);
         data = databill.getData();
@@ -109,39 +111,86 @@ public class BillEditForm implements ActionListener {
         tfc.setText(String.valueOf(data.getcommon_fee()));
         tfr.setText(String.valueOf(data.getpay_room_cost()));
         cb.setSelectedItem(data.getpay_status());
-        tfta.setText(String.valueOf(data.getpay_total_cost()));
+        tfta.setText(String.valueOf(data.getpay_total_cost())); 
         
-    }
+        String check = (String) cb.getSelectedItem();
+        if (check.equals("paid")) {
+            tfw.setEditable(false);
+            tfe.setEditable(false);
+        }else {
+            JButton ok = new JButton("UPDATE");
+            p3.add(ok);
+            ok.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Object source = e.getSource();
+                    if (source.equals(ok)) {
+                        if (tfw.getText().isEmpty() || tfe.getText().isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "Please fill in information!", "", JOptionPane.ERROR_MESSAGE);
+                        } else {
+                            try {
+                                int water_meter = (int) Double.parseDouble(tfw.getText());
+                                int elec_meter = (int) Double.parseDouble(tfe.getText());
+                                int roomcost = (int) Double.parseDouble(tfr.getText());
+                                int common = (int) Double.parseDouble(tfc.getText());
 
+                                Cal_Watercost wcost = new Cal_Watercost(water_meter);
+                                int waterCost = wcost.CalculateCost();
+
+                                Cal_Eleccost ecost = new Cal_Eleccost(elec_meter);
+                                int elecCost = ecost.CalculateCost();
+
+                                TotalCost total = new TotalCost(water_meter, elec_meter, common, roomcost);
+                                int totalCost = total.CalculateCost();
+
+                                int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to edit the information?", "Are you sure?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                                if (confirm == JOptionPane.YES_OPTION) {
+                                    int pay_id = id;
+                                    String room_number = tfrn.getText();
+                                    String room_status = tfs.getText();
+                                    int wmeter = (int) Double.parseDouble(tfw.getText());
+                                    int emeter = (int) Double.parseDouble(tfe.getText());
+                                    int rentc = (int) Double.parseDouble(tfr.getText());
+                                    int comm = (int) Double.parseDouble(tfc.getText());
+                                    String stastusc = (String) cb.getSelectedItem();
+                                    new BillModel().updateBillModel(pay_id, room_number, room_status, wmeter, waterCost, emeter, elecCost, rentc, comm, totalCost, stastusc);
+
+                                    JOptionPane.showMessageDialog(null, "Data update successfully.");
+                                    tfwa.setText(String.valueOf(waterCost));
+                                    tfea.setText(String.valueOf(elecCost));
+                                    cb.setSelectedItem(source);
+                                    tfta.setText(String.valueOf(totalCost));
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "Failed to update data.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                                }
+
+                            } catch (NumberFormatException ex) {
+                                JOptionPane.showMessageDialog(null, "Please enter numerical information!", "", JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                    }
+                }
+            });
+          }
+        }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        if (source.equals(ok)) {
-            if (tfw.getText().isEmpty() || tfe.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please fill in information!", "", JOptionPane.ERROR_MESSAGE);
-            }else {
-                try {
-                    double water_meter = Double.parseDouble(tfw.getText());
-                    double elec_meter = Double.parseDouble(tfe.getText());
-                    double roomcost = Double.parseDouble(tfr.getText());
-                    double common = Double.parseDouble(tfc.getText());
-                    
-                    Cal_Watercost c = new Cal_Watercost(water_meter);
-                    
-                    System.out.println();
-                    
-//                    tfwa.setText(t);
-//                    tfea.setText(t);
-//                    tfta.setText(t);
-                    
-                    
-                }catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, "Please enter numerical information!", "", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        }else if (source.equals(cancel)) {
-            fr.dispose();
+        if (source.equals(cancel)) {
+            int pay_id = id;
+            String room_number = tfrn.getText();
+            String room_status = tfs.getText();
+            int wmeter = (int) Double.parseDouble(tfw.getText());
+            int emeter = (int) Double.parseDouble(tfe.getText());
+            int rentc = (int) Double.parseDouble(tfr.getText());
+            int comm = (int) Double.parseDouble(tfc.getText());
+            String stastusc = (String) cb.getSelectedItem();
+            int waterCost = (int) Double.parseDouble(tfwa.getText());
+            int elecCost = (int) Double.parseDouble(tfe.getText());
+            int totalCost = (int) Double.parseDouble(tfta.getText());
+            new BillModel().updateBillModel(pay_id, room_number, room_status, wmeter, waterCost, emeter, elecCost, rentc, comm, totalCost, stastusc);
+            arr.add(id, data);
         }
     }
 }

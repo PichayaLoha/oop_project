@@ -2,11 +2,11 @@
 package Models;
 
 public abstract class Calculator implements Calculate {
-    protected double costperunits;
-    protected double meter;
-    protected double totalcost;
+    public int costperunits;
+    public int meter;
+    public int totalcost;
     
-    public Calculator(double costperunits, double meter, double totalcost) {
+    public Calculator(int costperunits, int meter, int totalcost) {
         this.costperunits = costperunits;
         this.meter = meter;
         this.totalcost = totalcost;

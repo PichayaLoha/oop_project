@@ -3,20 +3,28 @@ package Models;
 import java.sql.*;
 
 public class Connector {
-    public Connection conn;
-    public Statement stm;
-    public ResultSet rs;
+    private Connection conn;
+    private Statement stm;
+    private ResultSet rs;
 
     private String url = "jdbc:mysql://localhost:3306/oopject_1";
     private String username = "root";
     private String password = "";
     
-    public ResultSet getConnect(String sql) {
+    public Connector() {
+        // Initialize the connection in the constructor
         try {
             conn = DriverManager.getConnection(url, username, password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public ResultSet getConnect(String sql) {
+        try {
             stm = conn.createStatement();
             rs = stm.executeQuery(sql);
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return rs;
@@ -26,7 +34,7 @@ public class Connector {
         try {
             stm = conn.createStatement();
             stm.executeUpdate(sql);
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -35,12 +43,12 @@ public class Connector {
         try {
             stm.close();
             conn.close();
-        }catch(SQLException e) {
+        } catch(SQLException e) {
             e.printStackTrace();
         }
     }
-    
-//    public void setData(String sql) {
-//            
-//    }
+
+    public Connection getConnection() {
+        return conn;
+    }
 }

@@ -1,7 +1,10 @@
 package Models;
 
+import Models.Connector;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class BillModel {
     private DataBill dataBill;
@@ -9,7 +12,7 @@ public class BillModel {
     private ArrayList<DataInfo> dataList;
     private DataInfo data;
     
-    public void setBillModel_M(int monthIndex) {
+    public void BillModel_Month(int monthIndex) {
 //        System.out.println(monthIndex);
         dataList = new ArrayList<>();
         Connector dbconn = new Connector();
@@ -27,14 +30,7 @@ public class BillModel {
                 dataBill.setpay_elec_cost(resultSet.getInt("pay_elec_cost"));
                 dataBill.setcommon(resultSet.getInt("pay_common_area"));
                 dataBill.setpay_total_cost(resultSet.getInt("pay_total_cost"));
-                String check = resultSet.getString("pay_status");
-                if (check.equals("paid")) {
-                    check = "Completed";
-                }else if (check.equals("notpaid")) {
-                    check = null;
-                }
                 dataBill.setpay_status(resultSet.getString("pay_status"));
-//                System.out.println(dataBill.getroom_id());
                 
                 FindID(dataBill.getroom_id());
 
@@ -116,5 +112,31 @@ public class BillModel {
             }
         }
     }
+
+    public void updateBillModel(int pay_id, String room_number, String room_status, int w_meter, int pay_water_cost, int e_meter, int pay_elec_cost, int pay_room_cost, int common_fee, int pay_total_cost, String pay_status) {
+        try {
+            System.out.println("water_meter" + w_meter);
+            Connector dbconn = new Connector();
+            String query = "UPDATE `pays` SET `water_meter`=?, `elec_meter`=?, `pay_room_cost`=?, `pay_water_cost`=?, `pay_elec_cost`=?, `pay_common_area`=?, `pay_total_cost`=?, `pay_status`=? WHERE `pay_id`=?";
+            Connection conn = dbconn.getConnection();
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setInt(1, w_meter);
+            pst.setInt(2, e_meter);
+            pst.setInt(3, pay_room_cost);
+            pst.setInt(4, pay_water_cost);
+            pst.setInt(5, pay_elec_cost);
+            pst.setInt(6, common_fee);
+            pst.setInt(7, pay_total_cost);
+            pst.setString(8, pay_status);
+            pst.setInt(9, pay_id);
+            pst.executeUpdate();
+            System.out.println("completed");
+            pst.close();
+            conn.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+}
+
 }
 

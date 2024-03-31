@@ -91,6 +91,7 @@ public class Login implements ActionListener {
         fr.setPreferredSize(new Dimension(1280, 720));
         fr.pack();
         fr.setVisible(true);
+//        fr.setLocation(100, 50);
     }
 
     public static void main(String[] args) {

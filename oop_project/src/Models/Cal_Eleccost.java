@@ -2,13 +2,13 @@
 package Models;
 
 public class Cal_Eleccost extends Calculator{
-    public static double Elec_CostPerUnits = 30;
-    public Cal_Eleccost(double costperunits, double meter, double totalcost) {
+    public static int Elec_CostPerUnits = 30;
+    public Cal_Eleccost(int meter) {
         super(Elec_CostPerUnits, meter, 0);
         this.totalcost = CalculateCost();
     }
     @Override
-    public double CalculateCost() {
+    public int CalculateCost() {
         return Elec_CostPerUnits * meter;
     }
     
