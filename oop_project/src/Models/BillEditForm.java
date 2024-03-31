@@ -1,11 +1,13 @@
-package View;
+package Models;
 
 import Models.BillModel;
+import Models.DataInfo;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 public class BillEditForm implements ActionListener {
     private JFrame fr;
     private JPanel p1, p2, p3;
@@ -13,6 +15,7 @@ public class BillEditForm implements ActionListener {
     private JLabel lbed, lbrn, lbs, lbw, lbwa, lbe, lbea, lbc, lbr, lbt, lbta, lbsp;
     private JComboBox cb;
     private JButton ok, cancel;
+    private DataInfo data;
 
     public BillEditForm() {
         fr = new JFrame("Edit Bill");
@@ -30,29 +33,29 @@ public class BillEditForm implements ActionListener {
         lbr = new JLabel("Rent");
         lbta = new JLabel("Total cost");
         lbsp = new JLabel("Status pay");
-        tfrn = new JTextField();
+        tfrn = new JTextField(); //room num
 //        tfrn.setText(String.valueOf(id));
         tfrn.setEditable(false);
-        tfs = new JTextField();
+        tfs = new JTextField(); //room sta
         tfs.setEditable(false);
-        tfw = new JTextField();
-        tfwa = new JTextField();
+        tfw = new JTextField(); //w m
+        tfwa = new JTextField(); //wa
         tfwa.setEditable(false);
-        tfe = new JTextField();
-        tfea = new JTextField();
+        tfe = new JTextField(); //e m
+        tfea = new JTextField(); // ea
         tfea.setEditable(false);
-        tfc = new JTextField();
+        tfc = new JTextField(); //common
         tfc.setEditable(false);
-        tfr = new JTextField();
+        tfr = new JTextField(); // rent
         tfr.setEditable(false);
-        tfta = new JTextField();
+        tfta = new JTextField(); // tt c
         tfta.setEditable(false);
         ok = new JButton("OK");
         cancel = new JButton("Cancel");
-        cb = new JComboBox();
-        cb.addItem("Paid");
-        cb.addItem("Not yet paid");
-        cb.addItem("No status");
+        cb = new JComboBox(); //sta pay
+        cb.addItem("paid");
+        cb.addItem("notpaid");
+        cb.addItem("nostatus");
         
         fr.setLayout(new BorderLayout());
         fr.setResizable(false);
@@ -94,14 +97,49 @@ public class BillEditForm implements ActionListener {
     }
     
     public void setBillEditForm(int id) {
+        BillModel databill = new BillModel();
+        databill.setBillModel_id(id);
+        data = databill.getData();
+        tfrn.setText(data.getroom_number());
+        tfs.setText(data.getroom_status());
+        tfw.setText(String.valueOf(data.getw_meter()));
+        tfwa.setText(String.valueOf(data.getpay_water_cost()));
+        tfe.setText(String.valueOf(data.gete_meter()));
+        tfea.setText(String.valueOf(data.getpay_elec_cost()));
+        tfc.setText(String.valueOf(data.getcommon_fee()));
+        tfr.setText(String.valueOf(data.getpay_room_cost()));
+        cb.setSelectedItem(data.getpay_status());
+        tfta.setText(String.valueOf(data.getpay_total_cost()));
         
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source.equals(ok)) {
-            
+            if (tfw.getText().isEmpty() || tfe.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please fill in information!", "", JOptionPane.ERROR_MESSAGE);
+            }else {
+                try {
+                    double water_meter = Double.parseDouble(tfw.getText());
+                    double elec_meter = Double.parseDouble(tfe.getText());
+                    double roomcost = Double.parseDouble(tfr.getText());
+                    double common = Double.parseDouble(tfc.getText());
+                    
+                    Cal_Watercost c = new Cal_Watercost(water_meter);
+                    
+                    System.out.println();
+                    
+//                    tfwa.setText(t);
+//                    tfea.setText(t);
+//                    tfta.setText(t);
+                    
+                    
+                }catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Please enter numerical information!", "", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }else if (source.equals(cancel)) {
             fr.dispose();
         }

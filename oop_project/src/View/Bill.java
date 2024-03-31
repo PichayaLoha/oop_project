@@ -1,5 +1,6 @@
 package View;
 
+import Models.BillEditForm;
 import Models.DataBill;
 //import Controllers.DataBill;
 import Controllers.EditButtonEditor;
@@ -35,11 +36,10 @@ public class Bill implements ActionListener, MouseListener {
                                 "Total cost", "Status", "ID"};
     private JComboBox<String> statusComboBox;
     private String[] statusList = {"Paid", "Not yet paid", "No status"};
-    private int currentFloor = 1;
     private JButton nextPage, previousPage;
     private JLabel page, img1;
     private int id;
-    private BillEditForm billEditForm;
+//    private BillEditForm billEditForm;
     
     public Bill() {
         JFrame fr = new JFrame();
@@ -90,7 +90,7 @@ public class Bill implements ActionListener, MouseListener {
         Object source = e.getSource();
         if (source.equals(monthComboBox)) {
             BillModel databill = new BillModel();
-            databill.setBill_m(monthComboBox.getSelectedIndex() + 1);
+            databill.setBillModel_M(monthComboBox.getSelectedIndex() + 1);
             ArrayList<DataInfo> datalist = databill.getDataList();
 
         DefaultTableModel model = new DefaultTableModel(columns, 0) {
@@ -130,7 +130,7 @@ public class Bill implements ActionListener, MouseListener {
             int row = target.getSelectedRow();
             int id = (int) target.getValueAt(row, columns.length - 1);
             System.out.println(id);
-            billEditForm.setBillEditForm(id);
+            new BillEditForm().setBillEditForm(id);
         }
         
     }

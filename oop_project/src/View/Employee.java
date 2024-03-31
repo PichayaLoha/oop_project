@@ -9,7 +9,9 @@ import java.net.URL;
 import java.io.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 public class Employee implements ActionListener{
-
+    
+    public JFrame fr;
+    public JDesktopPane dp;
     public JInternalFrame inter;
     public JPanel pn1, pn2Container, pn3, pn4, pn5, pn6;
     public JButton add;
@@ -18,12 +20,16 @@ public class Employee implements ActionListener{
     public int kha = 242;
     public int count = 0;
     public Employee(){
+//        fr = new JFrame();
+//        dp = new JDesktopPane();
         inter = new JInternalFrame();
         pn1 = new JPanel();
         pn2Container = new JPanel();
+        acData = new ArrayList<>();
+        ac = new account();
         pn3 = new JPanel();
         add = new JButton();
-        acData = new ArrayList<>();
+        
         pn1.setBackground(new Color(36, 29, 44));
         JScrollPane scrollPane = new JScrollPane(pn2Container);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
@@ -39,6 +45,7 @@ public class Employee implements ActionListener{
         
         pn2Container.setBackground(new Color(36, 29, 44));
         pn2Container.setPreferredSize(new Dimension(970,kha));
+        pn2Container.add(ac.getPanel());
         
         pn3.setOpaque(false);
         pn3.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -54,7 +61,7 @@ public class Employee implements ActionListener{
         
         inter.add(pn1);
         add.addActionListener(this);
-
+        
         inter.setPreferredSize(new Dimension(970, 607));
         inter.setVisible(true);
         inter.pack();
@@ -62,20 +69,24 @@ public class Employee implements ActionListener{
         inter.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) inter.getUI();
         ui.setNorthPane(null);
-    
-
-    }
-    
-    public JInternalFrame getInternalFrame() {
-        return inter;
+//        dp.add(inter);
+//        fr.add(dp);
+//        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        fr.setSize(1280,720);
+//        fr.setLocationRelativeTo(null);
+//        fr.setVisible(true);
     }
     public void refreshInternalFrame() {
         inter.revalidate();
         inter.repaint();
     }
+    
+    public JInternalFrame getInternalFrame() {
+        return inter;
+    }
 //    public static void main(String[] args) {
-//        JPanel pn2 = new JPanel();
-//        ArrayList<data> acData = new ArrayList<>();
+////        JPanel pn2 = new JPanel();
+////        ArrayList<data> acData = new ArrayList<>();
 //        new Employee();
 //    }
 
@@ -83,6 +94,7 @@ public class Employee implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(add)){
             new popUp();
+
             refreshInternalFrame();
         }
     }

@@ -17,7 +17,7 @@ public class DataInfo {
         this.pay_room_cost = pay_room_cost;
         this.common_fee = common_fee;
         this.pay_total_cost = pay_total_cost;
-        this.pay_status = pay_status;   
+        this.pay_status = pay_status; 
     }
     
     public void setpay_id(int pay_id) {
