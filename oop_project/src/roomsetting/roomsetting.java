@@ -52,11 +52,23 @@ public class roomsetting extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(970, 607));
         setVisible(true);
 
+        jPanel1.setBackground(new java.awt.Color(225, 194, 240));
+
+        jComboBox1.setBackground(new java.awt.Color(196, 158, 219));
+        jComboBox1.setEditable(true);
         jComboBox1.setFont(new java.awt.Font("FC Iconic", 1, 24)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(99, 80, 153));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Floor 1" }));
         jComboBox1.setName("Floor"); // NOI18N
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
+        jButton1.setBackground(new java.awt.Color(196, 158, 219));
         jButton1.setFont(new java.awt.Font("FC Iconic", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(99, 80, 153));
         jButton1.setText("Add Floor");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,7 +76,9 @@ public class roomsetting extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(196, 158, 219));
         jButton3.setFont(new java.awt.Font("FC Iconic", 1, 24)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(99, 80, 153));
         jButton3.setText("Add Room");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +109,8 @@ public class roomsetting extends javax.swing.JInternalFrame {
                     .addComponent(jComboBox1))
                 .addContainerGap())
         );
+
+        jPanel2.setBackground(new java.awt.Color(54, 52, 117));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,6 +152,10 @@ public class roomsetting extends javax.swing.JInternalFrame {
         jPanel2.add(jp2);
         Roomadd.setVisible(true);}
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
