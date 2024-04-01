@@ -6,6 +6,7 @@ public class TotalCost implements Calculate{
     private Cal_Eleccost CalelecCost;
     private int common;
     private int rent;
+    
     public TotalCost(int w_meter, int e_meter, int common, int rent) {
         this.common = common;
         this.rent = rent;

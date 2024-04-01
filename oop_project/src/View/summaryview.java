@@ -21,7 +21,7 @@ public class summaryview extends javax.swing.JInternalFrame {
 
     public void connect() {
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost/oopject", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/oopject_1", "root", "");
             st = con.createStatement();
         } catch (SQLException ex) {
             System.out.println("Error: " + ex);

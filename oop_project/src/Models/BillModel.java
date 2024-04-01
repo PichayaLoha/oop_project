@@ -1,10 +1,8 @@
 package Models;
-
-import Models.Connector;
+import java.sql.ResultSet;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class BillModel {
     private DataBill dataBill;
@@ -13,7 +11,6 @@ public class BillModel {
     private DataInfo data;
     
     public void BillModel_Month(int monthIndex) {
-//        System.out.println(monthIndex);
         dataList = new ArrayList<>();
         Connector dbconn = new Connector();
         String query = "SELECT * FROM pays WHERE MONTH(pay_date) = " + monthIndex;
@@ -33,22 +30,13 @@ public class BillModel {
                 dataBill.setpay_status(resultSet.getString("pay_status"));
                 
                 FindID(dataBill.getroom_id());
-
+                
                 data = new DataInfo(dataBill.getpay_id(), dataRoom.getroom_number(), dataRoom.getroom_status(), dataBill.getw_meter(), dataBill.getpay_water_cost(),dataBill.gete_meter(), dataBill.getpay_elec_cost(), dataBill.getpay_room_cost(), dataBill.getcommon(), dataBill.getpay_total_cost(), dataBill.getpay_status());
                 dataList.add(data);
 
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                dbconn.disconnect();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -65,16 +53,8 @@ public class BillModel {
                 
             }
         }catch (SQLException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }
-  
-    public ArrayList<DataInfo> getDataList() {
-        return dataList;
-    }
-    
-    public DataInfo getData() {
-        return data;
     }
     
     public void setBillModel_id(int id) {
@@ -100,16 +80,7 @@ public class BillModel {
                 
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                dbconn.disconnect();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -118,8 +89,7 @@ public class BillModel {
             System.out.println("water_meter" + w_meter);
             Connector dbconn = new Connector();
             String query = "UPDATE `pays` SET `water_meter`=?, `elec_meter`=?, `pay_room_cost`=?, `pay_water_cost`=?, `pay_elec_cost`=?, `pay_common_area`=?, `pay_total_cost`=?, `pay_status`=? WHERE `pay_id`=?";
-            Connection conn = dbconn.getConnection();
-            PreparedStatement pst = conn.prepareStatement(query);
+            PreparedStatement pst = dbconn.prepareStatement(query);
             pst.setInt(1, w_meter);
             pst.setInt(2, e_meter);
             pst.setInt(3, pay_room_cost);
@@ -132,11 +102,19 @@ public class BillModel {
             pst.executeUpdate();
             System.out.println("completed");
             pst.close();
-            conn.close();
+            dbconn.disconnect();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-}
+    }
 
+    
+    public ArrayList<DataInfo> getDataList() {
+        return dataList;
+    }
+    
+    public DataInfo getData() {
+        return data;
+    }
+    
 }
-

@@ -1,6 +1,8 @@
 package View;
 
 
+
+
 import Models.data;
 import View.Login;
 import View.Dashboard;
@@ -13,15 +15,18 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class Sidebar extends JInternalFrame implements ActionListener {
     private Dashboard dashboard;
-    private test testFile;
+//    private test testFile;
     private Bill billFile;
     private Cleaning serviceFile;
     private summaryview summaryFile;
-    private MainRooms roomsFile;
+    private MainRooms mainFile;
     private Employee employFile;
     private roomsetting settingFile;
+//    private roomsetting settingFile;
     
-    public Sidebar() {
+    public Sidebar(){ }
+    
+    public Sidebar(String user) {
         initComponents();
 //        this.ds = ds;
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
@@ -35,6 +40,8 @@ public class Sidebar extends JInternalFrame implements ActionListener {
         bill.addActionListener(this);
         employee.addActionListener(this);
         setting.addActionListener(this);
+        
+        username.setText(user);
     }
 //    public Sidebar(JDesktopPane jDesktopPane1) {
 //        this.jDesktopPane1 = jDesktopPane1;
@@ -50,9 +57,7 @@ public class Sidebar extends JInternalFrame implements ActionListener {
 
         jPanel1 = new javax.swing.JPanel();
         topPanel = new javax.swing.JPanel();
-        txtSearch = new javax.swing.JTextField();
         username = new javax.swing.JLabel();
-        label_Search = new javax.swing.JLabel();
         logout1 = new javax.swing.JButton();
         logout = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
@@ -73,21 +78,9 @@ public class Sidebar extends JInternalFrame implements ActionListener {
         topPanel.setBackground(new java.awt.Color(255, 255, 255));
         topPanel.setPreferredSize(new java.awt.Dimension(970, 70));
 
-        txtSearch.setBackground(new java.awt.Color(204, 204, 255));
-        txtSearch.setText("Search");
-        txtSearch.setBorder(null);
-        txtSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchActionPerformed(evt);
-            }
-        });
-
         username.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username.setText("Admin1");
-
-        label_Search.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        label_Search.setText("Search :");
 
         logout1.setBackground(new java.awt.Color(204, 102, 255));
         logout1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -113,11 +106,7 @@ public class Sidebar extends JInternalFrame implements ActionListener {
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(label_Search)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,16 +119,10 @@ public class Sidebar extends JInternalFrame implements ActionListener {
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(label_Search)))
+                .addGap(23, 23, 23)
+                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addComponent(logout1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -279,10 +262,6 @@ public class Sidebar extends JInternalFrame implements ActionListener {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchActionPerformed
-
     private void summaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summaryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_summaryActionPerformed
@@ -299,7 +278,6 @@ public class Sidebar extends JInternalFrame implements ActionListener {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel label_Search;
     private javax.swing.JLabel logo;
     private javax.swing.JButton logout;
     private javax.swing.JButton logout1;
@@ -310,7 +288,6 @@ public class Sidebar extends JInternalFrame implements ActionListener {
     private javax.swing.JButton summary;
     private javax.swing.JPanel topPanel;
     private javax.swing.JLabel topic;
-    private javax.swing.JTextField txtSearch;
     private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
     
@@ -332,9 +309,12 @@ public class Sidebar extends JInternalFrame implements ActionListener {
                 button.setBackground(button.equals(source) ? Color.WHITE : null);
                 button.setForeground(button.equals(source) ? Color.BLACK : Color.WHITE);
             }
-            roomsFile = new MainRooms();
+//            txtSearch.setVisible(true);
+//            label_Search.setVisible(true);
+
+            mainFile = new MainRooms();
             jDesktopPane1.removeAll();
-            jDesktopPane1.add(roomsFile).setVisible(true);
+            jDesktopPane1.add(mainFile).setVisible(true);
         
         }else if (source.equals(summary)) {
             for (JButton button : buttons) {

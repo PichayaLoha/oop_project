@@ -1,17 +1,8 @@
 package View;
 
-import Models.UserModel;
-import Models.Userdata;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+public class detail_1 extends javax.swing.JFrame {
 
-public class detail extends javax.swing.JFrame {
-
-    public detail() {
+    public detail_1() {
         initComponents();
         setSize(800, 550);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -26,11 +17,11 @@ public class detail extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-//        jLabel2 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-//        jButton2 = new javax.swing.JButton();
-//        jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         pnRight = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -92,13 +83,13 @@ public class detail extends javax.swing.JFrame {
         jLabel1.setPreferredSize(new java.awt.Dimension(87, 30));
         jPanel2.add(jLabel1);
 
-//        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Customer Image.png"))); // NOI18N
-//        jLabel2.setPreferredSize(new java.awt.Dimension(162, 180));
-//        jPanel2.add(jLabel2);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Customer Image.png"))); // NOI18N
+        jLabel2.setPreferredSize(new java.awt.Dimension(162, 180));
+        jPanel2.add(jLabel2);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(78, 0, 151));
-        jButton1.setText("Delete data");
+        jButton1.setText("Change image");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -109,24 +100,24 @@ public class detail extends javax.swing.JFrame {
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-//
-//        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-//        jButton2.setForeground(new java.awt.Color(78, 0, 151));
-//        jButton2.setText("ข้อมูลผู้เช่า");
-//        jButton2.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                jButton2ActionPerformed(evt);
-//            }
-//        });
 
-//        jButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-//        jButton3.setForeground(new java.awt.Color(78, 0, 151));
-//        jButton3.setText("DELETE");
-//        jButton3.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                jButton3ActionPerformed(evt);
-//            }
-//        });
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(78, 0, 151));
+        jButton2.setText("Tenant information");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(78, 0, 151));
+        jButton3.setText("Usage history");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -134,20 +125,20 @@ public class detail extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
-//                .addComponent(jButton2)
+                .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(46, Short.MAX_VALUE)
-//                .addComponent(jButton3)
+                .addComponent(jButton3)
                 .addGap(45, 45, 45))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-//                .addComponent(jButton2)
+                .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-//                .addComponent(jButton3)
+                .addComponent(jButton3)
                 .addContainerGap(219, Short.MAX_VALUE))
         );
 
@@ -159,12 +150,12 @@ public class detail extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(78, 0, 151));
-        jLabel3.setText("Room Information");
+        jLabel3.setText("Room information");
         jLabel3.setPreferredSize(new java.awt.Dimension(87, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(78, 0, 151));
-        jLabel4.setText("Tenant Information");
+        jLabel4.setText("Tenant information");
         jLabel4.setPreferredSize(new java.awt.Dimension(87, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -172,10 +163,10 @@ public class detail extends javax.swing.JFrame {
         jLabel6.setText("Name");
         jLabel6.setPreferredSize(new java.awt.Dimension(87, 30));
 
-        jTextField1.setEditable(true);
+        jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(78, 0, 151));
-        jTextField1.setText("");
+        jTextField1.setText("Mr.");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -184,13 +175,12 @@ public class detail extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(178, 137, 203));
-        jLabel7.setText("Surname");
+        jLabel7.setText("Lastname");
         jLabel7.setPreferredSize(new java.awt.Dimension(87, 30));
 
-        jTextField2.setEditable(true);
+        jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(78, 0, 151));
-        
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -202,7 +192,7 @@ public class detail extends javax.swing.JFrame {
         jLabel8.setText("Gender");
         jLabel8.setPreferredSize(new java.awt.Dimension(87, 30));
 
-        jTextField3.setEditable(true);
+        jTextField3.setEditable(false);
         jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(78, 0, 151));
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -216,7 +206,7 @@ public class detail extends javax.swing.JFrame {
         jLabel9.setText("Nickname");
         jLabel9.setPreferredSize(new java.awt.Dimension(87, 30));
 
-        jTextField4.setEditable(true);
+        jTextField4.setEditable(false);
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(78, 0, 151));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -230,7 +220,7 @@ public class detail extends javax.swing.JFrame {
         jLabel10.setText("Age");
         jLabel10.setPreferredSize(new java.awt.Dimension(87, 30));
 
-        jTextField5.setEditable(true);
+        jTextField5.setEditable(false);
         jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField5.setForeground(new java.awt.Color(78, 0, 151));
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
@@ -241,10 +231,10 @@ public class detail extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(178, 137, 203));
-        jLabel11.setText("YY/MM/DD");
+        jLabel11.setText("DD//MM//YY");
         jLabel11.setPreferredSize(new java.awt.Dimension(87, 30));
 
-        jTextField6.setEditable(true);
+        jTextField6.setEditable(false);
         jTextField6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(78, 0, 151));
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
@@ -263,7 +253,7 @@ public class detail extends javax.swing.JFrame {
         jLabel13.setText("Occupation");
         jLabel13.setPreferredSize(new java.awt.Dimension(87, 30));
 
-        jTextField7.setEditable(true);
+        jTextField7.setEditable(false);
         jTextField7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField7.setForeground(new java.awt.Color(78, 0, 151));
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
@@ -272,7 +262,7 @@ public class detail extends javax.swing.JFrame {
             }
         });
 
-        jTextField8.setEditable(true);
+        jTextField8.setEditable(false);
         jTextField8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField8.setForeground(new java.awt.Color(78, 0, 151));
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
@@ -291,7 +281,7 @@ public class detail extends javax.swing.JFrame {
         jLabel15.setText("Address");
         jLabel15.setPreferredSize(new java.awt.Dimension(87, 30));
 
-        jTextField9.setEditable(true);
+        jTextField9.setEditable(false);
         jTextField9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField9.setForeground(new java.awt.Color(78, 0, 151));
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
@@ -305,17 +295,17 @@ public class detail extends javax.swing.JFrame {
         jLabel16.setText("Phone number :");
         jLabel16.setPreferredSize(new java.awt.Dimension(87, 30));
 
-        jTextField11.setEditable(true);
+        jTextField11.setEditable(false);
         jTextField11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField11.setForeground(new java.awt.Color(78, 0, 151));
-        jTextField11.setText("");
+        jTextField11.setText("000-000-0000");
         jTextField11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField11ActionPerformed(evt);
             }
         });
 
-        jTextArea1.setEditable(true);
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(78, 0, 151));
@@ -330,7 +320,7 @@ public class detail extends javax.swing.JFrame {
         jTextField10.setEditable(false);
         jTextField10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField10.setForeground(new java.awt.Color(78, 0, 151));
-        jTextField10.setText("");
+        jTextField10.setText("1");
         jTextField10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField10ActionPerformed(evt);
@@ -345,7 +335,7 @@ public class detail extends javax.swing.JFrame {
         jTextField12.setEditable(false);
         jTextField12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField12.setForeground(new java.awt.Color(78, 0, 151));
-        jTextField12.setText("");
+        jTextField12.setText("101");
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField12ActionPerformed(evt);
@@ -362,20 +352,20 @@ public class detail extends javax.swing.JFrame {
         jLabel20.setText("End date of lease");
         jLabel20.setPreferredSize(new java.awt.Dimension(87, 30));
 
-        jTextField13.setEditable(true);
+        jTextField13.setEditable(false);
         jTextField13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField13.setForeground(new java.awt.Color(78, 0, 151));
-        jTextField13.setText("");
+        jTextField13.setText("1 January 2024");
         jTextField13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField13ActionPerformed(evt);
             }
         });
 
-        jTextField14.setEditable(true);
+        jTextField14.setEditable(false);
         jTextField14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField14.setForeground(new java.awt.Color(78, 0, 151));
-        jTextField14.setText("");
+        jTextField14.setText("1 January 2025");
         jTextField14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField14ActionPerformed(evt);
@@ -390,7 +380,7 @@ public class detail extends javax.swing.JFrame {
         jTextField15.setEditable(false);
         jTextField15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField15.setForeground(new java.awt.Color(78, 0, 151));
-        jTextField15.setText("25th of every month");
+        jTextField15.setText("1th - 7th of every month");
         jTextField15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField15ActionPerformed(evt);
@@ -400,7 +390,6 @@ public class detail extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton5.setForeground(new java.awt.Color(78, 0, 151));
         jButton5.setText("Edit");
-         jButton5.setVisible(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -409,7 +398,7 @@ public class detail extends javax.swing.JFrame {
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton6.setForeground(new java.awt.Color(78, 0, 151));
-        jButton6.setText("Save");
+        jButton6.setText("SAVE");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -624,15 +613,13 @@ public class detail extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {          
-        UserModel model = new UserModel();
-       model.deleteRoom( jLabel1.getText());
-       
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
     }                                        
-//
-//    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-//        // TODO add your handling code here:
-//    }                                        
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
@@ -705,44 +692,15 @@ public class detail extends javax.swing.JFrame {
         jTextField6.setEditable(true); jTextField7.setEditable(true);
         jTextField8.setEditable(true); jTextField9.setEditable(true);
         jTextField11.setEditable(true);
-        
-        
     }                                        
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {           
-        UserModel model = new UserModel();
-        
-        
-//        jTextArea1.setEditable(false); jTextField1.setEditable(false);
-//        jTextField2.setEditable(false); jTextField3.setEditable(false);
-//        jTextField4.setEditable(false); jTextField5.setEditable(false);
-//        jTextField6.setEditable(false); jTextField7.setEditable(false);
-//        jTextField8.setEditable(false); jTextField9.setEditable(false);
-//         jTextField10.setEditable(false);
-//        jTextField11.setEditable(false);  jTextField12.setEditable(false);
-//         jTextField13.setEditable(false);  jTextField14.setEditable(false);
-         
-         
-       model.insertUserData(
-    jTextField1.getText(),   
-    jTextField2.getText(),   
-    jTextField11.getText(),   
-    jTextField12.getText(),  
-    jTextField10.getText(),
-    jTextField14.getText(),  
-    jTextField13.getText(),  
-    jTextField3.getText(),  
-    jTextField6.getText(),   
-    jTextField7.getText(),  
-    jTextField8.getText(),   
-    jTextField9.getText(),   
-    jTextField5.getText(),   
-    jTextField4.getText(),   
-    jTextArea1.getText(),
-    jLabel1.getText()
-    
-);
-         
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        jTextArea1.setEditable(false); jTextField1.setEditable(false);
+        jTextField2.setEditable(false); jTextField3.setEditable(false);
+        jTextField4.setEditable(false); jTextField5.setEditable(false);
+        jTextField6.setEditable(false); jTextField7.setEditable(false);
+        jTextField8.setEditable(false); jTextField9.setEditable(false);
+        jTextField11.setEditable(false);
     }                                        
 
     public static void main(String args[]) {
@@ -759,14 +717,18 @@ public class detail extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(detail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(detail_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(detail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(detail_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(detail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(detail_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(detail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(detail_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -775,15 +737,15 @@ public class detail extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new detail().setVisible(true);
+                new detail_1().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
-//    private javax.swing.JButton jButton2;
-//    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
@@ -797,7 +759,7 @@ public class detail extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-//    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
@@ -830,389 +792,4 @@ public class detail extends javax.swing.JFrame {
     private javax.swing.JPanel pnRight;
     private javax.swing.JPanel pnTop;
     // End of variables declaration                   
-
-    public JButton getjButton1() {
-        return jButton1;
-    }
-
-    public void setjButton1(JButton jButton1) {
-        this.jButton1 = jButton1;
-    }
-
-//    public JButton getjButton2() {
-//        return jButton2;
-//    }
-//
-//    public void setjButton2(JButton jButton2) {
-//        this.jButton2 = jButton2;
-//    }
-
-//    public JButton getjButton3() {
-//        return jButton3;
-//    }
-//
-//    public void setjButton3(JButton jButton3) {
-//        this.jButton3 = jButton3;
-//    }
-
-    public JButton getjButton5() {
-        return jButton5;
-    }
-
-    public void setjButton5(JButton jButton5) {
-        this.jButton5 = jButton5;
-    }
-
-    public JButton getjButton6() {
-        return jButton6;
-    }
-
-    public void setjButton6(JButton jButton6) {
-        this.jButton6 = jButton6;
-    }
-
-    public JLabel getjLabel1() {
-        return jLabel1;
-    }
-
-    public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
-    }
-
-    public JLabel getjLabel10() {
-        return jLabel10;
-    }
-
-    public void setjLabel10(JLabel jLabel10) {
-        this.jLabel10 = jLabel10;
-    }
-
-    public JLabel getjLabel11() {
-        return jLabel11;
-    }
-
-    public void setjLabel11(JLabel jLabel11) {
-        this.jLabel11 = jLabel11;
-    }
-
-    public JLabel getjLabel12() {
-        return jLabel12;
-    }
-
-    public void setjLabel12(JLabel jLabel12) {
-        this.jLabel12 = jLabel12;
-    }
-
-    public JLabel getjLabel13() {
-        return jLabel13;
-    }
-
-    public void setjLabel13(JLabel jLabel13) {
-        this.jLabel13 = jLabel13;
-    }
-
-    public JLabel getjLabel14() {
-        return jLabel14;
-    }
-
-    public void setjLabel14(JLabel jLabel14) {
-        this.jLabel14 = jLabel14;
-    }
-
-    public JLabel getjLabel15() {
-        return jLabel15;
-    }
-
-    public void setjLabel15(JLabel jLabel15) {
-        this.jLabel15 = jLabel15;
-    }
-
-    public JLabel getjLabel16() {
-        return jLabel16;
-    }
-
-    public void setjLabel16(JLabel jLabel16) {
-        this.jLabel16 = jLabel16;
-    }
-
-    public JLabel getjLabel17() {
-        return jLabel17;
-    }
-
-    public void setjLabel17(JLabel jLabel17) {
-        this.jLabel17 = jLabel17;
-    }
-
-    public JLabel getjLabel18() {
-        return jLabel18;
-    }
-
-    public void setjLabel18(JLabel jLabel18) {
-        this.jLabel18 = jLabel18;
-    }
-
-    public JLabel getjLabel19() {
-        return jLabel19;
-    }
-
-    public void setjLabel19(JLabel jLabel19) {
-        this.jLabel19 = jLabel19;
-    }
-//
-//    public JLabel getjLabel2() {
-//        return jLabel2;
-//    }
-//
-//    public void setjLabel2(JLabel jLabel2) {
-//        this.jLabel2 = jLabel2;
-//    }
-
-    public JLabel getjLabel20() {
-        return jLabel20;
-    }
-
-    public void setjLabel20(JLabel jLabel20) {
-        this.jLabel20 = jLabel20;
-    }
-
-    public JLabel getjLabel21() {
-        return jLabel21;
-    }
-
-    public void setjLabel21(JLabel jLabel21) {
-        this.jLabel21 = jLabel21;
-    }
-
-    public JLabel getjLabel3() {
-        return jLabel3;
-    }
-
-    public void setjLabel3(JLabel jLabel3) {
-        this.jLabel3 = jLabel3;
-    }
-
-    public JLabel getjLabel4() {
-        return jLabel4;
-    }
-
-    public void setjLabel4(JLabel jLabel4) {
-        this.jLabel4 = jLabel4;
-    }
-
-    public JLabel getjLabel6() {
-        return jLabel6;
-    }
-
-    public void setjLabel6(JLabel jLabel6) {
-        this.jLabel6 = jLabel6;
-    }
-
-    public JLabel getjLabel7() {
-        return jLabel7;
-    }
-
-    public void setjLabel7(JLabel jLabel7) {
-        this.jLabel7 = jLabel7;
-    }
-
-    public JLabel getjLabel8() {
-        return jLabel8;
-    }
-
-    public void setjLabel8(JLabel jLabel8) {
-        this.jLabel8 = jLabel8;
-    }
-
-    public JLabel getjLabel9() {
-        return jLabel9;
-    }
-
-    public void setjLabel9(JLabel jLabel9) {
-        this.jLabel9 = jLabel9;
-    }
-
-    public JPanel getjPanel1() {
-        return jPanel1;
-    }
-
-    public void setjPanel1(JPanel jPanel1) {
-        this.jPanel1 = jPanel1;
-    }
-
-    public JPanel getjPanel2() {
-        return jPanel2;
-    }
-
-    public void setjPanel2(JPanel jPanel2) {
-        this.jPanel2 = jPanel2;
-    }
-
-    public JPanel getjPanel3() {
-        return jPanel3;
-    }
-
-    public void setjPanel3(JPanel jPanel3) {
-        this.jPanel3 = jPanel3;
-    }
-
-    public JScrollPane getjScrollPane1() {
-        return jScrollPane1;
-    }
-
-    public void setjScrollPane1(JScrollPane jScrollPane1) {
-        this.jScrollPane1 = jScrollPane1;
-    }
-
-    public JTextArea getjTextArea1() {
-        return jTextArea1;
-    }
-
-    public void setjTextArea1(JTextArea jTextArea1) {
-        this.jTextArea1 = jTextArea1;
-    }
-
-    public JTextField getjTextField1() {
-        return jTextField1;
-    }
-
-    public void setjTextField1(JTextField jTextField1) {
-        this.jTextField1 = jTextField1;
-    }
-
-    public JTextField getjTextField10() {
-        return jTextField10;
-    }
-
-    public void setjTextField10(JTextField jTextField10) {
-        this.jTextField10 = jTextField10;
-    }
-
-    public JTextField getjTextField11() {
-        return jTextField11;
-    }
-
-    public void setjTextField11(JTextField jTextField11) {
-        this.jTextField11 = jTextField11;
-    }
-
-    public JTextField getjTextField12() {
-        return jTextField12;
-    }
-
-    public void setjTextField12(JTextField jTextField12) {
-        this.jTextField12 = jTextField12;
-    }
-
-    public JTextField getjTextField13() {
-        return jTextField13;
-    }
-
-    public void setjTextField13(JTextField jTextField13) {
-        this.jTextField13 = jTextField13;
-    }
-
-    public JTextField getjTextField14() {
-        return jTextField14;
-    }
-
-    public void setjTextField14(JTextField jTextField14) {
-        this.jTextField14 = jTextField14;
-    }
-
-    public JTextField getjTextField15() {
-        return jTextField15;
-    }
-
-    public void setjTextField15(JTextField jTextField15) {
-        this.jTextField15 = jTextField15;
-    }
-
-    public JTextField getjTextField2() {
-        return jTextField2;
-    }
-
-    public void setjTextField2(JTextField jTextField2) {
-        this.jTextField2 = jTextField2;
-    }
-
-    public JTextField getjTextField3() {
-        return jTextField3;
-    }
-
-    public void setjTextField3(JTextField jTextField3) {
-        this.jTextField3 = jTextField3;
-    }
-
-    public JTextField getjTextField4() {
-        return jTextField4;
-    }
-
-    public void setjTextField4(JTextField jTextField4) {
-        this.jTextField4 = jTextField4;
-    }
-
-    public JTextField getjTextField5() {
-        return jTextField5;
-    }
-
-    public void setjTextField5(JTextField jTextField5) {
-        this.jTextField5 = jTextField5;
-    }
-
-    public JTextField getjTextField6() {
-        return jTextField6;
-    }
-
-    public void setjTextField6(JTextField jTextField6) {
-        this.jTextField6 = jTextField6;
-    }
-
-    public JTextField getjTextField7() {
-        return jTextField7;
-    }
-
-    public void setjTextField7(JTextField jTextField7) {
-        this.jTextField7 = jTextField7;
-    }
-
-    public JTextField getjTextField8() {
-        return jTextField8;
-    }
-
-    public void setjTextField8(JTextField jTextField8) {
-        this.jTextField8 = jTextField8;
-    }
-
-    public JTextField getjTextField9() {
-        return jTextField9;
-    }
-
-    public void setjTextField9(JTextField jTextField9) {
-        this.jTextField9 = jTextField9;
-    }
-
-    public JPanel getPnLeft() {
-        return pnLeft;
-    }
-
-    public void setPnLeft(JPanel pnLeft) {
-        this.pnLeft = pnLeft;
-    }
-
-    public JPanel getPnRight() {
-        return pnRight;
-    }
-
-    public void setPnRight(JPanel pnRight) {
-        this.pnRight = pnRight;
-    }
-
-    public JPanel getPnTop() {
-        return pnTop;
-    }
-
-    public void setPnTop(JPanel pnTop) {
-        this.pnTop = pnTop;
-    }
-    
 }

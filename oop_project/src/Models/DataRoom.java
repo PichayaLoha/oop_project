@@ -4,14 +4,16 @@ import java.io.Serializable;
 
 public class DataRoom implements Serializable{
     private String room_number, room_status;
-    private int room_floor;
+    private int room_floor, room_id;
     
     public DataRoom() {
-        this("", "");
+        this(0, "", 0, "");
     }
     
-    public DataRoom(String room_number, String room_status) {
+    public DataRoom(int room_id, String room_number, int room_floor, String room_status) {
+        this.room_id = room_id;
         this.room_number = room_number;
+        this.room_floor = room_floor;
         this.room_status = room_status;
     }
     
@@ -21,6 +23,13 @@ public class DataRoom implements Serializable{
     
     public int getroom_floor() {
         return room_floor;
+    }
+    public void setroom_id(int room_id) {
+        this.room_id = room_id;
+    }
+
+    public int getroom_id() {
+        return room_id;
     }
     
     public void setroom_number(String room_number) {

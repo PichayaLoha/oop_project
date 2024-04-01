@@ -1,6 +1,5 @@
 package View;
 
-import Models.BillEditForm;
 import Models.BillModel;
 import Models.DataInfo;
 import java.awt.*;
@@ -14,7 +13,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 public class Bill implements ActionListener, MouseListener {
     private JInternalFrame inFrame;
-    private JPanel topPanel, westPanel, mainPanel, eastPanel;
+    private JPanel topPanel, downPanel, mainPanel;
     private JTable billTable;
     private JScrollPane scrollPane;
     private JComboBox<String> monthComboBox;
@@ -24,42 +23,38 @@ public class Bill implements ActionListener, MouseListener {
     private String[] columns = {"room number", "Status room", "water meter", "Amount-Water[Baht]", 
                                 "Electricity meter", "Amount-Elec[Baht]", "Total amount", "Common fee", 
                                 "Total cost", "Status", "ID"};
-    private JButton nextPage, previousPage;
+    private JButton update;
     private JLabel page, img1;
     private int id;
+    private BillModel bb;
     
     public Bill() {
-//        JFrame fr = new JFrame();
-//        JDesktopPane ds = new JDesktopPane();
-
         inFrame = new JInternalFrame();
         topPanel = new JPanel(new BorderLayout());
         mainPanel = new JPanel(new BorderLayout());
-        westPanel = new JPanel();
-        eastPanel = new JPanel(new GridLayout());
+        downPanel = new JPanel(new FlowLayout());
+        downPanel.setBackground(new Color(255, 204, 255));
         monthComboBox = new JComboBox<>(months);
         billTable = new JTable();
+        billTable.setBackground(new Color(204, 204, 255));
+        billTable.setGridColor(new Color(204, 204, 255));
+        billTable.setRowHeight(25);
         scrollPane = new JScrollPane(billTable);
-        previousPage = new JButton("<<<");
-
+        update = new JButton("Update");
         
         monthComboBox.addActionListener(this);
-        previousPage.addActionListener(this);
+        update.addActionListener(this);
 
         topPanel.add(monthComboBox, BorderLayout.NORTH);
         topPanel.add(scrollPane, BorderLayout.CENTER);
-        mainPanel.add(topPanel, BorderLayout.NORTH);
+        topPanel.add(downPanel, BorderLayout.SOUTH);
+        downPanel.add(update);
+        mainPanel.add(topPanel, BorderLayout.CENTER);
+        
         inFrame.add(topPanel);
         inFrame.setPreferredSize(new Dimension(970, 607));
         inFrame.setVisible(true);
         inFrame.pack();
-        
-//        ds.add(inFrame);
-//        fr.add(ds);
-//        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        fr.setPreferredSize(new Dimension(1280, 720));
-//        fr.pack();
-//        fr.setVisible(true);
         
         billTable.addMouseListener(this);
         
@@ -98,9 +93,32 @@ public class Bill implements ActionListener, MouseListener {
                 row[10] = data.getpay_id();
                 model.addRow(row);
             }
-            billTable.setModel(model);
+        billTable.setModel(model);
+        }else if (source.equals(update)) {
+            BillModel databill = new BillModel();
+            databill.BillModel_Month(monthComboBox.getSelectedIndex() + 1);
+            ArrayList<DataInfo> datalist = databill.getDataList();
+
+            DefaultTableModel model = new DefaultTableModel(columns, 0);
+            for (DataInfo data : datalist) {
+                Object[] row = new Object[11];
+                row[0] = data.getroom_number();
+                row[1] = data.getroom_status();
+                row[2] = data.getw_meter();
+                row[3] = data.getpay_water_cost();
+                row[4] = data.gete_meter();
+                row[5] = data.getpay_elec_cost();
+                row[6] = data.getpay_room_cost();
+                row[7] = data.getcommon_fee();
+                row[8] = data.getpay_total_cost();
+                row[9] = data.getpay_status();
+                row[10] = data.getpay_id();
+                model.addRow(row);
+                System.out.println(1);
             }
+        billTable.setModel(model);
         }
+    }
     
     public static void main(String[] args) {
         new Bill();
@@ -112,7 +130,6 @@ public class Bill implements ActionListener, MouseListener {
             JTable target = (JTable) e.getSource();
             int row = target.getSelectedRow();
             int id = (int) target.getValueAt(row, columns.length - 1);
-            System.out.println(id);
             new BillEditForm().setBillEditForm(id);
         }
         

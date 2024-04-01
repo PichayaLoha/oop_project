@@ -81,7 +81,7 @@ public class Cleaning extends javax.swing.JInternalFrame {
         jLabel2.setText("image");
 
         jButton1.setFont(new java.awt.Font("FC Iconic", 0, 24)); // NOI18N
-        jButton1.setText("บริการทำความสะอาดทั่วไป");
+        jButton1.setText("Cleaning Service");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -113,7 +113,7 @@ public class Cleaning extends javax.swing.JInternalFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(308, 206));
 
         jButton2.setFont(new java.awt.Font("FC Iconic", 0, 24)); // NOI18N
-        jButton2.setText("บริการซักรีด");
+        jButton2.setText("Laundry Service");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -150,7 +150,7 @@ public class Cleaning extends javax.swing.JInternalFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/FloppaEngineering.png"))); // NOI18N
 
         jButton3.setFont(new java.awt.Font("FC Iconic", 0, 24)); // NOI18N
-        jButton3.setText("บริการซ่อมแซม");
+        jButton3.setText("Repair Service");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -198,7 +198,7 @@ public class Cleaning extends javax.swing.JInternalFrame {
         jButton5.setText("DELETE");
 
         jLabel1.setFont(new java.awt.Font("FC Iconic", 0, 36)); // NOI18N
-        jLabel1.setText("รายการความประสงค์");
+        jLabel1.setText("Purpose");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -284,7 +284,7 @@ public class Cleaning extends javax.swing.JInternalFrame {
     public void showServices() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oopject", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oop", "root", "");
 
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT service_id, room_number, service_name, service_description, service_status FROM service");
@@ -322,7 +322,7 @@ public class Cleaning extends javax.swing.JInternalFrame {
             int serviceId = (int) jTable1.getValueAt(selectedRow, 0);
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oopject", "root", "");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oop", "root", "");
 
                 String query = "DELETE FROM service WHERE service_id = ?";
                 PreparedStatement pstmt = con.prepareStatement(query);
@@ -361,7 +361,7 @@ public class Cleaning extends javax.swing.JInternalFrame {
 
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oopject", "root", "");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oop", "root", "");
 
                 String query = "UPDATE service SET room_number=?, service_name=?, service_description=?, service_status=? WHERE service_id=?";
                 PreparedStatement pstmt = con.prepareStatement(query);

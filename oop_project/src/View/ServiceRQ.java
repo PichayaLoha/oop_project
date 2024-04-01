@@ -119,11 +119,11 @@ public class ServiceRQ extends javax.swing.JFrame {
     String selectedRoom = jComboBox1.getSelectedItem().toString();
     String serviceDescription = jTextArea1.getText();
     String serviceStatus = "active";
-    int serviceId = 1;
+    int service_id = 1;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oopject", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oop", "root", "");
 
             String sql = "INSERT INTO service (room_number, service_name, service_description, service_status) VALUES (?, ?, ?, ?)";
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -140,7 +140,7 @@ public class ServiceRQ extends javax.swing.JFrame {
             jOptionPane.showMessageDialog(this, "Data saved!");
             
         } catch (SQLException e) {
-            System.out.println("error occur while try to add data");
+            System.out.println(e);
         } catch (ClassNotFoundException e) {
             System.out.println("cannot find JDBC driver");
         }

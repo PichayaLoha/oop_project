@@ -4,26 +4,124 @@ package View;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
+
 import java.util.concurrent.TimeUnit;
+import java.sql.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 /**
  *
  * @author Computer
  */
 public class roomsetting extends javax.swing.JInternalFrame {
-      public void checkadd(){
-          
-      }
+
+    private static final String DB_URL = "jdbc:mysql://localhost/oop";
+    private static final String DB_USER = "root";
+    private static final String DB_PASS = "";
+
     /**
-     * Creates new form 
+     * Creates new form roomsettin
      */
     public roomsetting() {
         initComponents();
+        displayRoomNumbers();
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
-        
+
     }
+
+    private void displayRoomNumbers() {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/oop", "root", ""); 
+                Statement stmt = conn.createStatement(); 
+                ResultSet rs = stmt.executeQuery("SELECT room_number, user_firstname, user_lastname FROM rooms LEFT JOIN users ON rooms.user_id = users.user_id")) {
+
+            
+            while (rs.next()) {
+                String roomNumber = rs.getString("room_number");
+                String firstName = rs.getString("user_firstname");
+                String lastName = rs.getString("user_lastname");
+                switch (roomNumber) {
+                    case "101":
+                        unavaibleroom1.setRoomNumber(roomNumber);
+                        if (firstName != null && lastName != null) {
+                            unavaibleroom1.setUserNames(firstName, lastName);
+                        } else {
+                            unavaibleroom1.setEmptyRoom();
+                        }
+                        break;
+                    case "102":
+                        unavaibleroom2.setRoomNumber(roomNumber);
+                        if (firstName != null && lastName != null) {
+                            unavaibleroom2.setUserNames(firstName, lastName);
+                        } else {
+                            unavaibleroom2.setEmptyRoom();
+                        }
+                        break;
+                    case "103":
+                        unavaibleroom3.setRoomNumber(roomNumber);
+                        if (firstName != null && lastName != null) {
+                            unavaibleroom3.setUserNames(firstName, lastName);
+                        } else {
+                            unavaibleroom3.setEmptyRoom();
+                        }
+                        break;
+                    case "201":
+                        unavaibleroom4.setRoomNumber(roomNumber);
+                        if (firstName != null && lastName != null) {
+                            unavaibleroom4.setUserNames(firstName, lastName);
+                        } else {
+                            unavaibleroom4.setEmptyRoom();
+                        }
+                        break;
+                    case "202":
+                        unavaibleroom5.setRoomNumber(roomNumber);
+                        if (firstName != null && lastName != null) {
+                            unavaibleroom5.setUserNames(firstName, lastName);
+                        } else {
+                            unavaibleroom5.setEmptyRoom();
+                        }
+                        break;
+                    case "203":
+                        unavaibleroom6.setRoomNumber(roomNumber);
+                        if (firstName != null && lastName != null) {
+                            unavaibleroom6.setUserNames(firstName, lastName);
+                        } else {
+                            unavaibleroom6.setEmptyRoom();
+                        }
+                        break;
+                    case "301":
+                        unavaibleroom7.setRoomNumber(roomNumber);
+                        if (firstName != null && lastName != null) {
+                            unavaibleroom7.setUserNames(firstName, lastName);
+                        } else {
+                            unavaibleroom7.setEmptyRoom();
+                        }
+                        break;
+                    case "302":
+                        unavaibleroom8.setRoomNumber(roomNumber);
+                        if (firstName != null && lastName != null) {
+                            unavaibleroom8.setUserNames(firstName, lastName);
+                        } else {
+                            unavaibleroom8.setEmptyRoom();
+                        }
+                        break;
+                    case "303":
+                        unavaibleroom9.setRoomNumber(roomNumber);
+                        if (firstName != null && lastName != null) {
+                            unavaibleroom9.setUserNames(firstName, lastName);
+                        } else {
+                            unavaibleroom9.setEmptyRoom();
+                        }
+                        break;
+                default:
+                    break;
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,11 +133,18 @@ public class roomsetting extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jDialog1 = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        unavaibleroom1 = new unavaibleroom();
+        unavaibleroom2 = new unavaibleroom();
+        unavaibleroom3 = new unavaibleroom();
+        unavaibleroom4 = new unavaibleroom();
+        unavaibleroom5 = new unavaibleroom();
+        unavaibleroom6 = new unavaibleroom();
+        unavaibleroom7 = new unavaibleroom();
+        unavaibleroom8 = new unavaibleroom();
+        unavaibleroom9 = new unavaibleroom();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -52,124 +157,84 @@ public class roomsetting extends javax.swing.JInternalFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        setBorder(null);
         setForeground(java.awt.Color.white);
         setResizable(true);
-        setPreferredSize(new java.awt.Dimension(970, 610));
+        setPreferredSize(new java.awt.Dimension(970, 607));
         setVisible(true);
 
-        jPanel1.setBackground(new java.awt.Color(225, 194, 240));
+        jScrollPane1.setBackground(new java.awt.Color(100, 80, 153));
 
-        jComboBox1.setBackground(new java.awt.Color(196, 158, 219));
-        jComboBox1.setEditable(true);
-        jComboBox1.setFont(new java.awt.Font("FC Iconic", 1, 24)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(99, 80, 153));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Floor 1" }));
-        jComboBox1.setName("Floor"); // NOI18N
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(100, 80, 153));
+        jPanel1.setPreferredSize(new java.awt.Dimension(660, 710));
 
-        jButton1.setBackground(new java.awt.Color(196, 158, 219));
-        jButton1.setFont(new java.awt.Font("FC Iconic", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(99, 80, 153));
-        jButton1.setText("Add Floor");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setBackground(new java.awt.Color(196, 158, 219));
-        jButton3.setFont(new java.awt.Font("FC Iconic", 1, 24)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(99, 80, 153));
-        jButton3.setText("Add Room");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(100, 80, 153));
+        jPanel2.setPreferredSize(new java.awt.Dimension(700, 700));
+        jPanel2.add(unavaibleroom1);
+        jPanel2.add(unavaibleroom2);
+        jPanel2.add(unavaibleroom3);
+        jPanel2.add(unavaibleroom4);
+        jPanel2.add(unavaibleroom5);
+        jPanel2.add(unavaibleroom6);
+        jPanel2.add(unavaibleroom7);
+        jPanel2.add(unavaibleroom8);
+        jPanel2.add(unavaibleroom9);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(330, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(131, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(127, 127, 127))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox1))
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(54, 52, 117));
+        jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 666, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        floor_count +=1;
-        String floor_show = ""+floor_count;
-         jComboBox1.addItem("Floor "+floor_show);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if (jComboBox1.getSelectedItem() ==null){
-        }
-        else{
-        roomadd Roomadd = new roomadd();
-        javax.swing.JPanel jp2 = new javax.swing.JPanel();
-        jp2.add(Roomadd);
-        jPanel2.add(jp2);
-        Roomadd.setVisible(true);}
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private unavaibleroom unavaibleroom1;
+    private unavaibleroom unavaibleroom2;
+    private unavaibleroom unavaibleroom3;
+    private unavaibleroom unavaibleroom4;
+    private unavaibleroom unavaibleroom5;
+    private unavaibleroom unavaibleroom6;
+    private unavaibleroom unavaibleroom7;
+    private unavaibleroom unavaibleroom8;
+    private unavaibleroom unavaibleroom9;
     // End of variables declaration//GEN-END:variables
+
     int floor_count = 1;
+
     public static void main(String[] args) {
         new roomsetting();
     }

@@ -448,7 +448,7 @@ public class information implements ActionListener{
         m1.setLayout(new GridLayout(1,2));
         m1.add(m2); m1.add(m3);
         TitledBorder titledBorder = BorderFactory.createTitledBorder("ข้อมูลบิดา");
-        titledBorder.setTitleFont(new Font("Mitr Light", Font.BOLD, 12));
+        titledBorder.setTitleFont(new Font("Mitr Light", Font.BOLD, 30));
         titledBorder.setTitleColor(new Color(100,80,153));
 
         m2.setBorder(titledBorder);

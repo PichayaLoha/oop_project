@@ -3,28 +3,24 @@ package Models;
 import java.sql.*;
 
 public class Connector {
-    private Connection conn;
-    private Statement stm;
-    private ResultSet rs;
-
-    private String url = "jdbc:mysql://localhost:3306/oopject_1";
+    public Connection conn;
+    public Statement stm;
+    public ResultSet rs;
+public PreparedStatement pre;
+    
+    private String url = "jdbc:mysql://localhost:3306/oop";
     private String username = "root";
     private String password = "";
     
-    public Connector() {
-        // Initialize the connection in the constructor
-        try {
-            conn = DriverManager.getConnection(url, username, password);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+  
+
     
     public ResultSet getConnect(String sql) {
         try {
+            conn = DriverManager.getConnection(url, username, password);
             stm = conn.createStatement();
             rs = stm.executeQuery(sql);
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         }
         return rs;
@@ -34,7 +30,7 @@ public class Connector {
         try {
             stm = conn.createStatement();
             stm.executeUpdate(sql);
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -43,12 +39,49 @@ public class Connector {
         try {
             stm.close();
             conn.close();
-        } catch(SQLException e) {
+        }catch(SQLException e) {
             e.printStackTrace();
         }
     }
+    
+//    public void setData(String sql) {
+//            
+//    }
 
-    public Connection getConnection() {
-        return conn;
+    public Statement createStatement() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
+    public ResultSet executeQuery(String sql) {
+        try (Connection conn = DriverManager.getConnection(url, username, password);
+             Statement stm = conn.createStatement();
+             ResultSet rs = stm.executeQuery(sql)) {
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public int executeUpdate(String sql) {
+        try (Connection conn = DriverManager.getConnection(url, username, password);
+             Statement stm = conn.createStatement()) {
+            return stm.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+    
+   public PreparedStatement prepareStatement(String sql) {
+    try {
+        if (conn == null) {
+            conn = DriverManager.getConnection(url, username, password);
+        }
+        pre = conn.prepareStatement(sql);
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return pre;
+}
+
 }

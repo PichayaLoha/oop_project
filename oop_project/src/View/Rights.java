@@ -62,30 +62,30 @@ public class Rights implements ActionListener, ItemListener{
         n12 = new JPanel(); n12.setOpaque(false);
         n13 = new JPanel(); n13.setOpaque(false);
         n14 = new JPanel(); n14.setOpaque(false);
-        l1 = new JLabel("สิทธิในการจัดการระบบ"); l1.setForeground(new Color(100,80,153)); l1.setFont(new Font("Mitr", Font.PLAIN, 24));
+        l1 = new JLabel("System Management Privileges"); l1.setForeground(new Color(100,80,153)); l1.setFont(new Font("Mitr", Font.PLAIN, 24));
         l2 = new JLabel("Room"); l2.setForeground(new Color(100,80,153)); l2.setFont(new Font("Mitr Light", Font.BOLD, 20));
         l3 = new JLabel("Room Setting"); l3.setForeground(new Color(100,80,153)); l3.setFont(new Font("Mitr Light", Font.BOLD, 20));
         l4 = new JLabel("Service"); l4.setForeground(new Color(100,80,153)); l4.setFont(new Font("Mitr Light", Font.BOLD, 20));
         l5 = new JLabel("Bill"); l5.setForeground(new Color(100,80,153)); l5.setFont(new Font("Mitr Light", Font.BOLD, 20));
         
-        rb1 = new JRadioButton("ข้อมูลผู้เช่า"); rb1.setForeground(new Color(100,80,153)); rb1.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb1.setOpaque(false);
-        rb2 = new JRadioButton("ข้อมูลการติดต่อ"); rb2.setForeground(new Color(100,80,153)); rb2.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb2.setOpaque(false);
-        rb3 = new JRadioButton("ข้อมูลห้องพักที่เช่า"); rb3.setForeground(new Color(100,80,153)); rb3.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb3.setOpaque(false);
-        rb4 = new JRadioButton("ข้อมูลห้องพัก"); rb4.setForeground(new Color(100,80,153)); rb4.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb4.setOpaque(false);
-        rb5 = new JRadioButton("ข้อมูลห้องเช่า / ซ่อมบำรุง"); rb5.setForeground(new Color(100,80,153)); rb5.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb5.setOpaque(false);
-        rb6 = new JRadioButton("บันทึกความประสงค์ในการใช้บริการทำความสะอาด / ซ่อมบำรุง"); rb6.setForeground(new Color(100,80,153)); rb6.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb6.setOpaque(false);
-        rb7 = new JRadioButton("บันทึกรายการค่าใช้จ่ายของผู้เช่าในแต่ละห้อง"); rb7.setForeground(new Color(100,80,153)); rb7.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb7.setOpaque(false);
-        rb8 = new JRadioButton("บันทึกมิเตอร์น้ำ - ไฟ"); rb8.setForeground(new Color(100,80,153)); rb8.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb8.setOpaque(false);
-        rb9 = new JRadioButton("แก้ไขสถานะในการชำระเงิน"); rb9.setForeground(new Color(100,80,153)); rb9.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb9.setOpaque(false);
+        rb1 = new JRadioButton("Tenant information"); rb1.setForeground(new Color(100,80,153)); rb1.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb1.setOpaque(false);
+        rb2 = new JRadioButton("Contact information"); rb2.setForeground(new Color(100,80,153)); rb2.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb2.setOpaque(false);
+        rb3 = new JRadioButton("Information about the rented room"); rb3.setForeground(new Color(100,80,153)); rb3.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb3.setOpaque(false);
+        rb4 = new JRadioButton("Accommodation details"); rb4.setForeground(new Color(100,80,153)); rb4.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb4.setOpaque(false);
+        rb5 = new JRadioButton("Rental room / Maintenance information"); rb5.setForeground(new Color(100,80,153)); rb5.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb5.setOpaque(false);
+        rb6 = new JRadioButton("Cleaning service request"); rb6.setForeground(new Color(100,80,153)); rb6.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb6.setOpaque(false);
+        rb7 = new JRadioButton("Recording expenses of tenants in each room"); rb7.setForeground(new Color(100,80,153)); rb7.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb7.setOpaque(false);
+        rb8 = new JRadioButton("Recording water and electricity meters"); rb8.setForeground(new Color(100,80,153)); rb8.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb8.setOpaque(false);
+        rb9 = new JRadioButton("Edit payment status"); rb9.setForeground(new Color(100,80,153)); rb9.setFont(new Font("Mitr Light", Font.PLAIN, 12)); rb9.setOpaque(false);
         
         
-        l6 = new JLabel("ชื่อ"); l6.setForeground(new Color(100,80,153)); l6.setFont(new Font("Mitr Light", Font.PLAIN, 12));
-        l7 = new JLabel("นามสกุล"); l7.setForeground(new Color(100,80,153)); l7.setFont(new Font("Mitr Light", Font.PLAIN, 12));
+        l6 = new JLabel("Firstname"); l6.setForeground(new Color(100,80,153)); l6.setFont(new Font("Mitr Light", Font.PLAIN, 12));
+        l7 = new JLabel("Lastname"); l7.setForeground(new Color(100,80,153)); l7.setFont(new Font("Mitr Light", Font.PLAIN, 12));
         l8 = new JLabel("บัตรประจำตัวประชาชน"); l8.setForeground(new Color(100,80,153)); l8.setFont(new Font("Mitr Light", Font.PLAIN, 12));
         l9 = new JLabel("อาชีพ"); l9.setForeground(new Color(100,80,153)); l9.setFont(new Font("Mitr Light", Font.PLAIN, 12));
         
-        l10 = new JLabel("ชื่อ"); l10.setForeground(new Color(100,80,153)); l10.setFont(new Font("Mitr Light", Font.PLAIN, 12));
-        l11 = new JLabel("นามสกุล"); l11.setForeground(new Color(100,80,153)); l11.setFont(new Font("Mitr Light", Font.PLAIN, 12));
+        l10 = new JLabel("Firstname"); l10.setForeground(new Color(100,80,153)); l10.setFont(new Font("Mitr Light", Font.PLAIN, 12));
+        l11 = new JLabel("Lastname"); l11.setForeground(new Color(100,80,153)); l11.setFont(new Font("Mitr Light", Font.PLAIN, 12));
         l12 = new JLabel("บัตรประจำตัวประชาชน"); l12.setForeground(new Color(100,80,153)); l12.setFont(new Font("Mitr Light", Font.PLAIN, 12));
         l13 = new JLabel("อาชีพ"); l13.setForeground(new Color(100,80,153)); l13.setFont(new Font("Mitr Light", Font.PLAIN, 12));
         
@@ -204,6 +204,9 @@ public class Rights implements ActionListener, ItemListener{
         r19 = new JPanel(); r19.setOpaque(false);
         r20 = new JPanel(); r20.setOpaque(false);
         
+//        rb1.setSelected(true); 
+//         rb2.setSelected(true); 
+//          rb3.setSelected(true); 
                
         name = new JTextField("name");
         pic = new JLabel();
@@ -295,20 +298,20 @@ public class Rights implements ActionListener, ItemListener{
         // edit
         pp8.add(r1, BorderLayout.CENTER);
         r1.setLayout(new FlowLayout(FlowLayout.LEADING));
-        r1.add(l1); r1.add(r2); r2.setPreferredSize(new Dimension(300, 10));
+        r1.add(l1); r1.add(r2); r2.setPreferredSize(new Dimension(150, 10));
         r1.add(l2); r1.add(r3); r3.setPreferredSize(new Dimension(500, 10));
         
-        r1.add(r4); r1.add(r5); r5.setPreferredSize(new Dimension(400, 10));
+        r1.add(r4); r1.add(r5); r5.setPreferredSize(new Dimension(200, 10));
         r4.setLayout(new GridLayout(3,1));
         r4.add(rb1); r4.add(rb2); r4.add(rb3);
         
         r1.add(l3); r1.add(r6); r6.setPreferredSize(new Dimension(400, 10));
-        r1.add(r7); r1.add(r8); r8.setPreferredSize(new Dimension(400, 10));
+        r1.add(r7); r1.add(r8); r8.setPreferredSize(new Dimension(250, 10));
         r7.setLayout(new GridLayout(2,1));
         r7.add(rb4); r7.add(rb5);
         
         r1.add(l4); r1.add(r9); r9.setPreferredSize(new Dimension(400, 10));
-        r1.add(r10); r1.add(r11); r11.setPreferredSize(new Dimension(200, 10));
+        r1.add(r10); r1.add(r11); r11.setPreferredSize(new Dimension(380, 10));
         r10.setLayout(new GridLayout(1,1));
         r10.add(rb6);
         
@@ -357,69 +360,1493 @@ public class Rights implements ActionListener, ItemListener{
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        if (rb1.isSelected()){
-            System.out.println("s1");
-        } 
-        else{
-            System.out.println("n1");
-        }
+//        if (rb1.isSelected()){
+//            System.out.println("s1");
+//        } 
+//        else{
+//            System.out.println("n1");
+//        }
+//        
+//        if (rb2.isSelected()){
+//            System.out.println("s2");
+//        } 
+//        else{
+//            System.out.println("n2");
+//        }
+//        
+//        if (rb3.isSelected()){
+//            System.out.println("s3");
+//        } 
+//        else{
+//            System.out.println("n3");
+//        }
+//        
+//        if (rb4.isSelected()){
+//            System.out.println("s4");
+//        } 
+//        else{
+//            System.out.println("n4");
+//        }
+//        
+//        if (rb5.isSelected()){
+//            System.out.println("s5");
+//        } 
+//        else{
+//            System.out.println("n5");
+//        }
+//        
+//        if (rb6.isSelected()){
+//            System.out.println("s6");
+//        } 
+//        else{
+//            System.out.println("n6");
+//        }
+//        
+//        if (rb7.isSelected()){
+//            System.out.println("s7");
+//        } 
+//        else{
+//            System.out.println("n7");
+//        }
+//        
+//        if (rb8.isSelected()){
+//            System.out.println("s8");
+//        } 
+//        else{
+//            System.out.println("n8");
+//        }
+//        
+//        if (rb9.isSelected()){
+//            System.out.println("s9");
+//        } 
+//        else{
+//            System.out.println("n9");
+//        }
         
-        if (rb2.isSelected()){
-            System.out.println("s2");
-        } 
-        else{
-            System.out.println("n2");
-        }
-        
-        if (rb3.isSelected()){
-            System.out.println("s3");
-        } 
-        else{
-            System.out.println("n3");
-        }
-        
-        if (rb4.isSelected()){
-            System.out.println("s4");
-        } 
-        else{
-            System.out.println("n4");
-        }
-        
-        if (rb5.isSelected()){
-            System.out.println("s5");
-        } 
-        else{
-            System.out.println("n5");
-        }
-        
-        if (rb6.isSelected()){
-            System.out.println("s6");
-        } 
-        else{
-            System.out.println("n6");
-        }
-        
-        if (rb7.isSelected()){
-            System.out.println("s7");
-        } 
-        else{
-            System.out.println("n7");
-        }
-        
-        if (rb8.isSelected()){
-            System.out.println("s8");
-        } 
-        else{
-            System.out.println("n8");
-        }
-        
-        if (rb9.isSelected()){
-            System.out.println("s9");
-        } 
-        else{
-            System.out.println("n9");
-        }
-        
+    }
+
+    public JPanel getPn1() {
+        return pn1;
+    }
+
+    public void setPn1(JPanel pn1) {
+        this.pn1 = pn1;
+    }
+
+    public JPanel getPn2() {
+        return pn2;
+    }
+
+    public void setPn2(JPanel pn2) {
+        this.pn2 = pn2;
+    }
+
+    public JPanel getPn3() {
+        return pn3;
+    }
+
+    public void setPn3(JPanel pn3) {
+        this.pn3 = pn3;
+    }
+
+    public JPanel getPn4() {
+        return pn4;
+    }
+
+    public void setPn4(JPanel pn4) {
+        this.pn4 = pn4;
+    }
+
+    public JPanel getPm1() {
+        return pm1;
+    }
+
+    public void setPm1(JPanel pm1) {
+        this.pm1 = pm1;
+    }
+
+    public JPanel getPm2() {
+        return pm2;
+    }
+
+    public void setPm2(JPanel pm2) {
+        this.pm2 = pm2;
+    }
+
+    public JPanel getPm3() {
+        return pm3;
+    }
+
+    public void setPm3(JPanel pm3) {
+        this.pm3 = pm3;
+    }
+
+    public JPanel getPm4() {
+        return pm4;
+    }
+
+    public void setPm4(JPanel pm4) {
+        this.pm4 = pm4;
+    }
+
+    public JPanel getPm5() {
+        return pm5;
+    }
+
+    public void setPm5(JPanel pm5) {
+        this.pm5 = pm5;
+    }
+
+    public JPanel getPm6() {
+        return pm6;
+    }
+
+    public void setPm6(JPanel pm6) {
+        this.pm6 = pm6;
+    }
+
+    public JPanel getPm7() {
+        return pm7;
+    }
+
+    public void setPm7(JPanel pm7) {
+        this.pm7 = pm7;
+    }
+
+    public JPanel getPm8() {
+        return pm8;
+    }
+
+    public void setPm8(JPanel pm8) {
+        this.pm8 = pm8;
+    }
+
+    public JPanel getPm9() {
+        return pm9;
+    }
+
+    public void setPm9(JPanel pm9) {
+        this.pm9 = pm9;
+    }
+
+    public JPanel getPp1() {
+        return pp1;
+    }
+
+    public void setPp1(JPanel pp1) {
+        this.pp1 = pp1;
+    }
+
+    public JPanel getPp2() {
+        return pp2;
+    }
+
+    public void setPp2(JPanel pp2) {
+        this.pp2 = pp2;
+    }
+
+    public JPanel getPp3() {
+        return pp3;
+    }
+
+    public void setPp3(JPanel pp3) {
+        this.pp3 = pp3;
+    }
+
+    public JPanel getPp4() {
+        return pp4;
+    }
+
+    public void setPp4(JPanel pp4) {
+        this.pp4 = pp4;
+    }
+
+    public JPanel getPp5() {
+        return pp5;
+    }
+
+    public void setPp5(JPanel pp5) {
+        this.pp5 = pp5;
+    }
+
+    public JPanel getPp6() {
+        return pp6;
+    }
+
+    public void setPp6(JPanel pp6) {
+        this.pp6 = pp6;
+    }
+
+    public JPanel getPp7() {
+        return pp7;
+    }
+
+    public void setPp7(JPanel pp7) {
+        this.pp7 = pp7;
+    }
+
+    public JPanel getPp8() {
+        return pp8;
+    }
+
+    public void setPp8(JPanel pp8) {
+        this.pp8 = pp8;
+    }
+
+    public JPanel getPp9() {
+        return pp9;
+    }
+
+    public void setPp9(JPanel pp9) {
+        this.pp9 = pp9;
+    }
+
+    public JPanel getPp10() {
+        return pp10;
+    }
+
+    public void setPp10(JPanel pp10) {
+        this.pp10 = pp10;
+    }
+
+    public JPanel getP1() {
+        return p1;
+    }
+
+    public void setP1(JPanel p1) {
+        this.p1 = p1;
+    }
+
+    public JPanel getP2() {
+        return p2;
+    }
+
+    public void setP2(JPanel p2) {
+        this.p2 = p2;
+    }
+
+    public JPanel getP3() {
+        return p3;
+    }
+
+    public void setP3(JPanel p3) {
+        this.p3 = p3;
+    }
+
+    public JPanel getP4() {
+        return p4;
+    }
+
+    public void setP4(JPanel p4) {
+        this.p4 = p4;
+    }
+
+    public JPanel getP5() {
+        return p5;
+    }
+
+    public void setP5(JPanel p5) {
+        this.p5 = p5;
+    }
+
+    public JPanel getN1() {
+        return n1;
+    }
+
+    public void setN1(JPanel n1) {
+        this.n1 = n1;
+    }
+
+    public JPanel getN2() {
+        return n2;
+    }
+
+    public void setN2(JPanel n2) {
+        this.n2 = n2;
+    }
+
+    public JPanel getN3() {
+        return n3;
+    }
+
+    public void setN3(JPanel n3) {
+        this.n3 = n3;
+    }
+
+    public JPanel getN4() {
+        return n4;
+    }
+
+    public void setN4(JPanel n4) {
+        this.n4 = n4;
+    }
+
+    public JPanel getN5() {
+        return n5;
+    }
+
+    public void setN5(JPanel n5) {
+        this.n5 = n5;
+    }
+
+    public JPanel getN6() {
+        return n6;
+    }
+
+    public void setN6(JPanel n6) {
+        this.n6 = n6;
+    }
+
+    public JPanel getN7() {
+        return n7;
+    }
+
+    public void setN7(JPanel n7) {
+        this.n7 = n7;
+    }
+
+    public JPanel getN8() {
+        return n8;
+    }
+
+    public void setN8(JPanel n8) {
+        this.n8 = n8;
+    }
+
+    public JPanel getN9() {
+        return n9;
+    }
+
+    public void setN9(JPanel n9) {
+        this.n9 = n9;
+    }
+
+    public JPanel getN10() {
+        return n10;
+    }
+
+    public void setN10(JPanel n10) {
+        this.n10 = n10;
+    }
+
+    public JPanel getN11() {
+        return n11;
+    }
+
+    public void setN11(JPanel n11) {
+        this.n11 = n11;
+    }
+
+    public JPanel getN12() {
+        return n12;
+    }
+
+    public void setN12(JPanel n12) {
+        this.n12 = n12;
+    }
+
+    public JPanel getN13() {
+        return n13;
+    }
+
+    public void setN13(JPanel n13) {
+        this.n13 = n13;
+    }
+
+    public JPanel getN14() {
+        return n14;
+    }
+
+    public void setN14(JPanel n14) {
+        this.n14 = n14;
+    }
+
+    public JPanel getB1() {
+        return b1;
+    }
+
+    public void setB1(JPanel b1) {
+        this.b1 = b1;
+    }
+
+    public JPanel getB2() {
+        return b2;
+    }
+
+    public void setB2(JPanel b2) {
+        this.b2 = b2;
+    }
+
+    public JPanel getB3() {
+        return b3;
+    }
+
+    public void setB3(JPanel b3) {
+        this.b3 = b3;
+    }
+
+    public JPanel getB4() {
+        return b4;
+    }
+
+    public void setB4(JPanel b4) {
+        this.b4 = b4;
+    }
+
+    public JPanel getB5() {
+        return b5;
+    }
+
+    public void setB5(JPanel b5) {
+        this.b5 = b5;
+    }
+
+    public JPanel getB6() {
+        return b6;
+    }
+
+    public void setB6(JPanel b6) {
+        this.b6 = b6;
+    }
+
+    public JPanel getB7() {
+        return b7;
+    }
+
+    public void setB7(JPanel b7) {
+        this.b7 = b7;
+    }
+
+    public JPanel getB8() {
+        return b8;
+    }
+
+    public void setB8(JPanel b8) {
+        this.b8 = b8;
+    }
+
+    public JPanel getB9() {
+        return b9;
+    }
+
+    public void setB9(JPanel b9) {
+        this.b9 = b9;
+    }
+
+    public JPanel getC1() {
+        return c1;
+    }
+
+    public void setC1(JPanel c1) {
+        this.c1 = c1;
+    }
+
+    public JPanel getC2() {
+        return c2;
+    }
+
+    public void setC2(JPanel c2) {
+        this.c2 = c2;
+    }
+
+    public JPanel getC3() {
+        return c3;
+    }
+
+    public void setC3(JPanel c3) {
+        this.c3 = c3;
+    }
+
+    public JPanel getC4() {
+        return c4;
+    }
+
+    public void setC4(JPanel c4) {
+        this.c4 = c4;
+    }
+
+    public JPanel getE1() {
+        return e1;
+    }
+
+    public void setE1(JPanel e1) {
+        this.e1 = e1;
+    }
+
+    public JPanel getE2() {
+        return e2;
+    }
+
+    public void setE2(JPanel e2) {
+        this.e2 = e2;
+    }
+
+    public JPanel getE3() {
+        return e3;
+    }
+
+    public void setE3(JPanel e3) {
+        this.e3 = e3;
+    }
+
+    public JPanel getE4() {
+        return e4;
+    }
+
+    public void setE4(JPanel e4) {
+        this.e4 = e4;
+    }
+
+    public JPanel getE5() {
+        return e5;
+    }
+
+    public void setE5(JPanel e5) {
+        this.e5 = e5;
+    }
+
+    public JPanel getE6() {
+        return e6;
+    }
+
+    public void setE6(JPanel e6) {
+        this.e6 = e6;
+    }
+
+    public JPanel getE7() {
+        return e7;
+    }
+
+    public void setE7(JPanel e7) {
+        this.e7 = e7;
+    }
+
+    public JPanel getE8() {
+        return e8;
+    }
+
+    public void setE8(JPanel e8) {
+        this.e8 = e8;
+    }
+
+    public JPanel getE9() {
+        return e9;
+    }
+
+    public void setE9(JPanel e9) {
+        this.e9 = e9;
+    }
+
+    public JPanel getE10() {
+        return e10;
+    }
+
+    public void setE10(JPanel e10) {
+        this.e10 = e10;
+    }
+
+    public JPanel getE11() {
+        return e11;
+    }
+
+    public void setE11(JPanel e11) {
+        this.e11 = e11;
+    }
+
+    public JPanel getE12() {
+        return e12;
+    }
+
+    public void setE12(JPanel e12) {
+        this.e12 = e12;
+    }
+
+    public JPanel getE13() {
+        return e13;
+    }
+
+    public void setE13(JPanel e13) {
+        this.e13 = e13;
+    }
+
+    public JPanel getE14() {
+        return e14;
+    }
+
+    public void setE14(JPanel e14) {
+        this.e14 = e14;
+    }
+
+    public JPanel getE15() {
+        return e15;
+    }
+
+    public void setE15(JPanel e15) {
+        this.e15 = e15;
+    }
+
+    public JPanel getE16() {
+        return e16;
+    }
+
+    public void setE16(JPanel e16) {
+        this.e16 = e16;
+    }
+
+    public JPanel getE17() {
+        return e17;
+    }
+
+    public void setE17(JPanel e17) {
+        this.e17 = e17;
+    }
+
+    public JPanel getE18() {
+        return e18;
+    }
+
+    public void setE18(JPanel e18) {
+        this.e18 = e18;
+    }
+
+    public JPanel getE19() {
+        return e19;
+    }
+
+    public void setE19(JPanel e19) {
+        this.e19 = e19;
+    }
+
+    public JPanel getE20() {
+        return e20;
+    }
+
+    public void setE20(JPanel e20) {
+        this.e20 = e20;
+    }
+
+    public JPanel getE21() {
+        return e21;
+    }
+
+    public void setE21(JPanel e21) {
+        this.e21 = e21;
+    }
+
+    public JPanel getY1() {
+        return y1;
+    }
+
+    public void setY1(JPanel y1) {
+        this.y1 = y1;
+    }
+
+    public JPanel getY2() {
+        return y2;
+    }
+
+    public void setY2(JPanel y2) {
+        this.y2 = y2;
+    }
+
+    public JPanel getR1() {
+        return r1;
+    }
+
+    public void setR1(JPanel r1) {
+        this.r1 = r1;
+    }
+
+    public JPanel getR2() {
+        return r2;
+    }
+
+    public void setR2(JPanel r2) {
+        this.r2 = r2;
+    }
+
+    public JPanel getR3() {
+        return r3;
+    }
+
+    public void setR3(JPanel r3) {
+        this.r3 = r3;
+    }
+
+    public JPanel getR4() {
+        return r4;
+    }
+
+    public void setR4(JPanel r4) {
+        this.r4 = r4;
+    }
+
+    public JPanel getR5() {
+        return r5;
+    }
+
+    public void setR5(JPanel r5) {
+        this.r5 = r5;
+    }
+
+    public JPanel getR6() {
+        return r6;
+    }
+
+    public void setR6(JPanel r6) {
+        this.r6 = r6;
+    }
+
+    public JPanel getR7() {
+        return r7;
+    }
+
+    public void setR7(JPanel r7) {
+        this.r7 = r7;
+    }
+
+    public JPanel getR8() {
+        return r8;
+    }
+
+    public void setR8(JPanel r8) {
+        this.r8 = r8;
+    }
+
+    public JPanel getR9() {
+        return r9;
+    }
+
+    public void setR9(JPanel r9) {
+        this.r9 = r9;
+    }
+
+    public JPanel getR10() {
+        return r10;
+    }
+
+    public void setR10(JPanel r10) {
+        this.r10 = r10;
+    }
+
+    public JPanel getR11() {
+        return r11;
+    }
+
+    public void setR11(JPanel r11) {
+        this.r11 = r11;
+    }
+
+    public JPanel getR12() {
+        return r12;
+    }
+
+    public void setR12(JPanel r12) {
+        this.r12 = r12;
+    }
+
+    public JPanel getR13() {
+        return r13;
+    }
+
+    public void setR13(JPanel r13) {
+        this.r13 = r13;
+    }
+
+    public JPanel getR14() {
+        return r14;
+    }
+
+    public void setR14(JPanel r14) {
+        this.r14 = r14;
+    }
+
+    public JPanel getR15() {
+        return r15;
+    }
+
+    public void setR15(JPanel r15) {
+        this.r15 = r15;
+    }
+
+    public JPanel getR16() {
+        return r16;
+    }
+
+    public void setR16(JPanel r16) {
+        this.r16 = r16;
+    }
+
+    public JPanel getR17() {
+        return r17;
+    }
+
+    public void setR17(JPanel r17) {
+        this.r17 = r17;
+    }
+
+    public JPanel getR18() {
+        return r18;
+    }
+
+    public void setR18(JPanel r18) {
+        this.r18 = r18;
+    }
+
+    public JPanel getR19() {
+        return r19;
+    }
+
+    public void setR19(JPanel r19) {
+        this.r19 = r19;
+    }
+
+    public JPanel getR20() {
+        return r20;
+    }
+
+    public void setR20(JPanel r20) {
+        this.r20 = r20;
+    }
+
+    public JTextField getName() {
+        return name;
+    }
+
+    public void setName(JTextField name) {
+        this.name = name;
+    }
+
+    public JTextField getF1() {
+        return f1;
+    }
+
+    public void setF1(JTextField f1) {
+        this.f1 = f1;
+    }
+
+    public JTextField getF2() {
+        return f2;
+    }
+
+    public void setF2(JTextField f2) {
+        this.f2 = f2;
+    }
+
+    public JTextField getF3() {
+        return f3;
+    }
+
+    public void setF3(JTextField f3) {
+        this.f3 = f3;
+    }
+
+    public JTextField getF4() {
+        return f4;
+    }
+
+    public void setF4(JTextField f4) {
+        this.f4 = f4;
+    }
+
+    public JTextField getF5() {
+        return f5;
+    }
+
+    public void setF5(JTextField f5) {
+        this.f5 = f5;
+    }
+
+    public JTextField getF6() {
+        return f6;
+    }
+
+    public void setF6(JTextField f6) {
+        this.f6 = f6;
+    }
+
+    public JTextField getF7() {
+        return f7;
+    }
+
+    public void setF7(JTextField f7) {
+        this.f7 = f7;
+    }
+
+    public JTextField getF8() {
+        return f8;
+    }
+
+    public void setF8(JTextField f8) {
+        this.f8 = f8;
+    }
+
+    public JTextField getF9() {
+        return f9;
+    }
+
+    public void setF9(JTextField f9) {
+        this.f9 = f9;
+    }
+
+    public JTextField getF10() {
+        return f10;
+    }
+
+    public void setF10(JTextField f10) {
+        this.f10 = f10;
+    }
+
+    public JTextField getF11() {
+        return f11;
+    }
+
+    public void setF11(JTextField f11) {
+        this.f11 = f11;
+    }
+
+    public JTextField getF12() {
+        return f12;
+    }
+
+    public void setF12(JTextField f12) {
+        this.f12 = f12;
+    }
+
+    public JTextField getF13() {
+        return f13;
+    }
+
+    public void setF13(JTextField f13) {
+        this.f13 = f13;
+    }
+
+    public JTextField getF14() {
+        return f14;
+    }
+
+    public void setF14(JTextField f14) {
+        this.f14 = f14;
+    }
+
+    public JTextArea getTa1() {
+        return ta1;
+    }
+
+    public void setTa1(JTextArea ta1) {
+        this.ta1 = ta1;
+    }
+
+    public JTextArea getTa2() {
+        return ta2;
+    }
+
+    public void setTa2(JTextArea ta2) {
+        this.ta2 = ta2;
+    }
+
+    public JTextArea getTa3() {
+        return ta3;
+    }
+
+    public void setTa3(JTextArea ta3) {
+        this.ta3 = ta3;
+    }
+
+    public JButton getSave() {
+        return save;
+    }
+
+    public void setSave(JButton save) {
+        this.save = save;
+    }
+
+    public JButton getEdit() {
+        return edit;
+    }
+
+    public void setEdit(JButton edit) {
+        this.edit = edit;
+    }
+
+    public JRadioButton getRb1() {
+        return rb1;
+    }
+
+    public void setRb1(JRadioButton rb1) {
+        this.rb1 = rb1;
+    }
+
+    public JRadioButton getRb2() {
+        return rb2;
+    }
+
+    public void setRb2(JRadioButton rb2) {
+        this.rb2 = rb2;
+    }
+
+    public JRadioButton getRb3() {
+        return rb3;
+    }
+
+    public void setRb3(JRadioButton rb3) {
+        this.rb3 = rb3;
+    }
+
+    public JRadioButton getRb4() {
+        return rb4;
+    }
+
+    public void setRb4(JRadioButton rb4) {
+        this.rb4 = rb4;
+    }
+
+    public JRadioButton getRb5() {
+        return rb5;
+    }
+
+    public void setRb5(JRadioButton rb5) {
+        this.rb5 = rb5;
+    }
+
+    public JRadioButton getRb6() {
+        return rb6;
+    }
+
+    public void setRb6(JRadioButton rb6) {
+        this.rb6 = rb6;
+    }
+
+    public JRadioButton getRb7() {
+        return rb7;
+    }
+
+    public void setRb7(JRadioButton rb7) {
+        this.rb7 = rb7;
+    }
+
+    public JRadioButton getRb8() {
+        return rb8;
+    }
+
+    public void setRb8(JRadioButton rb8) {
+        this.rb8 = rb8;
+    }
+
+    public JRadioButton getRb9() {
+        return rb9;
+    }
+
+    public void setRb9(JRadioButton rb9) {
+        this.rb9 = rb9;
+    }
+
+    public JLabel getL1() {
+        return l1;
+    }
+
+    public void setL1(JLabel l1) {
+        this.l1 = l1;
+    }
+
+    public JLabel getL2() {
+        return l2;
+    }
+
+    public void setL2(JLabel l2) {
+        this.l2 = l2;
+    }
+
+    public JLabel getL3() {
+        return l3;
+    }
+
+    public void setL3(JLabel l3) {
+        this.l3 = l3;
+    }
+
+    public JLabel getL4() {
+        return l4;
+    }
+
+    public void setL4(JLabel l4) {
+        this.l4 = l4;
+    }
+
+    public JLabel getL5() {
+        return l5;
+    }
+
+    public void setL5(JLabel l5) {
+        this.l5 = l5;
+    }
+
+    public JLabel getL6() {
+        return l6;
+    }
+
+    public void setL6(JLabel l6) {
+        this.l6 = l6;
+    }
+
+    public JLabel getL7() {
+        return l7;
+    }
+
+    public void setL7(JLabel l7) {
+        this.l7 = l7;
+    }
+
+    public JLabel getL8() {
+        return l8;
+    }
+
+    public void setL8(JLabel l8) {
+        this.l8 = l8;
+    }
+
+    public JLabel getL9() {
+        return l9;
+    }
+
+    public void setL9(JLabel l9) {
+        this.l9 = l9;
+    }
+
+    public JLabel getL10() {
+        return l10;
+    }
+
+    public void setL10(JLabel l10) {
+        this.l10 = l10;
+    }
+
+    public JLabel getL11() {
+        return l11;
+    }
+
+    public void setL11(JLabel l11) {
+        this.l11 = l11;
+    }
+
+    public JLabel getL12() {
+        return l12;
+    }
+
+    public void setL12(JLabel l12) {
+        this.l12 = l12;
+    }
+
+    public JLabel getL13() {
+        return l13;
+    }
+
+    public void setL13(JLabel l13) {
+        this.l13 = l13;
+    }
+
+    public JLabel getL14() {
+        return l14;
+    }
+
+    public void setL14(JLabel l14) {
+        this.l14 = l14;
+    }
+
+    public JLabel getL15() {
+        return l15;
+    }
+
+    public void setL15(JLabel l15) {
+        this.l15 = l15;
+    }
+
+    public JLabel getL16() {
+        return l16;
+    }
+
+    public void setL16(JLabel l16) {
+        this.l16 = l16;
+    }
+
+    public JLabel getLb1() {
+        return lb1;
+    }
+
+    public void setLb1(JLabel lb1) {
+        this.lb1 = lb1;
+    }
+
+    public JLabel getLb2() {
+        return lb2;
+    }
+
+    public void setLb2(JLabel lb2) {
+        this.lb2 = lb2;
+    }
+
+    public JLabel getT1() {
+        return t1;
+    }
+
+    public void setT1(JLabel t1) {
+        this.t1 = t1;
+    }
+
+    public JLabel getT2() {
+        return t2;
+    }
+
+    public void setT2(JLabel t2) {
+        this.t2 = t2;
+    }
+
+    public JLabel getT4() {
+        return t4;
+    }
+
+    public void setT4(JLabel t4) {
+        this.t4 = t4;
+    }
+
+    public JLabel getPic() {
+        return pic;
+    }
+
+    public void setPic(JLabel pic) {
+        this.pic = pic;
+    }
+
+    public JLabel getPosi() {
+        return posi;
+    }
+
+    public void setPosi(JLabel posi) {
+        this.posi = posi;
+    }
+
+    public JLabel getT5() {
+        return t5;
+    }
+
+    public void setT5(JLabel t5) {
+        this.t5 = t5;
+    }
+
+    public JLabel getT6() {
+        return t6;
+    }
+
+    public void setT6(JLabel t6) {
+        this.t6 = t6;
+    }
+
+    public JLabel getT7() {
+        return t7;
+    }
+
+    public void setT7(JLabel t7) {
+        this.t7 = t7;
+    }
+
+    public JLabel getT8() {
+        return t8;
+    }
+
+    public void setT8(JLabel t8) {
+        this.t8 = t8;
+    }
+
+    public JLabel getT9() {
+        return t9;
+    }
+
+    public void setT9(JLabel t9) {
+        this.t9 = t9;
+    }
+
+    public JLabel getT10() {
+        return t10;
+    }
+
+    public void setT10(JLabel t10) {
+        this.t10 = t10;
+    }
+
+    public JLabel getU1() {
+        return u1;
+    }
+
+    public void setU1(JLabel u1) {
+        this.u1 = u1;
+    }
+
+    public JLabel getU2() {
+        return u2;
+    }
+
+    public void setU2(JLabel u2) {
+        this.u2 = u2;
+    }
+
+    public JLabel getU3() {
+        return u3;
+    }
+
+    public void setU3(JLabel u3) {
+        this.u3 = u3;
+    }
+
+    public JLabel getU4() {
+        return u4;
+    }
+
+    public void setU4(JLabel u4) {
+        this.u4 = u4;
+    }
+
+    public JLabel getU5() {
+        return u5;
+    }
+
+    public void setU5(JLabel u5) {
+        this.u5 = u5;
+    }
+
+    public JLabel getU6() {
+        return u6;
+    }
+
+    public void setU6(JLabel u6) {
+        this.u6 = u6;
+    }
+
+    public JLabel getU7() {
+        return u7;
+    }
+
+    public void setU7(JLabel u7) {
+        this.u7 = u7;
+    }
+
+    public JLabel getU8() {
+        return u8;
+    }
+
+    public void setU8(JLabel u8) {
+        this.u8 = u8;
+    }
+
+    public JLabel getT3() {
+        return t3;
+    }
+
+    public void setT3(JLabel t3) {
+        this.t3 = t3;
+    }
+
+    public JLabel getS1() {
+        return s1;
+    }
+
+    public void setS1(JLabel s1) {
+        this.s1 = s1;
+    }
+
+    public JLabel getS2() {
+        return s2;
+    }
+
+    public void setS2(JLabel s2) {
+        this.s2 = s2;
+    }
+
+    public JLabel getS3() {
+        return s3;
+    }
+
+    public void setS3(JLabel s3) {
+        this.s3 = s3;
+    }
+
+    public JLabel getS4() {
+        return s4;
+    }
+
+    public void setS4(JLabel s4) {
+        this.s4 = s4;
+    }
+
+    public JLabel getS5() {
+        return s5;
+    }
+
+    public void setS5(JLabel s5) {
+        this.s5 = s5;
+    }
+
+    public JLabel getS6() {
+        return s6;
+    }
+
+    public void setS6(JLabel s6) {
+        this.s6 = s6;
+    }
+
+    public JLabel getS7() {
+        return s7;
+    }
+
+    public void setS7(JLabel s7) {
+        this.s7 = s7;
+    }
+
+    public JLabel getS8() {
+        return s8;
+    }
+
+    public void setS8(JLabel s8) {
+        this.s8 = s8;
+    }
+
+    public JLabel getS9() {
+        return s9;
+    }
+
+    public void setS9(JLabel s9) {
+        this.s9 = s9;
+    }
+
+    public JLabel getS10() {
+        return s10;
+    }
+
+    public void setS10(JLabel s10) {
+        this.s10 = s10;
+    }
+
+    public JLabel getS11() {
+        return s11;
+    }
+
+    public void setS11(JLabel s11) {
+        this.s11 = s11;
+    }
+
+    public JLabel getS12() {
+        return s12;
+    }
+
+    public void setS12(JLabel s12) {
+        this.s12 = s12;
+    }
+
+    public JLabel getS13() {
+        return s13;
+    }
+
+    public void setS13(JLabel s13) {
+        this.s13 = s13;
     }
 
 }

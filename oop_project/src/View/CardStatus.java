@@ -33,7 +33,7 @@ public class CardStatus extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(200, 150));
 
         lbText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lbText.setText("ห้อง");
+        lbText.setText("Room");
 
         lbNum.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lbNum.setText("0");

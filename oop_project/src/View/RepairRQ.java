@@ -125,7 +125,7 @@ public class  RepairRQ extends javax.swing.JFrame {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oopject", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/oop", "root", "");
 
             String sql = "INSERT INTO service (room_number, service_name, service_description, service_status) VALUES (?, ?, ?, ?)";
             PreparedStatement stmt = con.prepareStatement(sql);
