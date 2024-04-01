@@ -6,8 +6,9 @@ public class Connector {
     public Connection conn;
     public Statement stm;
     public ResultSet rs;
-
-    private String url = "jdbc:mysql://localhost:3306/oop1";
+public PreparedStatement pre;
+    
+    private String url = "jdbc:mysql://localhost:3306/oop";
     private String username = "root";
     private String password = "";
     
@@ -70,4 +71,17 @@ public class Connector {
         }
         return -1;
     }
+    
+   public PreparedStatement prepareStatement(String sql) {
+    try {
+        if (conn == null) {
+            conn = DriverManager.getConnection(url, username, password);
+        }
+        pre = conn.prepareStatement(sql);
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return pre;
+}
+
 }

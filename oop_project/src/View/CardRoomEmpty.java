@@ -1,5 +1,6 @@
 package View;
 
+import Models.UserModel;
 import java.awt.Graphics;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -31,7 +32,7 @@ public class CardRoomEmpty extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 242, 255));
         setForeground(new java.awt.Color(255, 241, 255));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(395, 163));
+        setPreferredSize(new java.awt.Dimension(460, 163));
 
         lb_roomnum.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lb_roomnum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/GreenStatusDot.png"))); // NOI18N
@@ -40,7 +41,7 @@ public class CardRoomEmpty extends javax.swing.JPanel {
         btn_add.setBackground(new java.awt.Color(56, 53, 151));
         btn_add.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn_add.setForeground(new java.awt.Color(240, 224, 255));
-        btn_add.setText("Detail");
+        btn_add.setText("ADD");
         
        
         
@@ -113,9 +114,13 @@ public class CardRoomEmpty extends javax.swing.JPanel {
         );
     }// </editor-fold>                        
 
-    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {                                        
-            detail dt = new detail();
-            dt.setVisible(true);
+    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {    
+         UserModel model = new UserModel();
+        String txt = lb_roomnum.getText();
+        String roomnum = txt.substring(txt.indexOf("-") + 1);
+       model.loadUserDetail1(roomnum);
+      
+            
     }                                       
 
 

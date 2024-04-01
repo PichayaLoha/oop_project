@@ -1,5 +1,6 @@
 package View;
 
+import Models.UserModel;
 import java.awt.Graphics;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -32,7 +33,7 @@ public class CardUnused extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 242, 255));
         setForeground(new java.awt.Color(255, 241, 255));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(395, 163));
+        setPreferredSize(new java.awt.Dimension(460, 163));
 
 
         lb_roomnum.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -131,9 +132,14 @@ public class CardUnused extends javax.swing.JPanel {
         // TODO add your handling code here:
     }                                           
 
-    private void btn_detailActionPerformed(java.awt.event.ActionEvent evt) {                                           
-            detail dt = new detail();
-            dt.setVisible(true);
+    private void btn_detailActionPerformed(java.awt.event.ActionEvent evt) {                        
+        UserModel model = new UserModel();
+        String txt = lb_roomnum.getText();
+        String roomnum = txt.substring(txt.indexOf("-") + 1);
+       model.loadUserDetail(roomnum);
+        System.out.println(roomnum);
+//        detail dt = new detail();
+        //dt.setVisible(true);
     }                                          
 
     private void tf_nameActionPerformed(java.awt.event.ActionEvent evt) {                                        

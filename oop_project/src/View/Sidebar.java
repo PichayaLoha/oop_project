@@ -312,6 +312,7 @@ public class Sidebar extends JInternalFrame implements ActionListener {
             if (confirm ==  JOptionPane.YES_OPTION) {
                 //
                 new Login();
+                System.exit(0);
             }else if (confirm == JOptionPane.NO_OPTION) {
               
             }

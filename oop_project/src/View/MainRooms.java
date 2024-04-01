@@ -1,6 +1,7 @@
 package View;
 
 import Models.Userdata;
+
 import Models.UserModel;
 import java.util.ArrayList;
 import javax.swing.JLayeredPane;
@@ -9,6 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class MainRooms extends javax.swing.JInternalFrame {
+private UserModel userModel;
 
     public MainRooms() {
         initComponents();
@@ -17,14 +19,18 @@ public class MainRooms extends javax.swing.JInternalFrame {
         cardStatus1.setData(new ModelStatus("ห้องทั้งหมด", 9));
         cardStatus2.setData(new ModelStatus("ห้องมีผู้เช่า", 0));
         cardStatus3.setData(new ModelStatus("ห้องว่าง", 9));
-        cardStatus4.setData(new ModelStatus("อัตราการเข้าพัก", 0));
+       
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
-         UserModel userModel = new UserModel();
-    userModel.loadUserDataToCards(this);
+        userModel = new UserModel();
+//        roomStatus = new RoomStatus();
+        userModel.loadUserDataToCards(this);
+//        roomStatus.loadUserDataToStatus(this);
+ 
+       
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
@@ -33,7 +39,7 @@ public class MainRooms extends javax.swing.JInternalFrame {
         pnRooms = new javax.swing.JPanel();
         pnCard = new javax.swing.JPanel();
         layerPane = new javax.swing.JLayeredPane();
-        cardStatus4 = new View.CardStatus();
+     
         cardStatus3 = new View.CardStatus();
         cardStatus2 = new View.CardStatus();
         cardStatus1 = new View.CardStatus();
@@ -65,7 +71,7 @@ public class MainRooms extends javax.swing.JInternalFrame {
 
         layerPane.setPreferredSize(new java.awt.Dimension(900, 130));
         layerPane.setLayout(new java.awt.GridLayout(1, 0, 20, 0));
-        layerPane.add(cardStatus4);
+    
 
         cardStatus3.setForeground(new java.awt.Color(203, 155, 203));
         layerPane.add(cardStatus3);
@@ -93,7 +99,7 @@ public class MainRooms extends javax.swing.JInternalFrame {
 
         pnRooms.add(pnCard, java.awt.BorderLayout.PAGE_START);
 
-//        pnRoom.setBackground(new java.awt.Color(255, 255, 255));
+       pnRoom.setBackground(new java.awt.Color(255, 255, 255));
 //        pnRoom.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 50, 20));
 //        pnRoom.add(card_room_empty1);
 //        pnRoom.add(card_room_empty2);
@@ -127,7 +133,7 @@ public class MainRooms extends javax.swing.JInternalFrame {
     private View.CardStatus cardStatus1;
     private View.CardStatus cardStatus2;
     private View.CardStatus cardStatus3;
-    private View.CardStatus cardStatus4;
+    
 //    private View.CardRoomEmpty card_room_empty1;
 //    private View.CardRoomEmpty card_room_empty2;
 //    private View.CardRoomEmpty card_room_empty3;
@@ -168,14 +174,7 @@ public class MainRooms extends javax.swing.JInternalFrame {
         this.cardStatus3 = cardStatus3;
     }
 
-    public CardStatus getCardStatus4() {
-        return cardStatus4;
-    }
-
-    public void setCardStatus4(CardStatus cardStatus4) {
-        this.cardStatus4 = cardStatus4;
-    }
-
+ 
    
 
     public JScrollPane getjScrollPane1() {
